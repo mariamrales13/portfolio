@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" data-theme="dark" data-language="en"><head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Maria Morales — Designer & Builder. UX/UI Designer with real client work, a shipped product, and growing code skills."/>
@@ -9,21 +8,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ═══════════════════════════════
-       TOKENS
+       TOKENS — DARK (default)
     ═══════════════════════════════ */
     :root {
-      --bg:        #081c10;
-      --surface:   #0d2518;
-      --card:      #0f2b1c;
-      --border:    rgba(61,184,138,0.14);
-      --accent:    #3db88a;
-      --accent2:   #2a9e74;
-      --warm:      #f0ede6;
-      --muted:     rgba(240,237,230,0.5);
-      --dim:       rgba(240,237,230,0.32);
-      --nav-h:     60px;
-      --ease:      cubic-bezier(0.22,1,0.36,1);
-      --ease-out:  cubic-bezier(0.0,0,0.2,1);
+      --bg:       #081c10;
+      --surface:  #0d2518;
+      --card:     #0f2b1c;
+      --border:   rgba(61,184,138,0.14);
+      --accent:   #3db88a;
+      --warm:     #f0ede6;
+      --muted:    rgba(240,237,230,0.52);
+      --dim:      rgba(240,237,230,0.3);
+      --nav-h:    60px;
+      --ease:     cubic-bezier(0.22,1,0.36,1);
+      --shadow:   0 4px 24px rgba(0,0,0,0.25);
+    }
+
+    /* LIGHT MODE */
+    [data-theme="light"] {
+      --bg:      #f5f2eb;
+      --surface: #ede9e0;
+      --card:    #e8e4da;
+      --border:  rgba(28,69,42,0.14);
+      --accent:  #1a6644;
+      --warm:    #1a1a14;
+      --muted:   rgba(26,26,20,0.55);
+      --dim:     rgba(26,26,20,0.32);
+      --shadow:  0 4px 24px rgba(0,0,0,0.08);
     }
 
     /* ═══════════════════════════════
@@ -31,25 +42,16 @@
     ═══════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--warm); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; }
+    body { background: var(--bg); color: var(--warm); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; transition: background .3s, color .3s; }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; }
-
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
-    .skip-link {
-      position: absolute; top: -100%; left: 16px; z-index: 9999;
-      background: var(--accent); color: var(--bg); padding: 8px 16px;
-      border-radius: 4px; font-weight: 600; font-size: 14px;
-      transition: top .2s;
-    }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    .skip-link { position: absolute; top: -100%; left: 16px; z-index: 9999; background: var(--accent); color: var(--bg); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 14px; transition: top .2s; }
     .skip-link:focus { top: 12px; }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  
 
     /* ═══════════════════════════════
        NAV
@@ -62,43 +64,44 @@
       transition: background .4s var(--ease), box-shadow .4s;
     }
     .nav.scrolled {
-      background: rgba(8,28,16,0.88);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       box-shadow: 0 1px 0 var(--border);
     }
-    .nav-logo {
-      font-family: 'Fraunces', serif;
-      font-size: 19px;
-      font-weight: 700;
-      font-optical-sizing: auto;
-      color: var(--warm);
-      flex: 1;
-      letter-spacing: -0.3px;
-    }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 700; color: var(--warm); flex: 1; letter-spacing: -0.3px; transition: opacity .2s; }
+    .nav-logo:hover { opacity: .75; }
     .nav-logo em { font-style: italic; color: var(--accent); }
-    .nav-links { display: flex; gap: 4px; list-style: none; }
-    .nav-links a {
-      font-size: 13.5px; font-weight: 500;
-      color: var(--muted); padding: 6px 14px;
-      border-radius: 99px;
-      transition: color .2s, background .2s;
-      letter-spacing: .01em;
-    }
-    .nav-links a:hover { color: var(--warm); background: rgba(255,255,255,.06); }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: var(--muted); padding: 6px 14px; border-radius: 99px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--warm); background: rgba(128,128,128,.08); }
     .nav-links a.active { color: var(--bg); background: var(--accent); }
 
+    /* controls: lang + theme */
+    .nav-controls { display: flex; align-items: center; gap: 8px; margin-left: 12px; }
+    .ctrl-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--muted);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .ctrl-btn:hover { border-color: var(--accent); color: var(--warm); }
+    .ctrl-btn svg { width: 13px; height: 13px; }
+
     /* burger */
-    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; margin-left: 8px; }
     .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--warm); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(8,28,16,.97); backdrop-filter: blur(20px); padding: 20px 48px 28px; z-index: 299; border-bottom: 1px solid var(--border); }
+    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: color-mix(in srgb, var(--bg) 97%, transparent); backdrop-filter: blur(20px); padding: 20px 24px 28px; z-index: 299; border-bottom: 1px solid var(--border); }
     .nav-mobile.open { display: block; }
     .nav-mobile a { display: block; font-size: 17px; font-weight: 500; color: var(--muted); padding: 12px 0; border-bottom: 1px solid var(--border); transition: color .2s; }
     .nav-mobile a:last-child { border-bottom: none; }
     .nav-mobile a:hover { color: var(--accent); }
+    .nav-mobile-controls { display: flex; gap: 8px; padding-top: 16px; }
 
     /* ═══════════════════════════════
        HERO
@@ -251,58 +254,25 @@
     /* ═══════════════════════════════
        ABOUT
     ═══════════════════════════════ */
-    #about {
-      padding: 100px 48px;
-      max-width: 1200px; margin: 0 auto;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-left h2 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(34px, 4.5vw, 56px);
-      font-weight: 900;
-      font-optical-sizing: auto;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      color: var(--warm);
-      margin-bottom: 24px;
-    }
-    .about-left h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
-    .about-left p {
-      font-size: 15.5px; line-height: 1.78;
-      color: var(--muted); max-width: 440px;
-    }
+    #about { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
+    .about-left h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--warm); margin-bottom: 24px; }
+    .about-left h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+    .about-left p { font-size: 15.5px; line-height: 1.78; color: var(--muted); max-width: 440px; }
     .about-left p + p { margin-top: 16px; }
     .about-left strong { color: var(--warm); font-weight: 500; }
 
-    .about-right {
-      display: flex; flex-direction: column; gap: 16px;
-      padding-top: 8px;
-    }
-    .skill-row {
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    .skill-header {
-      display: flex; justify-content: space-between;
-      font-size: 13px; font-weight: 500;
-    }
-    .skill-header span:first-child { color: var(--warm); }
-    .skill-header span:last-child { color: var(--muted); }
-    .skill-bar-bg {
-      height: 4px; background: rgba(255,255,255,.08);
-      border-radius: 4px; overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%; background: var(--accent);
-      border-radius: 4px;
-      width: 0;
-      transition: width 1.2s var(--ease);
-    }
-    .skill-row.animated .skill-bar-fill { width: var(--w); }
+    /* journey timeline */
+    .journey { display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
+    .journey-item { display: flex; gap: 16px; padding-bottom: 24px; position: relative; }
+    .journey-item:not(:last-child)::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: 0; width: 1px; background: var(--border); }
+    .journey-dot { width: 23px; height: 23px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .journey-dot.filled { background: var(--accent); }
+    .journey-dot svg { width: 11px; height: 11px; color: var(--bg); }
+    .journey-content { flex: 1; }
+    .journey-year { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .journey-title { font-size: 14px; font-weight: 600; color: var(--warm); margin-bottom: 3px; }
+    .journey-desc { font-size: 13px; line-height: 1.6; color: var(--muted); }
 
     /* ═══════════════════════════════
        PROJECTS SECTION
@@ -666,26 +636,40 @@
 </head>
 <body>
 
-<a href="#hero" class="skip-link">Skip to main content</a>
+<a href="#hero" class="skip-link" data-en="Skip to main content" data-es="Ir al contenido principal">Skip to main content</a>
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="nav" aria-label="Main navigation">
   <a href="#hero" class="nav-logo">Maria <em>Morales</em></a>
   <ul class="nav-links" role="list">
-    <li><a href="#about"    data-nav="about">About</a></li>
-    <li><a href="#projects" data-nav="projects">Projects</a></li>
-    <li><a href="#freelance" data-nav="freelance">Freelance</a></li>
-    <li><a href="#contact"  data-nav="contact">Contact</a></li>
+    <li><a href="#about"     data-nav="about"     data-en="About"     data-es="Sobre mí">About</a></li>
+    <li><a href="#projects"  data-nav="projects"  data-en="Projects"  data-es="Proyectos">Projects</a></li>
+    <li><a href="#freelance" data-nav="freelance" data-en="Freelance" data-es="Freelance">Freelance</a></li>
+    <li><a href="#contact"   data-nav="contact"   data-en="Contact"   data-es="Contacto">Contact</a></li>
   </ul>
+  <div class="nav-controls">
+    <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language" onclick="toggleLang()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span id="lang-label">ES</span>
+    </button>
+    <button class="ctrl-btn" id="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+      <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="theme-icon-light" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
   <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="mob-menu" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile" id="mob-menu" aria-label="Mobile navigation">
-  <a href="#about"    onclick="closeMob()">About</a>
-  <a href="#projects" onclick="closeMob()">Projects</a>
-  <a href="#freelance" onclick="closeMob()">Freelance</a>
-  <a href="#contact"  onclick="closeMob()">Contact</a>
+<div class="nav-mobile" id="mob-menu">
+  <a href="#about"    onclick="closeMob()" data-en="About"     data-es="Sobre mí">About</a>
+  <a href="#projects" onclick="closeMob()" data-en="Projects"  data-es="Proyectos">Projects</a>
+  <a href="#freelance" onclick="closeMob()" data-en="Freelance" data-es="Freelance">Freelance</a>
+  <a href="#contact"  onclick="closeMob()" data-en="Contact"   data-es="Contacto">Contact</a>
+  <div class="nav-mobile-controls">
+    <button class="ctrl-btn" onclick="toggleLang()"><span id="lang-label-mob">ES</span></button>
+    <button class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Theme</button>
+  </div>
 </div>
 
 <!-- ═══════════ HERO ═══════════ -->
@@ -696,7 +680,7 @@
   <div class="dot-tex" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <p class="hero-tag">Designer &amp; Builder</p>
+      <p class="hero-tag" data-en="Designer &amp; Builder" data-es="Diseñadora &amp; Creadora">Designer &amp; Builder</p>
     <h1 class="hero-h1" id="h1">
       Maria<br>
       <em>Morales</em>
@@ -719,9 +703,9 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="https://www.instagram.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
+        <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
       </a>
       <a href="mailto:maria.moralesj13@gmail.com" class="soc-link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -751,27 +735,50 @@
         I'm currently <strong>learning to code independently</strong>, adding development to my design skills. My goal is a role where I can grow across both — design thinking and technical execution.
       </p>
     </div>
-    <div class="about-right reveal d3" aria-label="Skills">
-      <p class="sec-label" style="margin-bottom:20px">Skills</p>
-      <div class="skill-row" data-w="88">
-        <div class="skill-header"><span>UX/UI Design</span><span>Figma, Prototyping</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:88%"></div></div>
-      </div>
-      <div class="skill-row" data-w="82">
-        <div class="skill-header"><span>Visual / Brand Design</span><span>Apparel, Logos, Print</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:82%"></div></div>
-      </div>
-      <div class="skill-row" data-w="60">
-        <div class="skill-header"><span>Front-end Development</span><span>HTML, CSS, JS (learning)</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:60%"></div></div>
-      </div>
-      <div class="skill-row" data-w="72">
-        <div class="skill-header"><span>Product Thinking</span><span>User research, flows, strategy</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:72%"></div></div>
-      </div>
-      <div class="skill-row" data-w="68">
-        <div class="skill-header"><span>Client Communication</span><span>5+ clients, iterative delivery</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:68%"></div></div>
+
+    <!-- Journey timeline -->
+    <div class="about-right reveal d3">
+      <p class="sec-label" style="margin-bottom:24px" data-en="My journey" data-es="Mi trayectoria">My journey</p>
+      <div class="journey">
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2022</p>
+            <p class="journey-title" data-en="Started freelance design" data-es="Empecé diseño freelance">Started freelance design</p>
+            <p class="journey-desc" data-en="First clients, first real briefs — apparel, logos, brand identity." data-es="Primeros clientes, primeros briefs reales — ropa, logos, identidad de marca.">First clients, first real briefs — apparel, logos, brand identity.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2024–2025</p>
+            <p class="journey-title" data-en="UX/UI Degree" data-es="Título en UX/UI">UX/UI Degree</p>
+            <p class="journey-desc" data-en="Studied interaction design, user research, and prototyping. Built Luquita — a full product with business model." data-es="Estudié diseño de interacción, investigación de usuarios y prototipado. Construí Luquita — un producto completo con modelo de negocio.">Studied interaction design, user research, and prototyping. Built Luquita — a full product with business model.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2026</p>
+            <p class="journey-title" data-en="Built &amp; shipped Break Board" data-es="Construí y lancé Break Board">Built &amp; shipped Break Board</p>
+            <p class="journey-desc" data-en="Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.">Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot">
+          </div>
+          <div class="journey-content">
+            <p class="journey-year" data-en="Now" data-es="Ahora">Now</p>
+            <p class="journey-title" data-en="Breaking into tech" data-es="Entrando al mundo tech">Breaking into tech</p>
+            <p class="journey-desc" data-en="Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions." data-es="Aprendiendo a programar de forma independiente. Buscando roles híbridos de diseño + código. Abierta a posiciones tech de nivel inicial.">Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -809,7 +816,7 @@
             <p>My workplace had no system for tracking employee breaks — people lost track, managers had no visibility, and there was no history. I saw the problem and built the solution.</p>
             <p><strong>I designed the UI from scratch, coded it, and deployed it on Firebase.</strong> It's actively used by my team every day.</p>
             <p class="proj-desc-label">What it does</p>
-            <p>4 real-time break slots with countdowns (10 or 30 min), a live occupancy counter, Kiosk Mode with PIN lock for the shared screen, manager History view, daily log with CSV export, and break extension requests.</p>
+            <p><span data-en="4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests." data-es="4 slots de descanso en tiempo real con cuenta regresiva, contador de ocupación en vivo, Modo Kiosco con PIN, vista de historial para gerentes, registro diario con exportación CSV y solicitudes de extensión.">4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests.</span></p>
             <p class="proj-desc-label">Stack</p>
             <p>HTML · CSS · JavaScript · Firebase (Hosting + Realtime Database)</p>
             <a href="https://ecomm-breaklog.web.app/" target="_blank" rel="noopener noreferrer" class="proj-link">
@@ -823,7 +830,7 @@
                 <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
                 <div class="browser-bar">ecomm-breaklog.web.app</div>
               </div>
-              <img src="/mnt/user-data/uploads/1783554103452_image.png" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" class="browser-img">
+              <img src="file:///C:/Users/mafer/Downloads/Break-Board%20Main.jpg" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" class="browser-img">
             </div>
           </div>
         </div>
@@ -848,9 +855,9 @@
         <div class="proj-body-inner">
           <div class="proj-desc">
             <p><strong>Luquita</strong> is a personal finance mobile app designed for young working adults — helping them manage their money, track goals, and build financial confidence.</p>
-            <p>Built as a school group project (Grupo 3) for Demo Day, the team designed a <strong>full product strategy</strong> alongside the UX: a freemium model, ad monetization, and affiliate marketing — thinking beyond screens to a real business.</p>
+            <p><span data-en="Built as a school group project for Demo Day — the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens, we were building a business." data-es="Construido como proyecto grupal escolar para el Demo Day — el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas, construimos un negocio.">Built as a school group project for Demo Day — the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens, we were building a business.</span></p>
             <p class="proj-desc-label">My role</p>
-            <p>UX/UI design in Figma — user flows, wireframes, high-fidelity screens, and interactive prototype.</p>
+            <p>UX/UI design in Figma — UX research, user flows, wireframes, high-fidelity screens, and interactive prototype.</p>
             <p class="proj-desc-label">Problem</p>
             <p>Young workers struggle to manage money without tools that match their lifestyle — existing apps are either too complex or too generic. Luquita meets them where they are.</p>
             <a href="https://www.figma.com/design/agrII1fMgp1FVykwjUULJ6/Luquita" target="_blank" rel="noopener noreferrer" class="proj-link">
@@ -859,8 +866,8 @@
             </a>
           </div>
           <div class="proj-media">
-            <div class="proj-screenshot" style="border-radius:14px; overflow:hidden;">
-              <img src="https://www.figma.com/api/mcp/asset/1d99c41c-1b01-4492-b716-8d578cefab2e" alt="Luquita app mockup on iPhone" loading="lazy" style="width:100%;display:block;">
+            <div class="proj-screenshot" style="border-radius:14px; overflow:hidden; background: #5c6bc0;">
+              <img src="https://www.figma.com/api/mcp/asset/1d99c41c-1b01-4492-b716-8d578cefab2e" alt="Luquita finance app mockup on iPhone" loading="lazy" style="width:100%;display:block;">
             </div>
           </div>
         </div>
@@ -954,7 +961,7 @@
     </a>
     <div class="contact-links reveal d4">
       <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://www.instagram.com/mariamrales13" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </section>
@@ -1021,6 +1028,55 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', o);
 });
 function closeMob() { mob.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+
+/* ── Theme toggle ──────────────────── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-icon-dark').style.display = isDark ? 'none' : '';
+  document.getElementById('theme-icon-light').style.display = isDark ? '' : 'none';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+// Load saved theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'light') {
+    document.getElementById('theme-icon-dark').style.display = 'none';
+    document.getElementById('theme-icon-light').style.display = '';
+  }
+}
+
+/* ── Language toggle ───────────────── */
+let currentLang = 'en';
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'es' : 'en';
+  applyLang();
+  localStorage.setItem('lang', currentLang);
+}
+function applyLang() {
+  const l = currentLang;
+  // Update lang label buttons
+  document.querySelectorAll('#lang-label, #lang-label-mob').forEach(el => {
+    el.textContent = l === 'en' ? 'ES' : 'EN';
+  });
+  document.documentElement.setAttribute('lang', l);
+  // Update all elements with data-en / data-es
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + l);
+    if (!text) return;
+    // Use innerHTML for elements with tags like <em>, <strong>
+    if (text.includes('<')) {
+      el.innerHTML = text;
+    } else {
+      el.textContent = text;
+    }
+  });
+}
+// Load saved lang
+const savedLang = localStorage.getItem('lang');
+if (savedLang) { currentLang = savedLang; applyLang(); }
 
 /* ── Accordion cards ───────────── */
 function toggleCard(n) {
