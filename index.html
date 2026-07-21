@@ -5,9 +5,7 @@
   <meta name="description" content="Maria Morales — Designer & Builder. UX/UI Designer with real client work, a shipped product, and growing code skills."/>
   <title>Maria Morales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ═══════════════════════════════
        TOKENS — DARK (default)
@@ -719,10 +717,10 @@
 <nav class="nav" id="nav" aria-label="Main navigation">
   <a href="#hero" class="nav-logo">Maria <em>Morales</em></a>
   <ul class="nav-links" role="list">
-    <li><a href="#about"     data-nav="about"     data-en="About"     data-es="Sobre mí">About</a></li>
-    <li><a href="#projects"  data-nav="projects"  data-en="Projects"  data-es="Proyectos">Projects</a></li>
+    <li><a href="#about"     data-nav="about"     data-en="About"     data-es="Sobre mí">Sobre mí</a></li>
+    <li><a href="#projects"  data-nav="projects"  data-en="Projects"  data-es="Proyectos">Proyectos</a></li>
     <li><a href="#freelance" data-nav="freelance" data-en="Freelance" data-es="Freelance">Freelance</a></li>
-    <li><a href="#contact"   data-nav="contact"   data-en="Contact"   data-es="Contacto">Contact</a></li>
+    <li><a href="#contact"   data-nav="contact"   data-en="Contact"   data-es="Contacto">Contacto</a></li>
   </ul>
   <div class="nav-controls">
     <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language" onclick="toggleLang()">
@@ -739,13 +737,13 @@
   </button>
 </nav>
 <div class="nav-mobile" id="mob-menu">
-  <a href="#about"    onclick="closeMob()" data-en="About"     data-es="Sobre mí">About</a>
-  <a href="#projects" onclick="closeMob()" data-en="Projects"  data-es="Proyectos">Projects</a>
+  <a href="#about"    onclick="closeMob()" data-en="About"     data-es="Sobre mí">Sobre mí</a>
+  <a href="#projects" onclick="closeMob()" data-en="Projects"  data-es="Proyectos">Proyectos</a>
   <a href="#freelance" onclick="closeMob()" data-en="Freelance" data-es="Freelance">Freelance</a>
-  <a href="#contact"  onclick="closeMob()" data-en="Contact"   data-es="Contacto">Contact</a>
+  <a href="#contact"  onclick="closeMob()" data-en="Contact"   data-es="Contacto">Contacto</a>
   <div class="nav-mobile-controls">
     <button class="ctrl-btn" onclick="toggleLang()"><span id="lang-label-mob">ES</span></button>
-    <button class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Theme</button>
+    <button class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Claro/Oscuro</button>
   </div>
 </div>
 
@@ -757,40 +755,38 @@
   <div class="dot-tex" aria-hidden="true"></div>
 
   <div class="hero-inner">
-      <p class="hero-tag" data-en="Designing experiences. Building solutions." data-es="Diseñadora &amp; Creadora">Designer &amp; Builder</p>
+      <p class="hero-tag" data-en="Designing experiences. Building solutions." data-es="Diseñando experiencias. Construyendo soluciones.">Diseñando experiencias. Construyendo soluciones.</p>
     <h1 class="hero-h1" id="h1">
       Maria<br>
       <em>Morales</em>
     </h1>
-    <p class="hero-sub">
-      UX/UI designer with <strong>real client work</strong>, a <strong>shipped product</strong> running in production, and growing code skills — making the jump into tech.
-    </p>
+    <p class="hero-sub" data-en="UX/UI designer with <strong>real client work</strong>, a <strong>shipped product</strong> running in production, and growing code skills — making the jump into tech." data-es="Diseñadora UX/UI con <strong>trabajo real con clientes</strong>, un <strong>producto lanzado</strong> en producción y habilidades de código en crecimiento — dando el salto a la tecnología.">Diseñadora UX/UI con <strong>trabajo real con clientes</strong>, un <strong>producto lanzado</strong> en producción y habilidades de código en crecimiento — dando el salto a la tecnología.</p>
     <div class="hero-btns">
-      <a href="#projects" class="btn-pri">
+      <a href="#projects" class="btn-pri" data-en="See My Work" data-es="Ver mi trabajo">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        See My Work
+        Ver mi trabajo
       </a>
-      <button class="btn-sec" onclick="openResume()">
+      <button class="btn-sec" onclick="openResume()" data-en="View Résumé" data-es="Ver currículum">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        View Résumé
+        Ver currículum
       </button>
     </div>
     <div class="hero-socials" aria-label="Social links">
-      <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" class="soc-link">
+      <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" class="soc-link" data-en="LinkedIn" data-es="LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-        <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link">
+        <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link" data-en="GitHub" data-es="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
       </a>
-      <a href="mailto:maria.moralesj13@gmail.com" class="soc-link">
+      <a href="mailto:maria.moralesj13@gmail.com" class="soc-link" data-en="Email" data-es="Email">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
     </div>
   </div>
-  <p class="scroll-hint" aria-hidden="true">Scroll</p>
+  <p class="scroll-hint" aria-hidden="true" data-en="Scroll" data-es="Desplázate">Desplázate</p>
 </section>
 
 <!-- ═══════════ ABOUT ═══════════ -->
@@ -800,9 +796,9 @@
 
     <!-- LEFT: quote + expandable sections -->
     <div class="about-left">
-      <p class="sec-label reveal" data-en="About me" data-es="Sobre mí">About me</p>
+      <p class="sec-label reveal" data-en="About me" data-es="Sobre mí">Sobre mí</p>
       <h2 class="reveal d1" id="about-h">
-        <span data-en="A few things<br><em>about me.</em>" data-es="Algunas cosas<br><em>sobre mí.</em>">A few things<br><em>about me.</em></span>
+        <span data-en="A few things<br><em>about me.</em>" data-es="Algunas cosas<br><em>sobre mí.</em>">Algunas cosas<br><em>sobre mí.</em></span>
       </h2>
 
       <!-- one-liner quote -->
@@ -873,20 +869,20 @@
             </p>
             <div class="outside-grid">
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><span class="outside-card-title" data-en="Photography" data-es="Fotografía">Photography</span></div>
-                <p class="outside-card-desc" data-en="Slowing down to notice details." data-es="Desacelerar para notar los detalles.">Slowing down to notice details.</p>
+                <div class="outside-card-top"><span class="outside-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><span class="outside-card-title" data-en="Photography" data-es="Fotografía">Fotografía</span></div>
+                <p class="outside-card-desc" data-en="Slowing down to notice details." data-es="Desacelerar para notar los detalles.">Desacelerar para notar los detalles.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">⚽</span><span class="outside-card-title" data-en="Soccer" data-es="Fútbol">Soccer</span></div>
-                <p class="outside-card-desc" data-en="Great teamwork is usually invisible." data-es="El buen trabajo en equipo suele ser invisible.">Great teamwork is usually invisible.</p>
+                <div class="outside-card-top"><span class="outside-card-icon">⚽</span><span class="outside-card-title" data-en="Soccer" data-es="Fútbol">Fútbol</span></div>
+                <p class="outside-card-desc" data-en="Great teamwork is usually invisible." data-es="El buen trabajo en equipo suele ser invisible.">El buen trabajo en equipo suele ser invisible.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">🧩</span><span class="outside-card-title" data-en="Organizing" data-es="Organizar">Organizing</span></div>
-                <p class="outside-card-desc" data-en="If something feels messy, I can't help but fix it." data-es="Si algo se siente desordenado, no puedo evitar organizarlo.">If something feels messy, I can't help but fix it.</p>
+                <div class="outside-card-top"><span class="outside-card-icon">🧩</span><span class="outside-card-title" data-en="Organizing" data-es="Organizar">Organizar</span></div>
+                <p class="outside-card-desc" data-en="If something feels messy, I can't help but fix it." data-es="Si algo se siente desordenado, no puedo evitar organizarlo.">Si algo se siente desordenado, no puedo evitar organizarlo.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">🧉</span><span class="outside-card-title">Mate</span></div>
-                <p class="outside-card-desc" data-en="One good conversation over everything." data-es="Una buena conversación por encima de todo.">One good conversation over everything.</p>
+                <div class="outside-card-top"><span class="outside-card-icon">🧉</span><span class="outside-card-title" data-en="Mate" data-es="Mate">Mate</span></div>
+                <p class="outside-card-desc" data-en="One good conversation over everything." data-es="Una buena conversación por encima de todo.">Una buena conversación por encima de todo.</p>
               </div>
             </div>
           </div>
@@ -897,7 +893,7 @@
 
     <!-- RIGHT: journey timeline -->
     <div class="about-right reveal d3">
-      <p class="sec-label" style="margin-bottom:24px" data-en="My journey" data-es="Mi trayectoria">My journey</p>
+      <p class="sec-label" style="margin-bottom:24px" data-en="My journey" data-es="Mi trayectoria">Mi trayectoria</p>
       <div class="journey">
         <div class="journey-item">
           <div class="journey-dot filled">
@@ -905,7 +901,7 @@
           </div>
           <div class="journey-content">
             <p class="journey-year">2022</p>
-            <p class="journey-title" data-en="Started freelance design" data-es="Empecé diseño freelance">Started freelance design</p>
+            <p class="journey-title" data-en="Started freelance design" data-es="Empecé diseño freelance">Empecé diseño freelance</p>
             <p class="journey-desc" data-en="First clients, first real briefs — apparel, logos, brand identity." data-es="Primeros clientes, primeros briefs reales — ropa, logos, identidad de marca.">First clients, first real briefs — apparel, logos, brand identity.</p>
           </div>
         </div>
@@ -915,7 +911,7 @@
           </div>
           <div class="journey-content">
             <p class="journey-year">2024–2025</p>
-            <p class="journey-title" data-en="UX/UI Degree" data-es="Título en UX/UI">UX/UI Degree</p>
+            <p class="journey-title" data-en="UX/UI Degree" data-es="Título en UX/UI">Título en UX/UI</p>
             <p class="journey-desc" data-en="Studied interaction design, user research, and prototyping. Built Luquita — a full product with business model." data-es="Estudié diseño de interacción, investigación de usuarios y prototipado. Construí Luquita — un producto completo con modelo de negocio.">Studied interaction design, user research, and prototyping. Built Luquita — a full product with business model.</p>
           </div>
         </div>
@@ -925,15 +921,15 @@
           </div>
           <div class="journey-content">
             <p class="journey-year">2026</p>
-            <p class="journey-title" data-en="Built &amp; shipped Break Board" data-es="Construí y lancé Break Board">Built &amp; shipped Break Board</p>
-            <p class="journey-desc" data-en="Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.">Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production.</p>
+            <p class="journey-title" data-en="Built &amp; shipped Break Board" data-es="Construí y lancé Break Board">Construí y lancé Break Board</p>
+            <p class="journey-desc" data-en="Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.">Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.</p>
           </div>
         </div>
         <div class="journey-item">
           <div class="journey-dot"></div>
           <div class="journey-content">
             <p class="journey-year" data-en="Now" data-es="Ahora">Now</p>
-            <p class="journey-title" data-en="Breaking into tech" data-es="Entrando al mundo tech">Breaking into tech</p>
+            <p class="journey-title" data-en="Breaking into tech" data-es="Entrando al mundo tech">Entrando al mundo tech</p>
             <p class="journey-desc" data-en="Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions." data-es="Aprendiendo a programar de forma independiente. Buscando roles híbridos de diseño + código. Abierta a posiciones tech de nivel inicial.">Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions.</p>
           </div>
         </div>
@@ -941,7 +937,7 @@
           <div class="journey-dot" style="border-style:dashed; opacity:.5;"></div>
           <div class="journey-content">
             <p class="journey-year" style="opacity:.5">∞</p>
-            <p class="journey-title" style="opacity:.5" data-en="Learning" data-es="Aprendiendo">Learning</p>
+            <p class="journey-title" style="opacity:.5" data-en="Learning" data-es="Aprendiendo">Aprendiendo</p>
           </div>
         </div>
       </div>
@@ -954,8 +950,8 @@
 <div class="sec-divider"></div>
 <section id="projects" aria-labelledby="proj-h">
   <div class="proj-intro">
-    <p class="sec-label reveal">Featured work</p>
-    <h2 class="reveal d1" id="proj-h">Things I've <em>shipped.</em></h2>
+    <p class="sec-label reveal" data-en="Featured work" data-es="Trabajo destacado">Trabajo destacado</p>
+    <h2 class="reveal d1" id="proj-h" data-en="Things I've <em>shipped.</em>" data-es="Cosas que he <em>lanzado.</em>">Cosas que he <em>lanzado.</em></h2>
   </div>
 
   <div class="proj-cards">
@@ -967,9 +963,9 @@
         <span class="proj-card-title">Break Board</span>
         <div class="proj-tags">
           <span class="tag live">● Live</span>
-          <span class="tag shipped">Designed</span>
-          <span class="tag shipped">Built</span>
-          <span class="tag shipped">Deployed</span>
+          <span class="tag shipped" data-en="Designed" data-es="Diseñado">Diseñado</span>
+          <span class="tag shipped" data-en="Built" data-es="Desarrollado">Desarrollado</span>
+          <span class="tag shipped" data-en="Deployed" data-es="Desplegado">Desplegado</span>
         </div>
         <button class="proj-toggle" aria-label="Expand Break Board project" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -978,15 +974,15 @@
       <div class="proj-body" id="body-1">
         <div class="proj-body-inner">
           <div class="proj-desc">
-            <div class="live-badge"><span class="live-dot"></span> Live at ecomm-breaklog.web.app</div>
-            <p>My workplace had no system for tracking employee breaks — people lost track, managers had no visibility, and there was no history. I saw the problem and built the solution.</p>
-            <p><strong>I designed the UI from scratch, coded it, and deployed it on Firebase.</strong> It's actively used by my team every day.</p>
-            <p class="proj-desc-label">What it does</p>
+            <div class="live-badge" data-en="Live at ecomm-breaklog.web.app" data-es="En vivo en ecomm-breaklog.web.app"><span class="live-dot"></span> En vivo en ecomm-breaklog.web.app</div>
+            <p data-en="My workplace had no system for tracking employee breaks — people lost track, managers had no visibility, and there was no history. I saw the problem and built the solution." data-es="Mi lugar de trabajo no tenía un sistema para rastrear los descansos de los empleados — las personas perdían la cuenta, los gerentes no tenían visibilidad y no había historial. Vi el problema y construí la solución.">Mi lugar de trabajo no tenía un sistema para rastrear los descansos de los empleados — las personas perdían la cuenta, los gerentes no tenían visibilidad y no había historial. Vi el problema y construí la solución.</p>
+            <p data-en="<strong>I designed the UI from scratch, coded it, and deployed it on Firebase.</strong> It's actively used by my team every day." data-es="<strong>Diseñé la interfaz desde cero, la codifiqué y la desplegué en Firebase.</strong> Se usa activamente por mi equipo todos los días."><strong>Diseñé la interfaz desde cero, la codifiqué y la desplegué en Firebase.</strong> Se usa activamente por mi equipo todos los días.</p>
+            <p class="proj-desc-label" data-en="What it does" data-es="Qué hace">Qué hace</p>
             <p><span data-en="4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests." data-es="4 slots de descanso en tiempo real con cuenta regresiva, contador de ocupación en vivo, Modo Kiosco con PIN, vista de historial para gerentes, registro diario con exportación CSV y solicitudes de extensión.">4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests.</span></p>
-            <p class="proj-desc-label">Stack</p>
+            <p class="proj-desc-label" data-en="Stack" data-es="Tecnologías">Tecnologías</p>
             <p>HTML · CSS · JavaScript · Firebase (Hosting + Realtime Database)</p>
-            <a href="https://ecomm-breaklog.web.app/" target="_blank" rel="noopener noreferrer" class="proj-link">
-              Visit live site
+            <a href="https://ecomm-breaklog.web.app/" target="_blank" rel="noopener noreferrer" class="proj-link" data-en="Visit live site" data-es="Visitar sitio en vivo">
+              Visitar sitio en vivo
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
           </div>
@@ -1020,14 +1016,14 @@
       <div class="proj-body" id="body-2">
         <div class="proj-body-inner">
           <div class="proj-desc">
-            <p><strong>Luquita</strong> is a personal finance mobile app designed for young working adults — helping them manage their money, track goals, and build financial confidence.</p>
-            <p><span data-en="Built as a school group project for Demo Day — the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens, we were building a business." data-es="Construido como proyecto grupal escolar para el Demo Day — el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas, construimos un negocio.">Built as a school group project for Demo Day — the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens, we were building a business.</span></p>
-            <p class="proj-desc-label">My role</p>
-            <p>UX/UI design in Figma — UX research, user flows, wireframes, high-fidelity screens, and interactive prototype.</p>
-            <p class="proj-desc-label">Problem</p>
-            <p>Young workers struggle to manage money without tools that match their lifestyle — existing apps are either too complex or too generic. Luquita meets them where they are.</p>
-            <a href="https://www.figma.com/design/agrII1fMgp1FVykwjUULJ6/Luquita" target="_blank" rel="noopener noreferrer" class="proj-link">
-              View Figma prototype
+            <p data-en="<strong>Luquita</strong> is a personal finance mobile app designed for young working adults — helping them manage their money, track goals, and build financial confidence." data-es="<strong>Luquita</strong> es una app móvil de finanzas personales diseñada para jóvenes adultos que trabajan — ayudándolos a administrar su dinero, realizar seguimiento de metas y construir confianza financiera."><strong>Luquita</strong> es una app móvil de finanzas personales diseñada para jóvenes adultos que trabajan — ayudándolos a administrar su dinero, realizar seguimiento de metas y construir confianza financiera.</p>
+            <p><span data-en="Built as a school group project for Demo Day — the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens, we were building a business." data-es="Construido como proyecto grupal escolar para el Demo Day — el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas, construimos un negocio.">Construido como proyecto grupal escolar para el Demo Day — el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas, construimos un negocio.</span></p>
+            <p class="proj-desc-label" data-en="My role" data-es="Mi rol">Mi rol</p>
+            <p data-en="UX/UI design in Figma — UX research, user flows, wireframes, high-fidelity screens, and interactive prototype." data-es="Diseño UX/UI en Figma — investigación UX, flujos de usuario, wireframes, pantallas de alta fidelidad y prototipo interactivo.">Diseño UX/UI en Figma — investigación UX, flujos de usuario, wireframes, pantallas de alta fidelidad y prototipo interactivo.</p>
+            <p class="proj-desc-label" data-en="Problem" data-es="Problema">Problema</p>
+            <p data-en="Young workers struggle to manage money without tools that match their lifestyle — existing apps are either too complex or too generic. Luquita meets them where they are." data-es="Los jóvenes trabajadores luchan por administrar dinero sin herramientas que se adapten a su estilo de vida — las apps existentes son demasiado complejas o demasiado genéricas. Luquita los encuentra donde están.">Los jóvenes trabajadores luchan por administrar dinero sin herramientas que se adapten a su estilo de vida — las apps existentes son demasiado complejas o demasiado genéricas. Luquita los encuentra donde están.</p>
+            <a href="https://www.figma.com/design/agrII1fMgp1FVykwjUULJ6/Luquita" target="_blank" rel="noopener noreferrer" class="proj-link" data-en="View Figma prototype" data-es="Ver prototipo en Figma">
+              Ver prototipo en Figma
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
           </div>
@@ -1047,16 +1043,16 @@
 <div class="sec-divider" style="margin-top:100px"></div>
 <section id="freelance" aria-labelledby="fl-h">
   <div class="freelance-header">
-    <p class="sec-label reveal">Freelance design</p>
-    <h2 class="reveal d1" id="fl-h">Real clients, <em>real work.</em></h2>
-    <p class="reveal d2">5 clients across branding, apparel, event design, and more — each one a real brief, a real relationship, real deliverables.</p>
+    <p class="sec-label reveal" data-en="Freelance design" data-es="Diseño freelance">Diseño freelance</p>
+    <h2 class="reveal d1" id="fl-h" data-en="Real clients, <em>real work.</em>" data-es="Clientes reales, <em>trabajo real.</em>">Clientes reales, <em>trabajo real.</em></h2>
+    <p class="reveal d2" data-en="5 clients across branding, apparel, event design, and more — each one a real brief, a real relationship, real deliverables." data-es="5 clientes en branding, ropa, diseño de eventos y más — cada uno un brief real, una relación real, entregas reales.">5 clientes en branding, ropa, diseño de eventos y más — cada uno un brief real, una relación real, entregas reales.</p>
   </div>
 
   <div class="freelance-tabs" role="tablist" aria-label="Filter freelance work">
-    <button class="f-tab active" onclick="filterFL('all')" role="tab" aria-selected="true">All</button>
-    <button class="f-tab" onclick="filterFL('brand')" role="tab" aria-selected="false">Branding & Logos</button>
-    <button class="f-tab" onclick="filterFL('apparel')" role="tab" aria-selected="false">Apparel</button>
-    <button class="f-tab" onclick="filterFL('event')" role="tab" aria-selected="false">Event & Menus</button>
+    <button class="f-tab active" onclick="filterFL('all')" role="tab" aria-selected="true" data-en="All" data-es="Todos">Todos</button>
+    <button class="f-tab" onclick="filterFL('brand')" role="tab" aria-selected="false" data-en="Branding & Logos" data-es="Branding y logos">Branding y logos</button>
+    <button class="f-tab" onclick="filterFL('apparel')" role="tab" aria-selected="false" data-en="Apparel" data-es="Ropa">Ropa</button>
+    <button class="f-tab" onclick="filterFL('event')" role="tab" aria-selected="false" data-en="Event & Menus" data-es="Eventos y menús">Eventos y menús</button>
   </div>
 
   <div class="freelance-grid reveal" id="fl-grid">
@@ -1067,7 +1063,7 @@
       <div class="fl-overlay"><span class="fl-overlay-text">Abruzzo Bar</span></div>
       <div class="fl-info">
         <div class="fl-client">Abruzzo Bar</div>
-        <div class="fl-type">Event menus · @abruzzo_bar · Houston TX</div>
+        <div class="fl-type" data-en="Event menus · @abruzzo_bar · Houston TX" data-es="Menús de eventos · @abruzzo_bar · Houston TX">Menús de eventos · @abruzzo_bar · Houston TX</div>
       </div>
     </div>
 
@@ -1077,7 +1073,7 @@
       <div class="fl-overlay"><span class="fl-overlay-text">Artesplash</span></div>
       <div class="fl-info">
         <div class="fl-client">Artesplash</div>
-        <div class="fl-type">Custom apparel · @artesplash · Buenos Aires</div>
+        <div class="fl-type" data-en="Custom apparel · @artesplash · Buenos Aires" data-es="Ropa personalizada · @artesplash · Buenos Aires">Ropa personalizada · @artesplash · Buenos Aires</div>
       </div>
     </div>
 
@@ -1087,7 +1083,7 @@
       <div class="fl-overlay"><span class="fl-overlay-text">Gus Burger</span></div>
       <div class="fl-info">
         <div class="fl-client">Gus Burger</div>
-        <div class="fl-type">Logo + Uniforms · @gusburgeroficial</div>
+        <div class="fl-type" data-en="Logo + Uniforms · @gusburgeroficial" data-es="Logo + uniformes · @gusburgeroficial">Logo + uniformes · @gusburgeroficial</div>
       </div>
     </div>
 
@@ -1097,7 +1093,7 @@
       <div class="fl-overlay"><span class="fl-overlay-text">Logo Collection</span></div>
       <div class="fl-info">
         <div class="fl-client">Logo Creations</div>
-        <div class="fl-type">Brand identity · Multiple clients</div>
+        <div class="fl-type" data-en="Brand identity · Multiple clients" data-es="Identidad de marca · Varios clientes">Identidad de marca · Varios clientes</div>
       </div>
     </div>
 
@@ -1107,7 +1103,7 @@
       <div class="fl-overlay"><span class="fl-overlay-text">Custom Designs</span></div>
       <div class="fl-info">
         <div class="fl-client">Custom Designs</div>
-        <div class="fl-type">Flyers · Illustrations · T-shirts</div>
+        <div class="fl-type" data-en="Flyers · Illustrations · T-shirts" data-es="Flyers · ilustraciones · camisetas">Flyers · ilustraciones · camisetas</div>
       </div>
     </div>
 
@@ -1118,16 +1114,16 @@
 <div class="sec-divider" style="margin-top:100px"></div>
 <section id="contact" aria-labelledby="contact-h">
   <div class="contact-inner">
-    <p class="sec-label reveal">Get in touch</p>
-    <h2 class="reveal d1" id="contact-h">Let's work<br><em>together.</em></h2>
-    <p class="reveal d2">Open to UX/UI, design + code hybrid, and IT-adjacent roles. Always happy to talk — whether it's a job, a project, or just a hello.</p>
+    <p class="sec-label reveal" data-en="Get in touch" data-es="Ponte en contacto">Ponte en contacto</p>
+    <h2 class="reveal d1" id="contact-h" data-en="Let's work<br><em>together.</em>" data-es="Trabajemos<br><em>juntos.</em>">Trabajemos<br><em>juntos.</em></h2>
+    <p class="reveal d2" data-en="Open to UX/UI, design + code hybrid, and IT-adjacent roles. Always happy to talk — whether it's a job, a project, or just a hello." data-es="Abierta a roles UX/UI, híbridos de diseño + código y cercanos a TI. Siempre feliz de conversar — ya sea por un trabajo, un proyecto o simplemente un saludo.">Abierta a roles UX/UI, híbridos de diseño + código y cercanos a TI. Siempre feliz de conversar — ya sea por un trabajo, un proyecto o simplemente un saludo.</p>
     <a href="mailto:maria.moralesj13@gmail.com" class="contact-email reveal d3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       maria.moralesj13@gmail.com
     </a>
     <div class="contact-links reveal d4">
-      <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a>
+      <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" data-en="GitHub" data-es="GitHub">GitHub</a>
     </div>
   </div>
 </section>
@@ -1136,7 +1132,7 @@
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <span class="foot-logo">Maria <em>Morales</em></span>
-  <p>Designed &amp; built by Maria Morales © 2026</p>
+  <p data-en="Designed &amp; built by Maria Morales © 2026" data-es="Diseñado y construido por Maria Morales © 2026">Diseñado y construido por Maria Morales © 2026</p>
 </footer>
 
 <!-- ═══════════ RESUME MODAL ═══════════ -->
@@ -1146,28 +1142,28 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <h2 id="resume-h">Maria Morales</h2>
-    <p class="modal-sub">UX/UI Designer · Designer &amp; Builder · Houston, TX · <a href="mailto:maria.moralesj13@gmail.com" style="color:var(--accent)">maria.moralesj13@gmail.com</a></p>
+    <p class="modal-sub" data-en="UX/UI Designer · Designer &amp; Builder · Houston, TX · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a>" data-es="Diseñadora UX/UI · Diseñadora &amp; Creadora · Houston, TX · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a>">Diseñadora UX/UI · Diseñadora &amp; Creadora · Houston, TX · <a href="mailto:maria.moralesj13@gmail.com" style="color:var(--accent)">maria.moralesj13@gmail.com</a></p>
 
-    <h3>Profile</h3>
-    <p>UX/UI designer with a degree in design and 2+ years of freelance client work. I recently designed and deployed a real internal tool (Break Board) using HTML, CSS, JavaScript, and Firebase — and I'm actively expanding my development skills to work at the intersection of design and code.</p>
+    <h3 data-en="Profile" data-es="Perfil">Perfil</h3>
+    <p data-en="UX/UI designer with a degree in design and 2+ years of freelance client work. I recently designed and deployed a real internal tool (Break Board) using HTML, CSS, JavaScript, and Firebase — and I'm actively expanding my development skills to work at the intersection of design and code." data-es="Diseñadora UX/UI con formación en diseño y más de 2 años de trabajo freelance con clientes. Recientemente diseñé y despliegué una herramienta interna real (Break Board) usando HTML, CSS, JavaScript y Firebase — y estoy expandiendo activamente mis habilidades de desarrollo para trabajar en la intersección del diseño y el código.">Diseñadora UX/UI con formación en diseño y más de 2 años de trabajo freelance con clientes. Recientemente diseñé y despliegué una herramienta interna real (Break Board) usando HTML, CSS, JavaScript y Firebase — y estoy expandiendo activamente mis habilidades de desarrollo para trabajar en la intersección del diseño y el código.</p>
 
-    <h3>Experience</h3>
-    <p><strong>Break Board — Designer & Developer</strong> · 2025–2026<br>
-    Identified a workplace problem, designed the full UX, coded and deployed a Firebase web app that is actively used by my team. Features: live break slots, countdowns, Kiosk Mode, history log, CSV export.</p>
-    <p style="margin-top:10px"><strong>Freelance Graphic & UX Designer</strong> · 2022–present<br>
-    5+ clients including Abruzzo Bar (Houston TX), Artesplash (Buenos Aires), Gus Burger. Delivered logos, apparel design, event menus, brand identity, and illustrations.</p>
+    <h3 data-en="Experience" data-es="Experiencia">Experiencia</h3>
+    <p data-en="<strong>Break Board — Designer & Developer</strong> · 2025–2026<br>Identified a workplace problem, designed the full UX, coded and deployed a Firebase web app that is actively used by my team. Features: live break slots, countdowns, Kiosk Mode, history log, CSV export." data-es="<strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV."><strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>
+    Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV.</p>
+    <p style="margin-top:10px" data-en="<strong>Freelance Graphic & UX Designer</strong> · 2022–present<br>5+ clients including Abruzzo Bar (Houston TX), Artesplash (Buenos Aires), Gus Burger. Delivered logos, apparel design, event menus, brand identity, and illustrations." data-es="<strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) y Gus Burger. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones."><strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>
+    Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) y Gus Burger. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones.</p>
 
-    <h3>Education</h3>
-    <p><strong>Degree in UX/UI Design</strong><br>
-    School project: Luquita — personal finance app for young adults. Designed full product strategy and high-fidelity Figma prototype for Demo Day.</p>
+    <h3 data-en="Education" data-es="Educación">Educación</h3>
+    <p data-en="<strong>Degree in UX/UI Design</strong><br>School project: Luquita — personal finance app for young adults. Designed full product strategy and high-fidelity Figma prototype for Demo Day." data-es="<strong>Título en UX/UI Design</strong><br>Proyecto escolar: Luquita — app de finanzas personales para jóvenes adultos. Diseñé una estrategia completa de producto y un prototipo de alta fidelidad en Figma para Demo Day."><strong>Título en UX/UI Design</strong><br>
+    Proyecto escolar: Luquita — app de finanzas personales para jóvenes adultos. Diseñé una estrategia completa de producto y un prototipo de alta fidelidad en Figma para Demo Day.</p>
 
-    <h3>Skills</h3>
+    <h3 data-en="Skills" data-es="Habilidades">Habilidades</h3>
     <ul>
-      <li>UX/UI Design — Figma, user flows, prototyping, wireframes</li>
-      <li>Visual Design — brand identity, apparel, print, illustration</li>
-      <li>Front-end — HTML, CSS, JavaScript (learning), Firebase</li>
-      <li>Product thinking — research, strategy, freemium models</li>
-      <li>Client communication — iterative delivery, 5+ relationships</li>
+      <li data-en="UX/UI Design — Figma, user flows, prototyping, wireframes" data-es="Diseño UX/UI — Figma, flujos de usuario, prototipado, wireframes">Diseño UX/UI — Figma, flujos de usuario, prototipado, wireframes</li>
+      <li data-en="Visual Design — brand identity, apparel, print, illustration" data-es="Diseño visual — identidad de marca, ropa, impresión, ilustración">Diseño visual — identidad de marca, ropa, impresión, ilustración</li>
+      <li data-en="Front-end — HTML, CSS, JavaScript (learning), Firebase" data-es="Front-end — HTML, CSS, JavaScript (aprendiendo), Firebase">Front-end — HTML, CSS, JavaScript (aprendiendo), Firebase</li>
+      <li data-en="Product thinking — research, strategy, freemium models" data-es="Pensamiento de producto — investigación, estrategia, modelos freemium">Pensamiento de producto — investigación, estrategia, modelos freemium</li>
+      <li data-en="Client communication — iterative delivery, 5+ relationships" data-es="Comunicación con clientes — entregas iterativas, más de 5 relaciones">Comunicación con clientes — entregas iterativas, más de 5 relaciones</li>
     </ul>
   </div>
 </div>
@@ -1215,7 +1211,7 @@ if (savedTheme) {
 }
 
 /* ── Language toggle ───────────────── */
-let currentLang = 'en';
+let currentLang = 'es';
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'es' : 'en';
   applyLang();
