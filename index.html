@@ -24,6 +24,24 @@
       --shadow:   0 4px 24px rgba(0,0,0,0.25);
     }
 
+    /* ═══════════════════════════════
+      ICON SYSTEM
+    ═══════════════════════════════ */
+:root {
+  --icon-xs: 12px;
+  --icon-sm: 16px;
+  --icon-md: 24px;
+  --icon-lg: 32px;
+  --icon-xl: 48px;
+
+  --icon-default: var(--accent);
+  --icon-muted: var(--muted);
+  --icon-light: var(--warm);
+
+  --icon-stroke-thin: 1.5;
+  --icon-stroke-default: 2;
+  --icon-stroke-bold: 2.5;
+}
     /* LIGHT MODE */
     [data-theme="light"] {
       --bg:      #f5f2eb;
@@ -236,7 +254,7 @@
     .sec-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent); }
 
     .sec-label {
-      font-size: 11px; font-weight: 600; letter-spacing: .14em;
+      font-size: 15px; font-weight: 600; letter-spacing: .14em;
       text-transform: uppercase; color: var(--accent);
       margin-bottom: 14px;
     }
@@ -262,6 +280,63 @@
     .about-left p + p { margin-top: 16px; }
     .about-left strong { color: var(--warm); font-weight: 500; }
 
+    /* about intro quote */
+    .about-quote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 2.2vw, 22px);
+    font-style: italic;      font-weight: 400;
+    color: var(--warm);
+    line-height: 1.55;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+    margin: 24px 0 32px;
+    }
+
+    /* expandable about sections */
+    .about-accordion { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
+    .about-acc-item { border-bottom: 1px solid var(--border); }
+    .about-acc-item:first-child { border-top: 1px solid var(--border); }
+    .about-acc-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer; background: none; border: none;
+      width: 100%; text-align: left; color: var(--warm);
+      transition: color .2s;
+    }
+    .about-acc-trigger:hover { color: var(--accent); }
+    .about-acc-label {
+      font-size: 13.5px; font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: inherit;
+    }
+    .about-acc-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color .2s, transform .3s;
+      color: var(--muted);
+    }
+    .about-acc-icon svg { width: 11px; height: 11px; }
+    .about-acc-item.open .about-acc-icon { transform: rotate(45deg); border-color: var(--accent); color: var(--accent); }
+    .about-acc-body {
+      display: none;
+      padding: 0 0 20px;
+      font-size: 15px; line-height: 1.75; color: var(--muted);
+    }
+    .about-acc-item.open .about-acc-body { display: block; }
+
+    /* outside of design cards */
+    .outside-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px; }
+    .outside-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+      transition: border-color .2s, transform .2s;
+    }
+    .outside-card:hover { border-color: rgba(61,184,138,.3); transform: translateY(-2px); }
+    .outside-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+    .outside-card-icon { font-size: 18px; }
+    .outside-card-title { font-size: 13px; font-weight: 600; color: var(--warm); }
+    .outside-card-desc { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+
     /* journey timeline */
     .journey { display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
     .journey-item { display: flex; gap: 16px; padding-bottom: 24px; position: relative; }
@@ -270,7 +345,7 @@
     .journey-dot.filled { background: var(--accent); }
     .journey-dot svg { width: 11px; height: 11px; color: var(--bg); }
     .journey-content { flex: 1; }
-    .journey-year { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .journey-year { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
     .journey-title { font-size: 14px; font-weight: 600; color: var(--warm); margin-bottom: 3px; }
     .journey-desc { font-size: 13px; line-height: 1.6; color: var(--muted); }
 
@@ -680,7 +755,7 @@
   <div class="dot-tex" aria-hidden="true"></div>
 
   <div class="hero-inner">
-      <p class="hero-tag" data-en="Designer &amp; Builder" data-es="Diseñadora &amp; Creadora">Designer &amp; Builder</p>
+      <p class="hero-tag" data-en="Designing experiences. Building solutions." data-es="Diseñadora &amp; Creadora">Designer &amp; Builder</p>
     <h1 class="hero-h1" id="h1">
       Maria<br>
       <em>Morales</em>
@@ -720,23 +795,105 @@
 <div class="sec-divider"></div>
 <section id="about" aria-labelledby="about-h">
   <div class="about-grid">
+
+    <!-- LEFT: quote + expandable sections -->
     <div class="about-left">
-      <p class="sec-label reveal">About me</p>
+      <p class="sec-label reveal" data-en="About me" data-es="Sobre mí">About me</p>
       <h2 class="reveal d1" id="about-h">
-        Designing with purpose,<br><em>building with intent.</em>
+        <span data-en="A few things<br><em>about me.</em>" data-es="Algunas cosas<br><em>sobre mí.</em>">A few things<br><em>about me.</em></span>
       </h2>
-      <p class="reveal d2">
-        I have a degree in UX/UI Design and <strong>2+ years of real client work</strong> — events, brands, apparel, menus. I've always believed design should do something, not just look good.
-      </p>
-      <p class="reveal d2">
-        Recently I took that further: I identified a pain point at my workplace, designed the solution, and <strong>coded and deployed it</strong>. That experience made it clear — I want to be in tech, building things that actually run.
-      </p>
-      <p class="reveal d2">
-        I'm currently <strong>learning to code independently</strong>, adding development to my design skills. My goal is a role where I can grow across both — design thinking and technical execution.
-      </p>
+
+      <!-- one-liner quote -->
+      <blockquote class="about-quote reveal d2">
+        <span data-en="I don't usually start with an idea. I start with something that feels unnecessarily difficult — then I can't stop thinking about how to make it simpler."
+              data-es="No suelo empezar con una idea. Empiezo con algo que se siente innecesariamente difícil — y entonces no puedo dejar de pensar en cómo hacerlo más simple.">
+          I don't usually start with an idea. I start with something that feels unnecessarily difficult — then I can't stop thinking about how to make it simpler.
+        </span>
+      </blockquote>
+
+      <!-- accordion sections -->
+      <div class="about-accordion reveal d3">
+
+        <!-- Why I Design -->
+        <div class="about-acc-item" id="acc-1">
+          <button class="about-acc-trigger" onclick="toggleAcc(1)" aria-expanded="false" aria-controls="acc-body-1">
+            <span class="about-acc-label" data-en="+ Why I Design" data-es="+ Por qué diseño">+ Why I Design</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-1">
+            <span data-en="I didn't choose design because I loved aesthetics. I chose it because I kept noticing things that felt harder than they should — and I couldn't stop imagining how they could work better. Design gave me a way to actually do something about it."
+                  data-es="No elegí el diseño porque me encantaba la estética. Lo elegí porque siempre estaba notando cosas que se sentían más difíciles de lo que tendrían que ser — y no podía dejar de imaginar cómo podrían funcionar mejor. El diseño me dio la forma de hacer algo con eso.">
+              I didn't choose design because I loved aesthetics. I chose it because I kept noticing things that felt harder than they should — and I couldn't stop imagining how they could work better. Design gave me a way to actually do something about it.
+            </span>
+          </div>
+        </div>
+
+        <!-- The Way I Think -->
+        <div class="about-acc-item" id="acc-2">
+          <button class="about-acc-trigger" onclick="toggleAcc(2)" aria-expanded="false" aria-controls="acc-body-2">
+            <span class="about-acc-label" data-en="+ The Way I Think" data-es="+ Cómo pienso">+ The Way I Think</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-2">
+            <span data-en="I usually start by asking two questions: who is this for, and what do they actually need? From there I research, sketch, design — and I build it. And if I don't know how yet, I learn — and then I do it. I keep testing until it works for the people it was made for, not just until it looks good. Accessibility is part of the conversation from the beginning."
+                  data-es="Generalmente arranco haciéndome dos preguntas: ¿para quién es esto, y qué necesita realmente? De ahí investigo, dibujo, diseño — y lo construyo. Y si no sé cómo hacerlo todavía, aprendo — y después lo hago. Sigo probando hasta que funciona para la gente a la que está destinado, no solo hasta que se ve bien. La accesibilidad entra en la conversación desde el principio.">
+              I usually start by asking two questions: who is this for, and what do they actually need? From there I research, sketch, design — and I build it. And if I don't know how yet, I learn — and then I do it. I keep testing until it works for the people it was made for, not just until it looks good. Accessibility is part of the conversation from the beginning.
+            </span>
+          </div>
+        </div>
+
+        <!-- What Drives Me -->
+        <div class="about-acc-item" id="acc-3">
+          <button class="about-acc-trigger" onclick="toggleAcc(3)" aria-expanded="false" aria-controls="acc-body-3">
+            <span class="about-acc-label" data-en="+ What Drives Me" data-es="+ Qué me motiva">+ What Drives Me</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-3">
+            <span data-en="I don't separate beautiful from functional — for me, good design is both. What drives me is building things that actually fit their purpose. Designs that work in real life and make someone's day a little easier without them even noticing."
+                  data-es="No separo lo lindo de lo funcional — para mí, el buen diseño es las dos cosas. Lo que me mueve es construir cosas que realmente cumplan su propósito. Diseños que funcionen en la vida real y le hagan el día un poco más fácil a alguien, sin que se dé cuenta.">
+              I don't separate beautiful from functional — for me, good design is both. What drives me is building things that actually fit their purpose. Designs that work in real life and make someone's day a little easier without them even noticing.
+            </span>
+          </div>
+        </div>
+
+        <!-- Outside of Design -->
+        <div class="about-acc-item" id="acc-4">
+          <button class="about-acc-trigger" onclick="toggleAcc(4)" aria-expanded="false" aria-controls="acc-body-4">
+            <span class="about-acc-label" data-en="+ Outside of Design" data-es="+ Fuera del diseño">+ Outside of Design</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-4">
+            <p style="margin-bottom:14px">
+              <span data-en="You'll probably find me taking photos, watching soccer, organizing absolutely everything, or having mate with someone who loves a good conversation."
+                    data-es="Probablemente me encuentres sacando fotos, viendo fútbol, organizando absolutamente todo, o tomando mate con alguien que ame una buena conversación.">
+                You'll probably find me taking photos, watching soccer, organizing absolutely everything, or having mate with someone who loves a good conversation.
+              </span>
+            </p>
+            <div class="outside-grid">
+              <div class="outside-card">
+                <div class="outside-card-top"><span class="outside-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><span class="outside-card-title" data-en="Photography" data-es="Fotografía">Photography</span></div>
+                <p class="outside-card-desc" data-en="Slowing down to notice details." data-es="Desacelerar para notar los detalles.">Slowing down to notice details.</p>
+              </div>
+              <div class="outside-card">
+                <div class="outside-card-top"><span class="outside-card-icon">⚽</span><span class="outside-card-title" data-en="Soccer" data-es="Fútbol">Soccer</span></div>
+                <p class="outside-card-desc" data-en="Great teamwork is usually invisible." data-es="El buen trabajo en equipo suele ser invisible.">Great teamwork is usually invisible.</p>
+              </div>
+              <div class="outside-card">
+                <div class="outside-card-top"><span class="outside-card-icon">🧩</span><span class="outside-card-title" data-en="Organizing" data-es="Organizar">Organizing</span></div>
+                <p class="outside-card-desc" data-en="If something feels messy, I can't help but fix it." data-es="Si algo se siente desordenado, no puedo evitar organizarlo.">If something feels messy, I can't help but fix it.</p>
+              </div>
+              <div class="outside-card">
+                <div class="outside-card-top"><span class="outside-card-icon">🧉</span><span class="outside-card-title">Mate</span></div>
+                <p class="outside-card-desc" data-en="One good conversation over everything." data-es="Una buena conversación por encima de todo.">One good conversation over everything.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end accordion -->
     </div>
 
-    <!-- Journey timeline -->
+    <!-- RIGHT: journey timeline -->
     <div class="about-right reveal d3">
       <p class="sec-label" style="margin-bottom:24px" data-en="My journey" data-es="Mi trayectoria">My journey</p>
       <div class="journey">
@@ -771,16 +928,23 @@
           </div>
         </div>
         <div class="journey-item">
-          <div class="journey-dot">
-          </div>
+          <div class="journey-dot"></div>
           <div class="journey-content">
             <p class="journey-year" data-en="Now" data-es="Ahora">Now</p>
             <p class="journey-title" data-en="Breaking into tech" data-es="Entrando al mundo tech">Breaking into tech</p>
             <p class="journey-desc" data-en="Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions." data-es="Aprendiendo a programar de forma independiente. Buscando roles híbridos de diseño + código. Abierta a posiciones tech de nivel inicial.">Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions.</p>
           </div>
         </div>
+        <div class="journey-item">
+          <div class="journey-dot" style="border-style:dashed; opacity:.5;"></div>
+          <div class="journey-content">
+            <p class="journey-year" style="opacity:.5">∞</p>
+            <p class="journey-title" style="opacity:.5" data-en="Learning" data-es="Aprendiendo">Learning</p>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -796,7 +960,7 @@
 
     <!-- PROJECT 1: Break Board -->
     <div class="proj-card" id="card-1">
-      <div class="proj-card-header" onclick="toggleCard(1)" aria-expanded="false" aria-controls="body-1" role="button" tabindex="0">
+      <div class="proj-card-header" onclick="toggleCard(1)" aria-expanded="false" aria-controls="body-1">
         <span class="proj-num">01</span>
         <span class="proj-card-title">Break Board</span>
         <div class="proj-tags">
@@ -1079,6 +1243,13 @@ const savedLang = localStorage.getItem('lang');
 if (savedLang) { currentLang = savedLang; applyLang(); }
 
 /* ── Accordion cards ───────────── */
+function toggleAcc(n) {
+  const item = document.getElementById('acc-' + n);
+  const trigger = item.querySelector('.about-acc-trigger');
+  const isOpen = item.classList.toggle('open');
+  trigger.setAttribute('aria-expanded', isOpen);
+}
+
 function toggleCard(n) {
   const card = document.getElementById('card-' + n);
   const body = document.getElementById('body-' + n);
