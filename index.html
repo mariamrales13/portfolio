@@ -552,7 +552,31 @@
       position: relative;
     }
     .fl-item:hover { transform: translateY(-5px); border-color: rgba(61,184,138,.3); box-shadow: 0 16px 40px rgba(0,0,0,.3); }
-    .fl-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .fl-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: none; cursor: pointer; }
+    .fl-carousel { position: relative; overflow: hidden; }
+    .fl-img.active { display: block; }
+
+    .fl-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(26,26,20,.6); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  cursor: pointer; border: none;}
+
+.fl-prev { left: 8px; }
+.fl-next { right: 8px; }
+
+    .fl-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+    }
+    .fl-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      transition: background .2s;
+    }
+    .fl-dot.active { background: var(--accent); }
     .fl-info { padding: 16px 18px; }
     .fl-client { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 2px; }
     .fl-type { font-size: 12px; color: var(--dim); }
@@ -563,8 +587,9 @@
       background: rgba(8,28,16,.8);
       display: flex; align-items: center; justify-content: center;
       opacity: 0; transition: opacity .2s;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px); pointer-events: none;
     }
+    .fl-carousel:hover .fl-overlay { opacity: 1; }
     .fl-item:hover .fl-overlay { opacity: 1; }
     .fl-overlay-text {
       font-size: 13px; font-weight: 600;
@@ -678,6 +703,32 @@
     .modal ul { padding-left: 16px; }
     .modal li + li { margin-top: 4px; }
     .modal strong { color: var(--warm); font-weight: 500; }
+
+   /* ═══════════════════════════════
+       IMAGE LIGHTBOX
+    ═══════════════════════════════ */  
+    .modal {
+      padding: 44px 48px 48px;
+      max-width: 620px; width: 100%;
+      max-height: 88vh; overflow-y: auto;
+      position: relative;
+}
+    .lightbox-modal {
+     max-width: 90vw;
+     max-height: 90vh;
+     width: auto;
+     padding: 16px;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.lightbox-modal .fl-prev { left: -50px; }
+.lightbox-modal .fl-next { right: -50px; }
 
     /* ═══════════════════════════════
        ANIMATIONS
@@ -992,7 +1043,7 @@
                 <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
                 <div class="browser-bar">ecomm-breaklog.web.app</div>
               </div>
-              <img src="file:///C:/Users/mafer/Downloads/Break-Board%20Main.jpg" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" class="browser-img">
+              <img src="images/breakboard.png" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" class="browser-img">
             </div>
           </div>
         </div>
@@ -1029,7 +1080,7 @@
           </div>
           <div class="proj-media">
             <div class="proj-screenshot" style="border-radius:14px; overflow:hidden; background: #5c6bc0;">
-              <img src="https://www.figma.com/api/mcp/asset/1d99c41c-1b01-4492-b716-8d578cefab2e" alt="Luquita finance app mockup on iPhone" loading="lazy" style="width:100%;display:block;">
+              <img src="images/luquita.png" alt="Luquita finance app mockup on iPhone" loading="lazy" style="width:100%;display:block;">
             </div>
           </div>
         </div>
@@ -1059,8 +1110,16 @@
 
     <!-- Abruzzo Bar – event menus -->
     <div class="fl-item" data-cat="event">
-      <img class="fl-img" src="https://www.figma.com/api/mcp/asset/364291dc-50c2-4ccb-80ca-19df5ad02b68" alt="Abruzzo Bar cocktail menu design" loading="lazy">
-      <div class="fl-overlay"><span class="fl-overlay-text">Abruzzo Bar</span></div>
+<div class="fl-carousel">
+  <img class="fl-img active" src="images/abruzzo-bar-1.jpg" alt="Abruzzo Bar menu design 1" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/abruzzo-bar-2.jpg" alt="Abruzzo Bar menu design 2" loading="lazy" onclick="openLightbox(this)">
+
+  <div class="fl-dots">
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+  </div>
+</div>     
+ <div class="fl-overlay"><span class="fl-overlay-text">Abruzzo Bar</span></div>
       <div class="fl-info">
         <div class="fl-client">Abruzzo Bar</div>
         <div class="fl-type" data-en="Event menus · @abruzzo_bar · Houston TX" data-es="Menús de eventos · @abruzzo_bar · Houston TX">Menús de eventos · @abruzzo_bar · Houston TX</div>
@@ -1069,37 +1128,73 @@
 
     <!-- Artesplash – apparel -->
     <div class="fl-item" data-cat="apparel">
-      <img class="fl-img" src="/mnt/user-data/uploads/1783555486035_image.png" alt="Artesplash custom apparel designs" loading="lazy" style="object-position:center right">
+      <div class="fl-carousel">
+  <img class="fl-img active" src="images/artesplash-1.jpg" alt="Artesplash custom apparel design 1" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/artesplash-2.jpg" alt="Artesplash custom apparel design 2" loading="lazy"onclick="openLightbox(this)">
+
+  <div class="fl-dots">
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+  </div>
+</div>     
       <div class="fl-overlay"><span class="fl-overlay-text">Artesplash</span></div>
       <div class="fl-info">
         <div class="fl-client">Artesplash</div>
-        <div class="fl-type" data-en="Custom apparel · @artesplash · Buenos Aires" data-es="Ropa personalizada · @artesplash · Buenos Aires">Ropa personalizada · @artesplash · Buenos Aires</div>
+        <div class="fl-type" data-en="Custom apparel · @artesplash · BA" data-es="Ropa personalizada · @artesplash · BA">Ropa personalizada · @artesplash · BA</div>
       </div>
     </div>
 
-    <!-- Gus Burger – brand + apparel -->
-    <div class="fl-item" data-cat="brand apparel">
-      <img class="fl-img" src="/mnt/user-data/uploads/1783556423063_image.png" alt="Gus Burger logo and uniform designs" loading="lazy" style="object-position:center right">
-      <div class="fl-overlay"><span class="fl-overlay-text">Gus Burger</span></div>
-      <div class="fl-info">
-        <div class="fl-client">Gus Burger</div>
-        <div class="fl-type" data-en="Logo + Uniforms · @gusburgeroficial" data-es="Logo + uniformes · @gusburgeroficial">Logo + uniformes · @gusburgeroficial</div>
-      </div>
-    </div>
-
-    <!-- Logo Creations – multi-client logos -->
+    <!-- Gusto Pasta - Restaurant branding -->
     <div class="fl-item" data-cat="brand">
-      <img class="fl-img" src="/mnt/user-data/uploads/1783556435536_image.png" alt="Logo designs for multiple clients" loading="lazy" style="object-position:center right">
-      <div class="fl-overlay"><span class="fl-overlay-text">Logo Collection</span></div>
+     <div class="fl-carousel">
+  <img class="fl-img active" src="images/gustopasta-1.jpg" alt="Gusto Pasta design 1" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/gustopasta-2.png" alt="Gusto Pasta design 2" loading="lazy" onclick="openLightbox(this)">
+
+  <div class="fl-dots">
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+  </div>
+</div>     
+      <div class="fl-overlay"><span class="fl-overlay-text">Gusto Pasta</span></div>
       <div class="fl-info">
-        <div class="fl-client">Logo Creations</div>
-        <div class="fl-type" data-en="Brand identity · Multiple clients" data-es="Identidad de marca · Varios clientes">Identidad de marca · Varios clientes</div>
+        <div class="fl-client">Gusto Pasta</div>
+        <div class="fl-type" data-en="Brand identity · @gusto.pastas · BA" data-es="Identidad de marca · @gusto.pastas · BA">Identidad de marca · @gusto.pastas · BA</div>
+      </div>
+    </div>
+
+    <!-- BA Services - Logo Creations -->
+    <div class="fl-item" data-cat="brand">
+     <div class="fl-carousel">
+  <img class="fl-img active" src="images/baservices-1.jpg" alt="BA Services logo design 1" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/baservices-2.jpg" alt="BA Services logo design 2" loading="lazy" onclick="openLightbox(this)">
+
+  <div class="fl-dots">
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+  </div>
+</div>     
+      <div class="fl-overlay"><span class="fl-overlay-text">BA Services</span></div>
+      <div class="fl-info">
+        <div class="fl-client">BA Services</div>
+        <div class="fl-type" data-en="Brand identity · accountant@baservicesus.com · MA" data-es="Identidad de marca · accountant@baservicesus.com · MA">Identidad de marca · accountant@baservicesus.com · MA</div>
       </div>
     </div>
 
     <!-- Customized Designs – event flyers, illustrations -->
     <div class="fl-item" data-cat="event">
-      <img class="fl-img" src="/mnt/user-data/uploads/1783556444623_image.png" alt="Custom event flyers and illustration designs" loading="lazy" style="object-position:center right">
+     <div class="fl-carousel">
+  <img class="fl-img active" src="images/customdesigns-1.jpg" alt="Custom event flyers and illustration designs 1" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-2.png" alt="Custom event flyers and illustration designs 2" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-3.png" alt="Custom event flyers and illustration designs 3" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-4.jpg" alt="Custom event flyers and illustration designs 4" loading="lazy" onclick="openLightbox(this)">
+
+  <div class="fl-dots">
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 2)"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 3)"></span>
+  </div>
+</div>     
       <div class="fl-overlay"><span class="fl-overlay-text">Custom Designs</span></div>
       <div class="fl-info">
         <div class="fl-client">Custom Designs</div>
@@ -1150,8 +1245,8 @@
     <h3 data-en="Experience" data-es="Experiencia">Experiencia</h3>
     <p data-en="<strong>Break Board — Designer & Developer</strong> · 2025–2026<br>Identified a workplace problem, designed the full UX, coded and deployed a Firebase web app that is actively used by my team. Features: live break slots, countdowns, Kiosk Mode, history log, CSV export." data-es="<strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV."><strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>
     Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV.</p>
-    <p style="margin-top:10px" data-en="<strong>Freelance Graphic & UX Designer</strong> · 2022–present<br>5+ clients including Abruzzo Bar (Houston TX), Artesplash (Buenos Aires), Gus Burger. Delivered logos, apparel design, event menus, brand identity, and illustrations." data-es="<strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) y Gus Burger. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones."><strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>
-    Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) y Gus Burger. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones.</p>
+    <p style="margin-top:10px" data-en="<strong>Freelance Graphic & UX Designer</strong> · 2022–present<br>5+ clients including Abruzzo Bar (Houston TX), Artesplash (Buenos Aires), Gusto Pasta, BA Services. Delivered logos, apparel design, event menus, brand identity, and illustrations." data-es="<strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) Gusto Pasta y BA Services. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones."><strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>
+    Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) Gusto Pasta y BA Services. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones.</p>
 
     <h3 data-en="Education" data-es="Educación">Educación</h3>
     <p data-en="<strong>Degree in UX/UI Design</strong><br>School project: Luquita — personal finance app for young adults. Designed full product strategy and high-fidelity Figma prototype for Demo Day." data-es="<strong>Título en UX/UI Design</strong><br>Proyecto escolar: Luquita — app de finanzas personales para jóvenes adultos. Diseñé una estrategia completa de producto y un prototipo de alta fidelidad en Figma para Demo Day."><strong>Título en UX/UI Design</strong><br>
@@ -1165,6 +1260,19 @@
       <li data-en="Product thinking — research, strategy, freemium models" data-es="Pensamiento de producto — investigación, estrategia, modelos freemium">Pensamiento de producto — investigación, estrategia, modelos freemium</li>
       <li data-en="Client communication — iterative delivery, 5+ relationships" data-es="Comunicación con clientes — entregas iterativas, más de 5 relaciones">Comunicación con clientes — entregas iterativas, más de 5 relaciones</li>
     </ul>
+  </div>
+</div>
+
+<!-- ═══════════ IMAGE LIGHTBOX ═══════════ -->
+<div class="backdrop" id="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <div class="modal lightbox-modal">
+    <button class="modal-close" onclick="closeLightbox()" aria-label="Close image">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="fl-arrow fl-prev" onclick="changeLightboxSlide(-1)" aria-label="Previous image">‹</button>
+    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
+    <button class="fl-arrow fl-next" onclick="changeLightboxSlide(1)" aria-label="Next image">›</button>
+    <div id="lightbox-counter" style="text-align:center; margin-top:8px; color:var(--muted);"></div>
   </div>
 </div>
 
@@ -1263,6 +1371,39 @@ function toggleCard(n) {
   }
 }
 
+/* ── Freelance carousels ───────────── */
+function changeSlide(event, btn, direction) {
+  event.stopPropagation();
+  const carousel = btn.closest('.fl-carousel');
+  const images = carousel.querySelectorAll('.fl-img');
+  const dots = carousel.querySelectorAll('.fl-dot');
+
+  let currentIndex = 0;
+  images.forEach((img, i) => {
+    if (img.classList.contains('active')) currentIndex = i;
+  });
+
+  const newIndex = (currentIndex + direction + images.length) % images.length;
+
+  images[currentIndex].classList.remove('active');
+  dots[currentIndex].classList.remove('active');
+  images[newIndex].classList.add('active');
+  dots[newIndex].classList.add('active');
+}
+
+function goToSlide(event, dot, index) {
+  event.stopPropagation();
+  const carousel = dot.closest('.fl-carousel');
+  const images = carousel.querySelectorAll('.fl-img');
+  const dots = carousel.querySelectorAll('.fl-dot');
+
+  images.forEach(img => img.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+
+  images[index].classList.add('active');
+  dots[index].classList.add('active');
+}
+
 /* ── Freelance filter ──────────── */
 function filterFL(cat) {
   document.querySelectorAll('.f-tab').forEach(t => {
@@ -1291,6 +1432,48 @@ document.getElementById('resume-backdrop').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeResume();
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeResume(); });
+
+/* ── Image lightbox ────────────── */
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(imgEl) {
+  const carousel = imgEl.closest('.fl-carousel');
+  const imgs = carousel.querySelectorAll('.fl-img');
+  lightboxImages = Array.from(imgs).map(img => ({ src: img.src, alt: img.alt }));
+  lightboxIndex = Array.from(imgs).indexOf(imgEl);
+  showLightboxImage();
+  document.getElementById('lightbox-backdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+  const data = lightboxImages[lightboxIndex];
+  const img = document.getElementById('lightbox-img');
+  img.src = data.src;
+  img.alt = data.alt;
+  document.getElementById('lightbox-counter').textContent =
+    (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+}
+
+function changeLightboxSlide(direction) {
+  lightboxIndex = (lightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
+  showLightboxImage();
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox-backdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox-backdrop').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox-backdrop').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') changeLightboxSlide(-1);
+  if (e.key === 'ArrowRight') changeLightboxSlide(1);
+});
 
 /* ── Scroll reveal ─────────────── */
 function triggerReveal() {
