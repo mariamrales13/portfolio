@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    
+    html {scrollbar-gutter: stable;}
+
     /* ═══════════════════════════════
        TOKENS — DARK (default)
     ═══════════════════════════════ */
@@ -714,8 +717,7 @@
       position: relative;
 }
     .lightbox-modal {
-     max-width: 90vw;
-     max-height: 90vh;
+max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
      width: auto;
      padding: 16px;
     overflow: visible;
@@ -726,6 +728,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.lightbox-modal .modal-close {
+  position: fixed;
+  top: 24px; right: 24px;
+  background: rgba(26,26,20,.6);
+  border: none;
+  color: #fff;
+}
+.lightbox-modal .modal-close:hover {
+  background: rgba(26,26,20,.85);
+  border-color: transparent;
+  color: #fff;
 }
 .lightbox-modal .fl-prev { left: -50px; }
 .lightbox-modal .fl-next { right: -50px; }
@@ -758,6 +772,11 @@
       .btn-pri, .btn-sec { justify-content: center; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
     }
+@media (max-width: 600px) {
+  .lightbox-modal .fl-prev { left: 8px; }
+  .lightbox-modal .fl-next { right: 8px; }
+  .lightbox-modal .fl-arrow { width: 40px; height: 40px; }
+}
   </style>
 </head>
 <body>
@@ -1265,12 +1284,12 @@
 
 <!-- ═══════════ IMAGE LIGHTBOX ═══════════ -->
 <div class="backdrop" id="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="modal-close" onclick="closeLightbox()" aria-label="Close image">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <div class="modal lightbox-modal">
-    <button class="modal-close" onclick="closeLightbox()" aria-label="Close image">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
     <button class="fl-arrow fl-prev" onclick="changeLightboxSlide(-1)" aria-label="Previous image">‹</button>
-    <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
+    <img id="lightbox-img" src="" alt="" style="max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
     <button class="fl-arrow fl-next" onclick="changeLightboxSlide(1)" aria-label="Next image">›</button>
     <div id="lightbox-counter" style="text-align:center; margin-top:8px; color:var(--muted);"></div>
   </div>
