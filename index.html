@@ -4,8 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Maria Morales — Designer & Builder. UX/UI Designer with real client work, a shipped product, and growing code skills."/>
   <title>Maria Morales</title>
+  <script>
+    // Set saved theme before first paint to avoid a flash of the wrong theme.
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <style>
     
     html {scrollbar-gutter: stable;}
@@ -50,11 +60,11 @@
       --bg:      #f5f2eb;
       --surface: #ede9e0;
       --card:    #e8e4da;
-      --border:  rgba(28,69,42,0.14);
+      --border:  rgba(28,69,42,0.35);
       --accent:  #1a6644;
       --warm:    #1a1a14;
-      --muted:   rgba(26,26,20,0.55);
-      --dim:     rgba(26,26,20,0.32);
+      --muted:   rgba(26,26,20,0.68);
+      --dim:     rgba(26,26,20,0.62);
       --shadow:  0 4px 24px rgba(0,0,0,0.08);
     }
 
@@ -237,7 +247,7 @@
     .scroll-hint {
       position: absolute; bottom: 32px; left: 48px;
       display: flex; align-items: center; gap: 10px;
-      font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+      font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
       color: var(--dim);
       opacity: 0; animation: fadeIn 1s 1.2s forwards;
     }
@@ -336,7 +346,8 @@
     }
     .outside-card:hover { border-color: rgba(61,184,138,.3); transform: translateY(-2px); }
     .outside-card-top { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
-    .outside-card-icon { font-size: 18px; }
+    .outside-card-icon { font-size: 18px; display: flex; align-items: center; }
+    .outside-card-icon svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); }
     .outside-card-title { font-size: 13px; font-weight: 600; color: var(--warm); }
     .outside-card-desc { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 
@@ -406,7 +417,7 @@
     }
     .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag {
-      font-size: 11px; font-weight: 600;
+      font-size: 12px; font-weight: 600;
       letter-spacing: .08em; text-transform: uppercase;
       padding: 4px 10px; border-radius: 99px;
       border: 1px solid var(--border);
@@ -448,7 +459,7 @@
     }
     .proj-desc strong { color: var(--warm); font-weight: 500; }
     .proj-desc-label {
-      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
       text-transform: uppercase; color: var(--dim);
       margin-bottom: 6px; margin-top: 20px;
     }
@@ -467,7 +478,7 @@
     /* LIVE pulse tag */
     .live-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
       text-transform: uppercase; color: var(--accent);
       margin-bottom: 16px;
     }
@@ -505,9 +516,9 @@
       background: rgba(255,255,255,.06);
       border-radius: 4px; height: 20px;
       display: flex; align-items: center; padding: 0 8px;
-      font-size: 10px; color: var(--dim); font-family: monospace;
+      font-size: 12px; color: var(--dim); font-family: monospace;
     }
-    .browser-img { display: block; width: 100%; }
+    .browser-img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 
     /* ═══════════════════════════════
        FREELANCE GALLERY
@@ -696,9 +707,30 @@
       font-optical-sizing: auto; letter-spacing: -1px;
       color: var(--warm); margin-bottom: 4px;
     }
-    .modal .modal-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 32px; }
+    .modal-title-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      padding-right: 46px;
+    }
+    .resume-download-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--warm);
+      font-size: 12.5px; font-weight: 600;
+      transition: border-color .2s, color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .resume-download-btn:hover, .resume-download-btn:focus-visible {
+      border-color: var(--accent); color: var(--accent);
+      background: rgba(61,184,138,.08);
+    }
+    .modal .modal-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 6px; }
+    .modal .modal-avail { font-size: 12.5px; font-weight: 600; color: var(--accent); margin-bottom: 28px; }
+    .modal-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .modal-skills .tag { font-size: 12px; }
     .modal h3 {
-      font-size: 10.5px; font-weight: 600;
+      font-size: 12px; font-weight: 600;
       text-transform: uppercase; letter-spacing: .14em;
       color: var(--accent); margin: 24px 0 8px;
     }
@@ -836,7 +868,7 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         Ver mi trabajo
       </a>
-      <button class="btn-sec" onclick="openResume()" data-en="View Résumé" data-es="Ver currículum">
+      <button class="btn-sec" onclick="openResume()" data-en="View Resume" data-es="Ver currículum">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         Ver currículum
       </button>
@@ -939,19 +971,19 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
             </p>
             <div class="outside-grid">
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-puzzle-icon lucide-puzzle"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><span class="outside-card-title" data-en="Photography" data-es="Fotografía">Fotografía</span></div>
+                <div class="outside-card-top"><span class="outside-card-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="outside-card-title" data-en="Photography" data-es="Fotografía">Fotografía</span></div>
                 <p class="outside-card-desc" data-en="Slowing down to notice details." data-es="Desacelerar para notar los detalles.">Desacelerar para notar los detalles.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">⚽</span><span class="outside-card-title" data-en="Soccer" data-es="Fútbol">Fútbol</span></div>
+                <div class="outside-card-top"><span class="outside-card-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7.5l3 2.1-1.1 3.4H10.1L9 9.6z"/><path d="M12 2v5.5M12 16.5V22M2.7 8.8l4.7 1.3M16.6 9.9l4.7-1.3M4.3 16l3.9-2.9M15.8 13.1l3.9 2.9"/></svg></span><span class="outside-card-title" data-en="Soccer" data-es="Fútbol">Fútbol</span></div>
                 <p class="outside-card-desc" data-en="Great teamwork is usually invisible." data-es="El buen trabajo en equipo suele ser invisible.">El buen trabajo en equipo suele ser invisible.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">🧩</span><span class="outside-card-title" data-en="Organizing" data-es="Organizar">Organizar</span></div>
+                <div class="outside-card-top"><span class="outside-card-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z"/></svg></span><span class="outside-card-title" data-en="Organizing" data-es="Organizar">Organizar</span></div>
                 <p class="outside-card-desc" data-en="If something feels messy, I can't help but fix it." data-es="Si algo se siente desordenado, no puedo evitar organizarlo.">Si algo se siente desordenado, no puedo evitar organizarlo.</p>
               </div>
               <div class="outside-card">
-                <div class="outside-card-top"><span class="outside-card-icon">🧉</span><span class="outside-card-title" data-en="Mate" data-es="Mate">Mate</span></div>
+                <div class="outside-card-top"><span class="outside-card-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9.5c0-1.4.9-2.5 2.2-2.5h1.6c1.3 0 2.2 1.1 2.2 2.5v6a4 4 0 0 1-4 4v0a4 4 0 0 1-4-4v-2.2"/><path d="M13.6 8.4l4.9-2.9"/><path d="M6.2 13.8H4"/></svg></span><span class="outside-card-title" data-en="Mate" data-es="Mate">Mate</span></div>
                 <p class="outside-card-desc" data-en="One good conversation over everything." data-es="Una buena conversación por encima de todo.">Una buena conversación por encima de todo.</p>
               </div>
             </div>
@@ -1062,7 +1094,7 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
                 <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
                 <div class="browser-bar">ecomm-breaklog.web.app</div>
               </div>
-              <img src="images/breakboard.png" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" class="browser-img">
+              <img src="images/breakboard.png" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" decoding="async" class="browser-img">
             </div>
           </div>
         </div>
@@ -1099,7 +1131,7 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
           </div>
           <div class="proj-media">
             <div class="proj-screenshot" style="border-radius:14px; overflow:hidden; background: #5c6bc0;">
-              <img src="images/luquita.png" alt="Luquita finance app mockup on iPhone" loading="lazy" style="width:100%;display:block;">
+              <img src="images/luquita.png" alt="Luquita finance app mockup on iPhone" loading="lazy" decoding="async" style="width:100%;display:block;aspect-ratio:9/16;object-fit:cover;">
             </div>
           </div>
         </div>
@@ -1130,8 +1162,8 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Abruzzo Bar – event menus -->
     <div class="fl-item" data-cat="event">
 <div class="fl-carousel">
-  <img class="fl-img active" src="images/abruzzo-bar-1.jpg" alt="Abruzzo Bar menu design 1" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/abruzzo-bar-2.jpg" alt="Abruzzo Bar menu design 2" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/abruzzo-bar-1.jpg" alt="Abruzzo Bar menu design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/abruzzo-bar-2.jpg" alt="Abruzzo Bar menu design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
 
   <div class="fl-dots">
     <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
@@ -1148,8 +1180,8 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Artesplash – apparel -->
     <div class="fl-item" data-cat="apparel">
       <div class="fl-carousel">
-  <img class="fl-img active" src="images/artesplash-1.jpg" alt="Artesplash custom apparel design 1" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/artesplash-2.jpg" alt="Artesplash custom apparel design 2" loading="lazy"onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/artesplash-1.jpg" alt="Artesplash custom apparel design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/artesplash-2.jpg" alt="Artesplash custom apparel design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
 
   <div class="fl-dots">
     <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
@@ -1166,8 +1198,8 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Gusto Pasta - Restaurant branding -->
     <div class="fl-item" data-cat="brand">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/gustopasta-1.jpg" alt="Gusto Pasta design 1" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/gustopasta-2.png" alt="Gusto Pasta design 2" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/gustopasta-1.jpg" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/gustopasta-2.png" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
 
   <div class="fl-dots">
     <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
@@ -1184,8 +1216,8 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- BA Services - Logo Creations -->
     <div class="fl-item" data-cat="brand">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/baservices-1.jpg" alt="BA Services logo design 1" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/baservices-2.jpg" alt="BA Services logo design 2" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/baservices-1.jpg" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/baservices-2.jpg" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
 
   <div class="fl-dots">
     <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
@@ -1202,10 +1234,10 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Customized Designs – event flyers, illustrations -->
     <div class="fl-item" data-cat="event">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/customdesigns-1.jpg" alt="Custom event flyers and illustration designs 1" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-2.png" alt="Custom event flyers and illustration designs 2" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-3.png" alt="Custom event flyers and illustration designs 3" loading="lazy" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-4.jpg" alt="Custom event flyers and illustration designs 4" loading="lazy" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/customdesigns-1.jpg" alt="Custom event flyers and illustration designs 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-2.png" alt="Custom event flyers and illustration designs 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-3.png" alt="Custom event flyers and illustration designs 3" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img" src="images/customdesigns-4.jpg" alt="Custom event flyers and illustration designs 4" loading="lazy" decoding="async" onclick="openLightbox(this)">
 
   <div class="fl-dots">
     <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
@@ -1255,30 +1287,55 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <button class="modal-close" onclick="closeResume()" aria-label="Close résumé">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <h2 id="resume-h">Maria Morales</h2>
-    <p class="modal-sub" data-en="UX/UI Designer · Designer &amp; Builder · Houston, TX · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a>" data-es="Diseñadora UX/UI · Diseñadora &amp; Creadora · Houston, TX · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a>">Diseñadora UX/UI · Diseñadora &amp; Creadora · Houston, TX · <a href="mailto:maria.moralesj13@gmail.com" style="color:var(--accent)">maria.moralesj13@gmail.com</a></p>
+    <div class="modal-title-row">
+      <h2 id="resume-h">Maria Morales</h2>
+      <a class="resume-download-btn" id="resume-download-link" href="assets/maria-morales-resume-es.pdf" download="Maria-Morales-Resume-ES.pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-en="Download PDF" data-es="Descargar PDF">Descargar PDF</span>
+      </a>
+    </div>
+    <p class="modal-sub" data-en="Norwood, MA · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a> · (754) 267-6683 · <a href=&quot;https://linkedin.com/in/maria-morales&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&quot;color:var(--accent)&quot;>linkedin.com/in/maria-morales</a>" data-es="Norwood, MA · <a href=&quot;mailto:maria.moralesj13@gmail.com&quot; style=&quot;color:var(--accent)&quot;>maria.moralesj13@gmail.com</a> · (754) 267-6683 · <a href=&quot;https://linkedin.com/in/maria-morales&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; style=&quot;color:var(--accent)&quot;>linkedin.com/in/maria-morales</a>">Norwood, MA · <a href="mailto:maria.moralesj13@gmail.com" style="color:var(--accent)">maria.moralesj13@gmail.com</a> · (754) 267-6683 · <a href="https://linkedin.com/in/maria-morales" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">linkedin.com/in/maria-morales</a></p>
+    <p class="modal-avail" data-en="Open to relocation — Buenos Aires, Argentina · Open to remote" data-es="Disponible para reubicación — Buenos Aires, Argentina · Disponible para trabajo remoto">Disponible para reubicación — Buenos Aires, Argentina · Disponible para trabajo remoto</p>
 
     <h3 data-en="Profile" data-es="Perfil">Perfil</h3>
-    <p data-en="UX/UI designer with a degree in design and 2+ years of freelance client work. I recently designed and deployed a real internal tool (Break Board) using HTML, CSS, JavaScript, and Firebase — and I'm actively expanding my development skills to work at the intersection of design and code." data-es="Diseñadora UX/UI con formación en diseño y más de 2 años de trabajo freelance con clientes. Recientemente diseñé y despliegué una herramienta interna real (Break Board) usando HTML, CSS, JavaScript y Firebase — y estoy expandiendo activamente mis habilidades de desarrollo para trabajar en la intersección del diseño y el código.">Diseñadora UX/UI con formación en diseño y más de 2 años de trabajo freelance con clientes. Recientemente diseñé y despliegué una herramienta interna real (Break Board) usando HTML, CSS, JavaScript y Firebase — y estoy expandiendo activamente mis habilidades de desarrollo para trabajar en la intersección del diseño y el código.</p>
+    <p data-en="Bilingual (native Spanish / fluent English) UX/UI designer who builds. Formally trained through a UX/UI Design Certificate (Nuclio Digital School, Barcelona) and self-taught in front-end development, I design and ship real working products — not just mockups. Three years in fast-paced e-commerce and logistics operations sharpened the same instincts UX work relies on: diagnosing problems quickly, translating complexity into simple steps, and communicating clearly across languages and teams." data-es="Diseñadora UX/UI bilingüe (español nativo / inglés fluido) que también desarrolla. Formada a través de un Certificado en Diseño UX/UI (Nuclio Digital School, Barcelona) y autodidacta en desarrollo front-end, diseño y publico productos reales en funcionamiento — no solo maquetas. Tres años en operaciones de e-commerce y logística de alto ritmo perfeccionaron los mismos instintos que exige el diseño UX: diagnosticar problemas rápidamente, traducir la complejidad en pasos simples y comunicar con claridad entre idiomas y equipos.">Diseñadora UX/UI bilingüe (español nativo / inglés fluido) que también desarrolla. Formada a través de un Certificado en Diseño UX/UI (Nuclio Digital School, Barcelona) y autodidacta en desarrollo front-end, diseño y publico productos reales en funcionamiento — no solo maquetas. Tres años en operaciones de e-commerce y logística de alto ritmo perfeccionaron los mismos instintos que exige el diseño UX: diagnosticar problemas rápidamente, traducir la complejidad en pasos simples y comunicar con claridad entre idiomas y equipos.</p>
 
-    <h3 data-en="Experience" data-es="Experiencia">Experiencia</h3>
-    <p data-en="<strong>Break Board — Designer & Developer</strong> · 2025–2026<br>Identified a workplace problem, designed the full UX, coded and deployed a Firebase web app that is actively used by my team. Features: live break slots, countdowns, Kiosk Mode, history log, CSV export." data-es="<strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV."><strong>Break Board — Diseñadora y desarrolladora</strong> · 2025–2026<br>
-    Identifiqué un problema en mi lugar de trabajo, diseñé la UX completa, codifiqué y desplegué una web app en Firebase que usa activamente mi equipo. Funciones: espacios de descanso en vivo, cuenta regresiva, Modo Kiosco, historial, exportación CSV.</p>
-    <p style="margin-top:10px" data-en="<strong>Freelance Graphic & UX Designer</strong> · 2022–present<br>5+ clients including Abruzzo Bar (Houston TX), Artesplash (Buenos Aires), Gusto Pasta, BA Services. Delivered logos, apparel design, event menus, brand identity, and illustrations." data-es="<strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) Gusto Pasta y BA Services. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones."><strong>Diseñadora gráfica y UX freelance</strong> · 2022–presente<br>
-    Más de 5 clientes, incluyendo Abruzzo Bar (Houston TX), Artesplash (Buenos Aires) Gusto Pasta y BA Services. Entregué logos, diseño de ropa, menús de eventos, identidad de marca e ilustraciones.</p>
+    <h3 data-en="Selected Design &amp; Development Work" data-es="Proyectos Destacados de Diseño y Desarrollo">Proyectos Destacados de Diseño y Desarrollo</h3>
+    <p data-en="<strong>Break Board — Designer &amp; Developer</strong> · 2025–2026<br>Designed and shipped a live internal web app (HTML, CSS, JavaScript, Firebase) now used daily by my team to manage break scheduling — including real-time slots, countdowns, Kiosk Mode, history log, and CSV export. Owned the full process end-to-end: research, wireframes, high-fidelity UI, front-end build, and deployment." data-es="<strong>Break Board — Diseñadora y Desarrolladora</strong> · 2025–2026<br>Diseñé y lancé una aplicación web interna (HTML, CSS, JavaScript, Firebase) que mi equipo usa a diario para gestionar los turnos de descanso — con horarios en tiempo real, cuenta regresiva, Modo Kiosco, historial y exportación a CSV. Responsable del proceso completo: investigación, wireframes, diseño de alta fidelidad, desarrollo front-end y despliegue."><strong>Break Board — Diseñadora y Desarrolladora</strong> · 2025–2026<br>
+    Diseñé y lancé una aplicación web interna (HTML, CSS, JavaScript, Firebase) que mi equipo usa a diario para gestionar los turnos de descanso — con horarios en tiempo real, cuenta regresiva, Modo Kiosco, historial y exportación a CSV. Responsable del proceso completo: investigación, wireframes, diseño de alta fidelidad, desarrollo front-end y despliegue.</p>
+    <p style="margin-top:10px" data-en="<strong>Freelance Graphic &amp; UX/UI Designer</strong> · 2022–present<br>5+ clients across the U.S. and Argentina — including Abruzzo Bar (Houston, TX), Artesplash (Buenos Aires), and Gusto Pasta — delivering logos, brand identity, apparel design, event menus, and illustrations. Manage full client relationships independently, from concept through final delivery." data-es="<strong>Diseñadora Gráfica y UX/UI Freelance</strong> · 2022–presente<br>Más de 5 clientes en Estados Unidos y Argentina — incluyendo Abruzzo Bar (Houston, TX), Artesplash (Buenos Aires) y Gusto Pasta — con entregas de logos, identidad de marca, diseño de indumentaria, menús para eventos e ilustraciones. Gestión integral e independiente de la relación con cada cliente, desde el concepto hasta la entrega final."><strong>Diseñadora Gráfica y UX/UI Freelance</strong> · 2022–presente<br>
+    Más de 5 clientes en Estados Unidos y Argentina — incluyendo Abruzzo Bar (Houston, TX), Artesplash (Buenos Aires) y Gusto Pasta — con entregas de logos, identidad de marca, diseño de indumentaria, menús para eventos e ilustraciones. Gestión integral e independiente de la relación con cada cliente, desde el concepto hasta la entrega final.</p>
+
+    <h3 data-en="Professional Experience" data-es="Experiencia Profesional">Experiencia Profesional</h3>
+    <p data-en="<strong>E-Commerce Supervisor — Whole Foods Market</strong> · Sep 2025–Present · Dedham, MA<br>First point of contact for operational and technical issues; troubleshoot system problems in real time to protect order accuracy and fulfillment speed. Monitor performance data to identify trends and inefficiencies; collaborate with store leadership on escalations." data-es="<strong>Supervisora de E-Commerce — Whole Foods Market</strong> · Sep 2025–Presente · Dedham, MA<br>Primer punto de contacto para incidencias operativas y técnicas; resuelvo problemas de sistema en tiempo real para proteger la precisión y velocidad de los pedidos. Superviso datos de rendimiento para identificar tendencias e ineficiencias; colaboro con el liderazgo de la tienda en escalamientos."><strong>Supervisora de E-Commerce — Whole Foods Market</strong> · Sep 2025–Presente · Dedham, MA<br>
+    Primer punto de contacto para incidencias operativas y técnicas; resuelvo problemas de sistema en tiempo real para proteger la precisión y velocidad de los pedidos. Superviso datos de rendimiento para identificar tendencias e ineficiencias; colaboro con el liderazgo de la tienda en escalamientos.</p>
+    <p style="margin-top:10px" data-en="<strong>E-Commerce Team Trainer — Whole Foods Market</strong> · Jun 2025–Sep 2025 · Dedham, MA<br>Designed and delivered onboarding/systems training in English and Spanish, translating complex software into clear, step-by-step guidance for new hires. Documented best practices to keep team-wide system usage consistent and accurate." data-es="<strong>Capacitadora de Equipo de E-Commerce — Whole Foods Market</strong> · Jun 2025–Sep 2025 · Dedham, MA<br>Diseñé y dicté capacitaciones de incorporación y de sistemas en inglés y español, traduciendo software complejo en pasos claros y sencillos para nuevos empleados. Documenté mejores prácticas para mantener un uso consistente y preciso del sistema en todo el equipo."><strong>Capacitadora de Equipo de E-Commerce — Whole Foods Market</strong> · Jun 2025–Sep 2025 · Dedham, MA<br>
+    Diseñé y dicté capacitaciones de incorporación y de sistemas en inglés y español, traduciendo software complejo en pasos claros y sencillos para nuevos empleados. Documenté mejores prácticas para mantener un uso consistente y preciso del sistema en todo el equipo.</p>
+    <p style="margin-top:10px" data-en="<strong>E-Commerce Shopper — Whole Foods Market</strong> · Oct 2024–Jun 2025 · Dedham, MA<br>Fulfilled online orders using internal order management systems while maintaining quality standards through digital verification tools and direct customer support." data-es="<strong>E-Commerce Shopper — Whole Foods Market</strong> · Oct 2024–Jun 2025 · Dedham, MA<br>Preparé pedidos en línea mediante sistemas internos de gestión de pedidos, manteniendo estándares de calidad a través de herramientas de verificación digital y atención directa al cliente."><strong>E-Commerce Shopper — Whole Foods Market</strong> · Oct 2024–Jun 2025 · Dedham, MA<br>
+    Preparé pedidos en línea mediante sistemas internos de gestión de pedidos, manteniendo estándares de calidad a través de herramientas de verificación digital y atención directa al cliente.</p>
+    <p style="margin-top:10px" data-en="<strong>Warehouse Logistics Lead — JAS Contract Logistics</strong> · Feb 2023–Sep 2024 · Chicago, IL<br>Managed daily operations via Warehouse Management Systems (WMS); oversaw inbound/outbound logistics and identified system discrepancies. Coordinated cross-functional teams to consistently meet service-level targets." data-es="<strong>Líder de Logística de Almacén — JAS Contract Logistics</strong> · Feb 2023–Sep 2024 · Chicago, IL<br>Gestioné las operaciones diarias mediante sistemas de gestión de almacenes (WMS); supervisé la logística de entrada y salida e identifiqué discrepancias en el sistema. Coordiné equipos multifuncionales para cumplir de manera consistente con los objetivos de nivel de servicio."><strong>Líder de Logística de Almacén — JAS Contract Logistics</strong> · Feb 2023–Sep 2024 · Chicago, IL<br>
+    Gestioné las operaciones diarias mediante sistemas de gestión de almacenes (WMS); supervisé la logística de entrada y salida e identifiqué discrepancias en el sistema. Coordiné equipos multifuncionales para cumplir de manera consistente con los objetivos de nivel de servicio.</p>
 
     <h3 data-en="Education" data-es="Educación">Educación</h3>
-    <p data-en="<strong>Degree in UX/UI Design</strong><br>School project: Luquita — personal finance app for young adults. Designed full product strategy and high-fidelity Figma prototype for Demo Day." data-es="<strong>Título en UX/UI Design</strong><br>Proyecto escolar: Luquita — app de finanzas personales para jóvenes adultos. Diseñé una estrategia completa de producto y un prototipo de alta fidelidad en Figma para Demo Day."><strong>Título en UX/UI Design</strong><br>
-    Proyecto escolar: Luquita — app de finanzas personales para jóvenes adultos. Diseñé una estrategia completa de producto y un prototipo de alta fidelidad en Figma para Demo Day.</p>
+    <p data-en="<strong>UX/UI Design Certificate</strong><br>Nuclio Digital School — Barcelona, Spain, 2024<br>Capstone: Luquita, a personal-finance app for young adults — full product strategy and high-fidelity Figma prototype." data-es="<strong>Certificado en Diseño UX/UI</strong><br>Nuclio Digital School — Barcelona, España, 2024<br>Proyecto final: Luquita, una app de finanzas personales para jóvenes adultos — estrategia de producto completa y prototipo de alta fidelidad en Figma."><strong>Certificado en Diseño UX/UI</strong><br>
+    Nuclio Digital School — Barcelona, España, 2024<br>
+    Proyecto final: Luquita, una app de finanzas personales para jóvenes adultos — estrategia de producto completa y prototipo de alta fidelidad en Figma.</p>
+    <p style="margin-top:10px" data-en="<strong>High School Diploma, Tourism</strong><br>Colegio Reconquista — Buenos Aires, Argentina" data-es="<strong>Título Secundario, Turismo</strong><br>Colegio Reconquista — Buenos Aires, Argentina"><strong>Título Secundario, Turismo</strong><br>
+    Colegio Reconquista — Buenos Aires, Argentina</p>
 
     <h3 data-en="Skills" data-es="Habilidades">Habilidades</h3>
-    <ul>
-      <li data-en="UX/UI Design — Figma, user flows, prototyping, wireframes" data-es="Diseño UX/UI — Figma, flujos de usuario, prototipado, wireframes">Diseño UX/UI — Figma, flujos de usuario, prototipado, wireframes</li>
-      <li data-en="Visual Design — brand identity, apparel, print, illustration" data-es="Diseño visual — identidad de marca, ropa, impresión, ilustración">Diseño visual — identidad de marca, ropa, impresión, ilustración</li>
-      <li data-en="Front-end — HTML, CSS, JavaScript (learning), Firebase" data-es="Front-end — HTML, CSS, JavaScript (aprendiendo), Firebase">Front-end — HTML, CSS, JavaScript (aprendiendo), Firebase</li>
-      <li data-en="Product thinking — research, strategy, freemium models" data-es="Pensamiento de producto — investigación, estrategia, modelos freemium">Pensamiento de producto — investigación, estrategia, modelos freemium</li>
-      <li data-en="Client communication — iterative delivery, 5+ relationships" data-es="Comunicación con clientes — entregas iterativas, más de 5 relaciones">Comunicación con clientes — entregas iterativas, más de 5 relaciones</li>
-    </ul>
+    <div class="modal-skills">
+      <span class="tag" data-en="UX/UI Design" data-es="Diseño UX/UI">Diseño UX/UI</span>
+      <span class="tag" data-en="Figma" data-es="Figma">Figma</span>
+      <span class="tag" data-en="User Research" data-es="Investigación de usuarios">Investigación de usuarios</span>
+      <span class="tag" data-en="Wireframing &amp; Prototyping" data-es="Wireframes y Prototipos">Wireframes y Prototipos</span>
+      <span class="tag" data-en="HTML / CSS / JS" data-es="HTML / CSS / JS">HTML / CSS / JS</span>
+      <span class="tag" data-en="Firebase" data-es="Firebase">Firebase</span>
+      <span class="tag" data-en="Brand Identity" data-es="Identidad de Marca">Identidad de Marca</span>
+      <span class="tag" data-en="Bilingual (ES/EN)" data-es="Bilingüe (ES/EN)">Bilingüe (ES/EN)</span>
+      <span class="tag" data-en="Troubleshooting" data-es="Resolución de problemas">Resolución de problemas</span>
+      <span class="tag" data-en="Team Training" data-es="Capacitación de equipos">Capacitación de equipos</span>
+    </div>
   </div>
 </div>
 
@@ -1362,6 +1419,12 @@ function applyLang() {
       el.textContent = text;
     }
   });
+  // Point the résumé download at the matching-language PDF
+  const resumeLink = document.getElementById('resume-download-link');
+  if (resumeLink) {
+    resumeLink.href = l === 'en' ? 'assets/maria-morales-resume-en.pdf' : 'assets/maria-morales-resume-es.pdf';
+    resumeLink.setAttribute('download', l === 'en' ? 'Maria-Morales-Resume-EN.pdf' : 'Maria-Morales-Resume-ES.pdf');
+  }
 }
 // Load saved lang
 const savedLang = localStorage.getItem('lang');
