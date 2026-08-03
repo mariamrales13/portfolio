@@ -10,6 +10,9 @@
       var t = localStorage.getItem('theme');
       if (t) document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
+    // Only hide .reveal content when JS is available to un-hide it later.
+    // Prevents permanently invisible / very-low-contrast text if JS fails or is disabled.
+    document.documentElement.classList.add('js');
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,8 +289,11 @@
     }
 
     .reveal {
-      opacity: 0; transform: translateY(28px);
+      opacity: 1; transform: none;
       transition: opacity .65s var(--ease), transform .65s var(--ease);
+    }
+    .js .reveal {
+      opacity: 0; transform: translateY(28px);
     }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal.d1 { transition-delay: .1s; }
@@ -437,7 +443,7 @@
       color: var(--muted);
     }
     .tag.live { border-color: var(--accent); color: var(--accent); }
-    .tag.shipped { border-color: rgba(61,184,138,.5); color: rgba(61,184,138,.8); }
+    .tag.shipped { border-color: rgba(61,184,138,.5); color: var(--accent); }
 
     .proj-toggle {
       width: 32px; height: 32px; border-radius: 50%;
@@ -1022,8 +1028,8 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
         <div class="journey-item">
           <div class="journey-dot" style="border-style:dashed; opacity:.5;"></div>
           <div class="journey-content">
-            <p class="journey-year" style="opacity:.5">∞</p>
-            <p class="journey-title" style="opacity:.5" data-en="Learning" data-es="Aprendiendo">Learning</p>
+            <p class="journey-year" style="color:var(--dim)">∞</p>
+            <p class="journey-title" style="color:var(--muted)" data-en="Learning" data-es="Aprendiendo">Learning</p>
           </div>
         </div>
       </div>
@@ -1142,12 +1148,12 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Abruzzo Bar – event menus -->
     <div class="fl-item" data-cat="event">
 <div class="fl-carousel">
-  <img class="fl-img active" src="images/abruzzo-bar-1.webp" alt="Abruzzo Bar menu design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/abruzzo-bar-2.webp" alt="Abruzzo Bar menu design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/abruzzo-bar-1.webp" alt="Abruzzo Bar menu design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/abruzzo-bar-2.webp" alt="Abruzzo Bar menu design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
 
   <div class="fl-dots">
-    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 0);}" tabindex="0" role="button" aria-label="Go to image 1"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 1);}" tabindex="0" role="button" aria-label="Go to image 2"></span>
   </div>
 </div>     
  <div class="fl-overlay"><span class="fl-overlay-text">Abruzzo Bar</span></div>
@@ -1160,12 +1166,12 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Artesplash – apparel -->
     <div class="fl-item" data-cat="apparel">
       <div class="fl-carousel">
-  <img class="fl-img active" src="images/artesplash-1.webp" alt="Artesplash custom apparel design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/artesplash-2.webp" alt="Artesplash custom apparel design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/artesplash-1.webp" alt="Artesplash custom apparel design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/artesplash-2.webp" alt="Artesplash custom apparel design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
 
   <div class="fl-dots">
-    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 0);}" tabindex="0" role="button" aria-label="Go to image 1"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 1);}" tabindex="0" role="button" aria-label="Go to image 2"></span>
   </div>
 </div>     
       <div class="fl-overlay"><span class="fl-overlay-text">Artesplash</span></div>
@@ -1178,12 +1184,12 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Gusto Pasta - Restaurant branding -->
     <div class="fl-item" data-cat="brand">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/gustopasta-1.webp" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/gustopasta-2.webp" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/gustopasta-1.webp" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/gustopasta-2.webp" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
 
   <div class="fl-dots">
-    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 0);}" tabindex="0" role="button" aria-label="Go to image 1"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 1);}" tabindex="0" role="button" aria-label="Go to image 2"></span>
   </div>
 </div>     
       <div class="fl-overlay"><span class="fl-overlay-text">Gusto Pasta</span></div>
@@ -1196,12 +1202,12 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- BA Services - Logo Creations -->
     <div class="fl-item" data-cat="brand">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/baservices-1.webp" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/baservices-2.webp" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/baservices-1.webp" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/baservices-2.webp" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
 
   <div class="fl-dots">
-    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 0);}" tabindex="0" role="button" aria-label="Go to image 1"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 1);}" tabindex="0" role="button" aria-label="Go to image 2"></span>
   </div>
 </div>     
       <div class="fl-overlay"><span class="fl-overlay-text">BA Services</span></div>
@@ -1214,16 +1220,16 @@ max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
     <!-- Customized Designs – event flyers, illustrations -->
     <div class="fl-item" data-cat="event">
      <div class="fl-carousel">
-  <img class="fl-img active" src="images/customdesigns-1.webp" alt="Custom event flyers and illustration designs 1" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-2.webp" alt="Custom event flyers and illustration designs 2" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-3.webp" alt="Custom event flyers and illustration designs 3" loading="lazy" decoding="async" onclick="openLightbox(this)">
-  <img class="fl-img" src="images/customdesigns-4.webp" alt="Custom event flyers and illustration designs 4" loading="lazy" decoding="async" onclick="openLightbox(this)">
+  <img class="fl-img active" src="images/customdesigns-1.webp" alt="Custom event flyers and illustration designs 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/customdesigns-2.webp" alt="Custom event flyers and illustration designs 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/customdesigns-3.webp" alt="Custom event flyers and illustration designs 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+  <img class="fl-img" src="images/customdesigns-4.webp" alt="Custom event flyers and illustration designs 4" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
 
   <div class="fl-dots">
-    <span class="fl-dot active" onclick="goToSlide(event, this, 0)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 1)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 2)"></span>
-    <span class="fl-dot" onclick="goToSlide(event, this, 3)"></span>
+    <span class="fl-dot active" onclick="goToSlide(event, this, 0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 0);}" tabindex="0" role="button" aria-label="Go to image 1"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 1);}" tabindex="0" role="button" aria-label="Go to image 2"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 2);}" tabindex="0" role="button" aria-label="Go to image 3"></span>
+    <span class="fl-dot" onclick="goToSlide(event, this, 3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSlide(event, this, 3);}" tabindex="0" role="button" aria-label="Go to image 4"></span>
   </div>
 </div>     
       <div class="fl-overlay"><span class="fl-overlay-text">Custom Designs</span></div>
