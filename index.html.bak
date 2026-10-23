@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+  <script src="https://w.soundcloud.com/player/api.js" async></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.">
+  <title>Maria Morales: UX/UI Designer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081c10'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='700' text-anchor='middle' fill='%233db88a'%3EM%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#081c10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f2eb" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://mariamrales13.github.io/portfolio/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maria Morales">
+  <meta property="og:url" content="https://mariamrales13.github.io/portfolio/">
+  <meta property="og:title" content="Maria Morales: UX/UI Designer">
+  <meta property="og:description" content="Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.">
+  <!-- When you have a 1200x630 preview image, add:
+  <meta property="og:image" content="https://mariamrales13.github.io/portfolio/images/og-image.png">
+  and change the next line to summary_large_image -->
+  <meta name="twitter:card" content="summary">
+  <script>
+    // Set saved theme before first paint to avoid a flash of the wrong theme.
+    try {
+      var t = localStorage.getItem('theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+    // Only hide .reveal content when JS is available to un-hide it later.
+    // Prevents permanently invisible / very-low-contrast text if JS fails or is disabled.
+    document.documentElement.classList.add('js');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"></noscript>
+  <style>
+    
+    html {scrollbar-gutter: stable;}
+    main:focus { outline: none; }
+
+    /* ═══════════════════════════════
+       TOKENS - DARK (default)
+    ═══════════════════════════════ */
+    :root {
+      --bg:       #081c10;
+      --surface:  #0d2518;
+      --card:     #0f2b1c;
+      --border:   rgba(61,184,138,0.14);
+      --accent:   #3db88a;
+      --accent-hover: #4ecf9e;
+      --warm:     #f0ede6;
+      --muted:    rgba(240,237,230,0.65);
+      --dim:      rgba(240,237,230,0.6);
+      --nav-h:    60px;
+      --ease:     cubic-bezier(0.22,1,0.36,1);
+    }
+
+    /* LIGHT MODE */
+    [data-theme="light"] {
+      --bg:      #f5f2eb;
+      --surface: #ede9e0;
+      --card:    #e8e4da;
+      --border:  rgba(28,69,42,0.35);
+      --accent:  #1a6644;
+      --accent-hover: #0f4a31;
+      --warm:    #1a1a14;
+      --muted:   rgba(26,26,20,0.73);
+      --dim:     rgba(26,26,20,0.7);
+    }
+
+    /* ═══════════════════════════════
+       RESET
+    ═══════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--warm); font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; transition: background .3s, color .3s; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    .skip-link { position: absolute; top: -100%; left: 16px; z-index: 9999; background: var(--accent); color: var(--bg); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 14px; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; } }
+  
+
+    /* ═══════════════════════════════
+       NAV
+    ═══════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      padding: 0 48px;
+      transition: background .4s var(--ease), box-shadow .4s;
+    }
+    .nav.scrolled {
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    @media (max-width: 768px) {
+      .nav.scrolled {
+        background: color-mix(in srgb, var(--bg) 97%, transparent);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+    }
+    .nav-logo { white-space: nowrap; font-family: 'Fraunces', serif; font-size: 19px; font-weight: 700; color: var(--warm); flex: 1; letter-spacing: -0.3px; transition: opacity .2s; }
+    .nav-logo:hover { opacity: .75; }
+    .nav-logo em { font-style: italic; color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 13.5px; font-weight: 500; color: var(--muted); padding: 6px 14px; border-radius: 99px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--warm); background: rgba(128,128,128,.08); }
+    .nav-links a.active { color: var(--bg); background: var(--accent); }
+
+    /* controls: lang + theme */
+    .nav-controls { display: flex; align-items: center; gap: 8px; margin-left: 12px; }
+    .ctrl-btn {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--muted);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .ctrl-btn:hover { border-color: var(--accent); color: var(--warm); }
+    .ctrl-btn svg { width: 13px; height: 13px; }
+    .ctrl-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+    /* burger */
+    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; margin-left: 8px; }
+    .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--warm); border-radius: 2px; transition: transform .3s, opacity .3s; }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: color-mix(in srgb, var(--bg) 99%, transparent); padding: 20px 24px 28px; z-index: 299; border-bottom: 1px solid var(--border); }
+    @media (min-width: 769px) {
+      .nav-mobile { backdrop-filter: blur(20px); }
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a { display: block; font-size: 17px; font-weight: 500; color: var(--muted); padding: 12px 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--accent); }
+    .nav-mobile-controls { display: flex; gap: 8px; padding-top: 16px; }
+
+    /* ═══════════════════════════════
+       HERO: a framed panel with the two places I'm from, drawn quietly behind my name
+    ═══════════════════════════════ */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: calc(var(--nav-h) + 16px) clamp(16px, 3vw, 48px) 40px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: 50%; left: 50%;
+      width: min(1500px, 150vw); aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(37,137,122,.15) 0%, transparent 62%);
+      pointer-events: none;
+    }
+    [data-theme="light"] .hero-glow { opacity: .45; }
+
+    .hero-square {
+      --mx: -999px; --my: -999px;
+      width: min(1400px, 100%, max(calc((100svh - var(--nav-h) - 56px) * 1.751), 860px));
+      aspect-ratio: 1357 / 775;
+      position: relative; overflow: hidden;
+      container-type: inline-size;
+      background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 11%, var(--surface)) 0%, var(--surface) 72%);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+    }
+    .hero-square::before {
+      content: ''; position: absolute; inset: 1.23cqw;
+      border: 1px solid var(--border); border-radius: 18px;
+      opacity: .6; pointer-events: none;
+    }
+
+    /* the drawings: images with the accent colour baked in, kept low so the name stays loudest */
+    .hero-art { position: absolute; inset: 0; pointer-events: none; opacity: .38; }
+    .hero-art.tall { display: none; }
+    .dw { position: absolute; }
+    .d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    [data-theme="light"] .hero-art .d { filter: brightness(.55); }
+
+    /* cursor light: a bright copy of the drawings, revealed only around the pointer */
+    .hero-art.lit {
+      opacity: 0; transition: opacity .5s ease;
+      -webkit-mask-image: radial-gradient(circle 170px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%);
+              mask-image: radial-gradient(circle 170px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%);
+      filter: drop-shadow(0 0 3px var(--accent));
+    }
+    .hero-art.lit .dw { animation: none; -webkit-mask: none; mask: none; }
+    .hero-art.lit .d { filter: brightness(1.6) saturate(1.1); }
+    [data-theme="light"] .hero-art.lit .d { filter: brightness(.38) saturate(1.2); }
+    .hero-square.lit-on .hero-art.lit { opacity: 1; }
+    .hero-spot {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s ease;
+      background: radial-gradient(circle 300px at var(--mx) var(--my), color-mix(in srgb, var(--accent) 13%, transparent), transparent 70%);
+    }
+    .hero-square.lit-on .hero-spot { opacity: 1; }
+
+    /* everything below is sized in cqw, so the whole composition scales with the panel */
+    .hero-inner {
+      position: absolute; left: 0; right: 0; top: 12.5cqw;
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 0 9cqw;
+    }
+    .hero-hola {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(16px, 1.95cqw, 28px); line-height: 1.3;
+      color: var(--accent);
+      margin-bottom: .8cqw;
+    }
+    .hero-h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(46px, 7.4cqw, 104px);
+      font-weight: 900; font-optical-sizing: auto;
+      line-height: .92; letter-spacing: -.035em;
+      margin-bottom: 2.1cqw;
+      color: var(--warm);
+    }
+    .hero-h1 em { font-style: italic; font-weight: 400; color: var(--accent); display: block; }
+    .hero-sub {
+      font-size: clamp(13.5px, 1.33cqw, 19px);
+      color: var(--muted);
+      max-width: 47cqw; line-height: 1.72;
+      margin-bottom: 2.1cqw;
+    }
+    .hero-sub strong { color: var(--warm); font-weight: 500; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 4.2cqw; }
+
+    .btn-pri, .btn-sec {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: clamp(11px, 1.1cqw, 16px) clamp(24px, 2.3cqw, 34px); border-radius: 99px;
+      font-size: clamp(14px, 1.18cqw, 17px);
+    }
+    .btn-pri { background: var(--accent); color: var(--bg); font-weight: 600; border: none; transition: background .2s; }
+    .btn-pri:hover { background: var(--accent-hover); }
+    .btn-sec { background: transparent; color: var(--warm); font-weight: 500; border: 1.5px solid var(--border); transition: border-color .2s, background .2s; }
+    .btn-sec:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+
+    /* plain text links, same in the hero and in contact */
+    .soc-row { display: flex; gap: 10px 26px; justify-content: center; flex-wrap: wrap; }
+    .soc-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 500; color: var(--muted);
+      transition: color .2s;
+    }
+    .soc-link:hover { color: var(--accent); }
+    .soc-link svg { width: 17px; height: 17px; }
+    .hero-square .soc-link { font-size: clamp(13px, 1.18cqw, 17px); }
+
+    /* Phones and small tablets: the portrait card from the mobile design (346 x 690, sun and stars only) */
+    @media (max-width: 860px) {
+      .nav-controls { margin-left: 0; gap: 6px; }
+      .ctrl-btn { padding: 5px 9px; }
+      .hero-art.wide { display: none; }
+      .hero-art.tall { display: block; }
+      .hero-square { width: min(100%, 480px); aspect-ratio: 346 / 690; border-radius: 22px; }
+      .hero-square::before { inset: 1.7cqw; border-radius: 16px; }
+      .hero-inner { top: 59cqw; padding: 0 3.6cqw; }
+      .hero-hola { font-size: 5.4cqw; margin-bottom: 2.6cqw; }
+      .hero-h1 { font-size: 17cqw; line-height: .82; margin-bottom: 2.6cqw; }
+      .hero-sub { font-size: max(13.5px, 4.5cqw); line-height: 1.8; max-width: none; padding: 0 2.6cqw; margin-bottom: 4.6cqw; }
+      .hero-btns { flex-direction: column; width: 100%; gap: 2.6cqw; margin-bottom: 6.4cqw; }
+      .btn-pri, .btn-sec { width: 100%; padding: 3.4cqw 0; font-size: max(14px, 4.6cqw); }
+      .hero-socials { width: 100%; justify-content: space-between; padding: 0 6.4cqw; flex-wrap: nowrap; }
+      .hero-square .soc-link { font-size: max(12.5px, 4.2cqw); gap: 1.8cqw; }
+      .hero-art.lit { -webkit-mask-image: radial-gradient(circle 120px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%); mask-image: radial-gradient(circle 120px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%); }
+    }
+
+    /* Motion, only for people who haven't asked for less:
+       the panel fades in, each drawing is wiped in from the centre outward, then the name settles. */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-square { animation: fadeIn .8s ease both; }
+      .hero-inner  { animation: fadeIn .9s .7s ease both; }
+      .hero-art:not(.lit) .dw {
+        -webkit-mask-image: linear-gradient(90deg, #000 0, #000 40%, transparent 50%); mask-image: linear-gradient(90deg, #000 0, #000 40%, transparent 50%);
+        -webkit-mask-size: 300% 100%; mask-size: 300% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+        -webkit-mask-position: 0 0; mask-position: 0 0;
+        animation: wipe 1.5s cubic-bezier(.4, 0, .2, 1) both; animation-delay: calc(.3s + var(--i) * 65ms);
+      }
+    }
+    @keyframes wipe { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } }
+
+    /* ═══════════════════════════════
+       SECTION COMMONS
+    ═══════════════════════════════ */
+    .sec-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent); }
+
+    .sec-label {
+      font-size: 15px; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    /* One quiet fade per block. No stagger, no slide. */
+    .reveal { opacity: 1; transition: opacity .5s ease; }
+    .js .reveal { opacity: 0; }
+    .reveal.visible { opacity: 1; }
+
+    /* ═══════════════════════════════
+       ABOUT
+    ═══════════════════════════════ */
+    #about { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
+    .about-left h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--warm); margin-bottom: 24px; }
+    .about-left h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+    .about-left p { font-size: 15.5px; line-height: 1.78; color: var(--muted); max-width: 440px; }
+    .about-left p + p { margin-top: 16px; }
+    .about-left strong { color: var(--warm); font-weight: 500; }
+
+    /* about intro quote */
+    .about-quote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 2.2vw, 22px);
+    font-style: italic;      font-weight: 400;
+    color: var(--warm);
+    line-height: 1.55;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+    margin: 24px 0 32px;
+    }
+
+    /* expandable about sections */
+    .about-accordion { display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
+    .about-acc-item { border-bottom: 1px solid var(--border); }
+    .about-acc-item:first-child { border-top: 1px solid var(--border); }
+    .about-acc-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; cursor: pointer; background: none; border: none;
+      width: 100%; text-align: left; color: var(--warm);
+      transition: color .2s;
+    }
+    .about-acc-trigger:hover { color: var(--accent); }
+    .about-acc-label {
+      font-size: 13.5px; font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: inherit;
+    }
+    .about-acc-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color .2s, transform .3s;
+      color: var(--muted);
+    }
+    .about-acc-icon svg { width: 11px; height: 11px; }
+    .about-acc-item.open .about-acc-icon { transform: rotate(45deg); border-color: var(--accent); color: var(--accent); }
+    .about-acc-body {
+      display: none;
+      padding: 0 0 20px;
+      font-size: 15px; line-height: 1.75; color: var(--muted);
+    }
+    .about-acc-item.open .about-acc-body { display: block; }
+
+    /* journey timeline */
+    .journey { display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
+    .journey-item { display: flex; gap: 16px; padding-bottom: 24px; position: relative; }
+    .journey-item:not(:last-child)::before { content: ''; position: absolute; left: 11px; top: 24px; bottom: 0; width: 1px; background: var(--border); }
+    .journey-dot { width: 23px; height: 23px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+    .journey-dot.filled { background: var(--accent); }
+    .journey-dot svg { width: 11px; height: 11px; color: var(--bg); }
+    .journey-content { flex: 1; }
+    .journey-year { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 3px; }
+    .journey-title { font-size: 14px; font-weight: 600; color: var(--warm); margin-bottom: 3px; }
+    .journey-desc { font-size: 13px; line-height: 1.6; color: var(--muted); }
+
+    /* ═══════════════════════════════
+       PROJECTS SECTION
+    ═══════════════════════════════ */
+    #projects { padding: 0 0 100px; }
+
+    .proj-intro {
+      padding: 100px 48px 0;
+      max-width: 1200px; margin: 0 auto 60px;
+    }
+    .proj-intro h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 900; font-optical-sizing: auto;
+      letter-spacing: -2px; line-height: 1.05;
+      color: var(--warm);
+    }
+    .proj-intro h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+
+    /* Project cards */
+    .proj-cards {
+      display: flex; flex-direction: column; gap: 3px;
+    }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: none; border-right: none;
+      overflow: hidden;
+    }
+    .proj-card:first-child { border-top: 1px solid var(--border); }
+    .proj-card-header {
+      display: flex; align-items: center;
+      padding: 28px 48px;
+      cursor: pointer;
+      transition: background .2s;
+      gap: 24px;
+    }
+    .proj-card-header:hover { background: color-mix(in srgb, var(--warm) 4%, transparent); }
+    .proj-num {
+      font-family: 'Fraunces', serif;
+      font-size: 13px; font-weight: 300;
+      font-optical-sizing: auto;
+      color: var(--dim); font-style: italic;
+      flex-shrink: 0; width: 28px;
+    }
+    .proj-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700; font-optical-sizing: auto;
+      letter-spacing: -1px;
+      color: var(--warm); flex: 1;
+    }
+    .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tag.live { border-color: var(--accent); color: var(--accent); }
+    .tag.shipped { border-color: color-mix(in srgb, var(--accent) 50%, transparent); color: var(--accent); }
+
+    .proj-toggle {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, color .2s, transform .3s;
+      flex-shrink: 0;
+    }
+    .proj-card.open .proj-toggle { transform: rotate(45deg); border-color: var(--accent); color: var(--accent); }
+    .proj-toggle svg { width: 14px; height: 14px; }
+
+    .proj-body {
+      display: none;
+      padding: 0 48px 48px;
+    }
+    .proj-card.open .proj-body { display: grid; }
+    .proj-body-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding-top: 4px;
+      border-top: 1px solid var(--border);
+    }
+
+    .proj-desc {
+      padding-top: 28px;
+    }
+    .proj-desc p {
+      font-size: 15px; line-height: 1.75;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .proj-desc strong { color: var(--warm); font-weight: 500; }
+    .proj-desc-label {
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--dim);
+      margin-bottom: 6px; margin-top: 20px;
+    }
+
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 24px;
+      font-size: 13.5px; font-weight: 600;
+      color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      padding-bottom: 2px;
+      transition: border-color .2s, gap .2s;
+    }
+    .proj-link:hover { border-color: var(--accent); gap: 12px; }
+    .proj-link svg { width: 14px; height: 14px; }
+
+    /* LIVE pulse tag */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 40%, transparent)} 50%{opacity:.7;box-shadow:0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent)} }
+
+    /* test login callout */
+    .test-login {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px;
+      margin: 4px 0 18px;
+    }
+    .test-login-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .test-login-row { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .test-login-row code {
+      font-family: monospace; font-size: 13px; color: var(--warm);
+      background: color-mix(in srgb, var(--accent) 10%, transparent); padding: 1px 6px; border-radius: 4px;
+    }
+
+    /* media side */
+
+    /* Process galleries */
+    .proc-gallery { margin-top: 28px; }
+    .proc-label {
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--dim);
+      margin-bottom: 10px;
+    }
+    .proc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .proc-img {
+      width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      cursor: zoom-in; transition: border-color .2s, transform .2s;
+    }
+    .proc-img:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .proc-img:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    @media (max-width: 480px) { .proc-grid { grid-template-columns: repeat(2, 1fr); } }
+    .proj-media { padding-top: 28px; }
+    .proj-screenshot {
+      width: 100%; border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,.35);
+    }
+    .proj-screenshot img { width: 100%; display: block; }
+
+    /* browser chrome mockup */
+    .browser-chrome {
+      background: #1a2e20;
+      padding: 10px 12px 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .browser-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .browser-dot:nth-child(1) { background: #ff5f57; }
+    .browser-dot:nth-child(2) { background: #febc2e; }
+    .browser-dot:nth-child(3) { background: #28c840; }
+    .browser-bar {
+      flex: 1; margin-left: 8px;
+      background: rgba(255,255,255,.06);
+      border-radius: 4px; height: 20px;
+      display: flex; align-items: center; padding: 0 8px;
+      font-size: 12px; color: var(--dim); font-family: monospace;
+    }
+    .browser-img { display: block; width: 100%; }
+
+    /* ═══════════════════════════════
+       FREELANCE GALLERY
+    ═══════════════════════════════ */
+    #freelance {
+      scroll-margin-top: calc(var(--nav-h) + 28px);
+      padding: 0 48px 100px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .freelance-header { margin-bottom: 48px; }
+    .freelance-header h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 900; font-optical-sizing: auto;
+      letter-spacing: -2px; line-height: 1.05;
+      color: var(--warm);
+    }
+    .freelance-header h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+    .freelance-header p { font-size: 15px; color: var(--muted); max-width: 480px; margin-top: 12px; line-height: 1.7; }
+
+    .freelance-tabs {
+      display: flex; gap: 6px; margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .f-tab {
+      padding: 7px 16px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--muted);
+      font-size: 13px; font-weight: 500;
+      transition: border-color .2s, color .2s;
+    }
+    .f-tab:hover { border-color: var(--accent); color: var(--warm); }
+    .f-tab.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+    .freelance-grid { columns: 3; column-gap: 16px; }
+    .fl-item {
+      break-inside: avoid; margin-bottom: 16px;
+      border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: border-color .2s;
+    }
+    .fl-item:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+    /* Images stack in one grid cell, so a card is as tall as its tallest image and nothing is cropped */
+    .fl-carousel { position: relative; }
+    /* Slides sit in a horizontal scroll-snap track: swipe on touch, dots anywhere.
+       The track is as tall as its tallest slide, so nothing is cropped. */
+    .fl-track {
+      display: flex; overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scrollbar-width: none;
+    }
+    .fl-track::-webkit-scrollbar { display: none; }
+    .fl-img {
+      flex: 0 0 100%; min-width: 0; align-self: center;
+      scroll-snap-align: center; scroll-snap-stop: always;
+      width: 100%; height: auto; cursor: zoom-in;
+    }
+    /* before the script wraps the slides (or with JS off) show only the first one */
+    .fl-carousel:not(.is-ready) .fl-img:not(.active) { display: none; }
+
+    .fl-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(26,26,20,.6); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none;
+    }
+    .fl-prev { left: 8px; }
+    .fl-next { right: 8px; }
+
+    .fl-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+      padding: 5px 8px; border-radius: 99px; background: rgba(8,28,16,.45);
+    }
+    .fl-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.4);
+    }
+    .fl-dot { border: none; padding: 0; cursor: pointer; position: relative; }
+    .fl-dot::after { content: ""; position: absolute; inset: -9px -3px; }
+    .fl-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .fl-dot.active { background: var(--accent); }
+    .fl-logo { padding: 9%; box-sizing: border-box; }
+    .fl-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 12.5px; font-weight: 500; color: var(--accent); }
+    .fl-link svg { width: 13px; height: 13px; }
+    .fl-link:hover { text-decoration: underline; }
+    .fl-info { padding: 16px 18px; }
+    .fl-client { font-size: 13px; font-weight: 600; color: var(--warm); margin-bottom: 2px; }
+    .fl-type { font-size: 12px; color: var(--dim); }
+
+
+    /* ═══════════════════════════════
+       CONTACT
+    ═══════════════════════════════ */
+    #contact {
+      scroll-margin-top: calc(var(--nav-h) + 28px);
+      padding: 100px 48px 80px;
+      max-width: 1200px; margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner {
+      max-width: 560px; margin: 0 auto;
+    }
+    #contact .sec-label { margin-bottom: 14px; }
+    #contact h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 900; font-optical-sizing: auto;
+      letter-spacing: -2.5px; line-height: 1.0;
+      color: var(--warm); margin-bottom: 16px;
+    }
+    #contact h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+    #contact p {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.7; margin-bottom: 32px;
+    }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 17px; font-weight: 600; color: var(--warm);
+      padding: 16px 36px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      transition: border-color .2s, background .2s, gap .2s;
+    }
+    .contact-email:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); gap: 14px; }
+    .contact-email svg { width: 18px; height: 18px; color: var(--accent); }
+
+    .contact-actions { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 22px; border-radius: 99px;
+      border: 1.5px solid var(--border); background: transparent; color: var(--muted);
+      font-size: 14px; font-weight: 500;
+      transition: border-color .2s, color .2s;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--warm); }
+    .copy-btn svg { width: 16px; height: 16px; color: var(--accent); }
+    .contact-socials { margin-top: 26px; }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 36px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;
+    }
+    .foot-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 18px; font-weight: 700;
+      font-optical-sizing: auto; color: var(--warm);
+    }
+    .foot-logo em { font-style: italic; color: var(--accent); }
+    footer p { font-size: 12px; color: var(--dim); }
+    .foot-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 26px; }
+    .foot-links a, .foot-links button {
+      font-size: 13.5px; font-weight: 500;
+      color: var(--muted); transition: color .2s;
+      background: none; border: none; padding: 0; cursor: pointer;
+      font-family: inherit;
+    }
+    .foot-links a:hover, .foot-links button:hover { color: var(--accent); }
+
+    /* ═══════════════════════════════
+       RESUME MODAL
+    ═══════════════════════════════ */
+    .backdrop {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 500; backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .backdrop.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 44px 48px 48px;
+      max-width: 620px; width: 100%;
+      max-height: 88vh; overflow-y: auto;
+      position: relative;
+      animation: modalIn .35s var(--ease);
+    }
+    @keyframes modalIn { from { opacity:0; transform: scale(.94) translateY(10px); } }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+    .modal-close:hover { border-color: var(--accent); color: var(--warm); }
+    .modal-close svg { width: 14px; height: 14px; }
+    .modal h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 28px; font-weight: 900;
+      font-optical-sizing: auto; letter-spacing: -1px;
+      color: var(--warm); margin-bottom: 4px;
+    }
+    .modal-title-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      padding-right: 46px;
+    }
+    .resume-download-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 99px;
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--warm);
+      font-size: 12.5px; font-weight: 600;
+      white-space: nowrap;
+      transition: border-color .2s, color .2s, background .2s;
+      flex-shrink: 0;
+    }
+    .resume-download-btn:hover, .resume-download-btn:focus-visible {
+      border-color: var(--accent); color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+    .modal .modal-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 6px; }
+    .modal .modal-avail { font-size: 12.5px; font-weight: 600; color: var(--accent); margin-bottom: 28px; }
+    .modal-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .modal-skills .tag { font-size: 12px; }
+    .modal h3 {
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: var(--accent); margin: 24px 0 8px;
+    }
+    .modal p, .modal li { font-size: 14px; line-height: 1.72; color: var(--muted); }
+    .modal ul { padding-left: 16px; }
+    .modal li + li { margin-top: 4px; }
+    .modal strong { color: var(--warm); font-weight: 500; }
+
+   /* ═══════════════════════════════
+       IMAGE LIGHTBOX
+    ═══════════════════════════════ */  
+    .lightbox-modal {
+      max-width: min(90vw, calc(100vw - 48px));     max-height: 90vh;
+      width: auto;
+      padding: 16px;
+      overflow: visible;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox-modal .modal-close {
+      position: fixed;
+      top: 24px; right: 24px;
+      background: rgba(26,26,20,.6);
+      border: none;
+      color: #fff;
+    }
+    .lightbox-modal .modal-close:hover {
+      background: rgba(26,26,20,.85);
+      border-color: transparent;
+      color: #fff;
+    }
+    .lightbox-modal .fl-prev { left: -50px; }
+    .lightbox-modal .fl-next { right: -50px; }
+
+    /* ═══════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════ */
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 960px) {
+      #hero, #about, #freelance, #contact, footer { padding-left: 24px; padding-right: 24px; }
+      .proj-card-header, .proj-body { padding-left: 24px; padding-right: 24px; }
+      .proj-intro { padding-left: 24px; padding-right: 24px; }
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-mobile { padding-left: 24px; padding-right: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .proj-body-inner { grid-template-columns: 1fr; gap: 28px; }
+      .freelance-grid { columns: 2; }
+      .hero-h1 { letter-spacing: -2px; }
+    }
+    @media (max-width: 600px) {
+      .freelance-grid { columns: 1; }
+    }
+    @media (max-width: 600px) {
+      .lightbox-modal .fl-prev { left: 8px; }
+      .lightbox-modal .fl-next { right: 8px; }
+      .lightbox-modal .fl-arrow { width: 40px; height: 40px; }
+    }
+    /* ═══════════════════════════════
+       MOBILE REFINEMENTS
+    ═══════════════════════════════ */
+    .modal-contact { overflow-wrap: anywhere; }
+    .modal-contact a { color: var(--accent); }
+    #lightbox-img { touch-action: pan-y pinch-zoom; }
+    .snd-btn.is-loading { animation: sndPulse 1s ease-in-out infinite; }
+    @keyframes sndPulse { 50% { opacity: .45; } }
+    @media (max-width: 600px) {
+      /* project cards: number, title and toggle on row 1; tags get their own row */
+      .proj-card-header { flex-wrap: wrap; gap: 10px 14px; padding-top: 22px; padding-bottom: 22px; }
+      .proj-num { width: 22px; }
+      .proj-card-title { flex: 1 1 0; min-width: 0; }
+      .proj-toggle { order: 1; }
+      .proj-tags { order: 2; flex: 0 0 100%; gap: 6px; padding-left: 36px; }
+      .tag { font-size: 11px; padding: 3px 9px; letter-spacing: .06em; }
+
+      /* résumé modal: more room, stacked header, one contact item per line */
+      .backdrop { padding: 12px; }
+      .modal { padding: 28px 20px 28px; border-radius: 16px; max-height: 92vh; max-height: 92dvh; }
+      .modal h2 { font-size: 24px; }
+      .modal-title-row { flex-direction: column; align-items: flex-start; gap: 12px; padding-right: 40px; }
+      .resume-download-btn { align-self: flex-start; }
+      .modal-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 10px; }
+      .modal-contact .sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-en="Skip to main content" data-es="Ir al contenido principal">Skip to main content</a>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">Maria <em>Morales</em></a>
+  <ul class="nav-links" role="list">
+    <li><a href="#about" data-nav="about" data-en="About" data-es="Sobre mí">About</a></li>
+    <li><a href="#projects" data-nav="projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+    <li><a href="#freelance" data-nav="freelance" data-en="Freelance" data-es="Freelance">Freelance</a></li>
+    <li><a href="#contact" data-nav="contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language" data-aria-en="Switch language" data-aria-es="Cambiar idioma" onclick="toggleLang()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      <span id="lang-label">ES</span>
+    </button>
+    <button class="ctrl-btn snd-btn" id="sound-toggle" aria-pressed="false" aria-label="Play ambient music" title="Ambient music" onclick="toggleSound()">
+      <svg class="snd-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><svg class="snd-on" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+    </button>
+    <button class="ctrl-btn" id="theme-toggle" aria-label="Toggle theme" data-aria-en="Toggle theme" data-aria-es="Cambiar tema" onclick="toggleTheme()">
+      <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <svg id="theme-icon-light" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+  </div>
+  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="mob-menu" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mob-menu">
+  <a href="#about" onclick="closeMob()" data-en="About" data-es="Sobre mí">About</a>
+  <a href="#projects" onclick="closeMob()" data-en="Projects" data-es="Proyectos">Projects</a>
+  <a href="#freelance" onclick="closeMob()" data-en="Freelance" data-es="Freelance">Freelance</a>
+  <a href="#contact" onclick="closeMob()" data-en="Contact" data-es="Contacto">Contact</a>
+  <div class="nav-mobile-controls">
+    <button class="ctrl-btn" onclick="toggleLang()"><span id="lang-label-mob">ES</span></button>
+    <button class="ctrl-btn snd-btn" aria-pressed="false" onclick="toggleSound()" data-en="Music" data-es="Música">Music</button>
+    <button class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Light/Dark</button>
+  </div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<main id="main" tabindex="-1">
+<section id="hero" aria-labelledby="h1">
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-square">
+    <div class="hero-spot" aria-hidden="true"></div>
+    <div class="hero-art wide" aria-hidden="true">
+      <span class="dw" style="left:2.211%;top:54.452%;width:6.656%;height:43.569%;--i:23"><img class="d" loading="lazy" src="images/hero/obelisco.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:28.480%;top:35.033%;width:7.790%;height:13.640%;--i:1"><img class="d" loading="lazy" src="images/hero/ball.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:11.290%;top:65.479%;width:7.609%;height:22.662%;transform:rotate(-11.53deg);--i:17"><img class="d" loading="lazy" src="images/hero/guitar.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:3.765%;top:9.398%;width:5.589%;height:15.391%;transform:rotate(-10.34deg);--i:24"><img class="d" loading="lazy" src="images/hero/wine.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:29.415%;top:62.313%;width:3.630%;height:12.379%;transform:rotate(-25.35deg);--i:4"><img class="d" loading="lazy" src="images/hero/mate.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:80.056%;top:64.513%;width:18.525%;height:33.637%;--i:18"><img class="d" loading="lazy" src="images/hero/salto-angel.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:66.249%;top:48.387%;width:6.436%;height:9.535%;--i:2"><img class="d" loading="lazy" src="images/hero/bird.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:75.000%;top:33.145%;width:13.157%;height:19.925%;transform:rotate(0.56deg);--i:11"><img class="d" loading="lazy" src="images/hero/tropical.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:22.347%;top:81.534%;width:7.482%;height:16.829%;transform:rotate(-1.81deg);--i:13"><img class="d" loading="lazy" src="images/hero/tango.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:24.025%;top:10.098%;width:8.093%;height:13.908%;transform:rotate(-30.00deg);--i:8"><img class="d" loading="lazy" src="images/hero/jersey.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:42.113%;top:10.394%;width:16.034%;height:28.075%;--i:0"><img class="d" loading="lazy" src="images/hero/sun.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:2.211%;top:40.258%;width:7.639%;height:4.370%;--i:20"><img class="d" loading="lazy" src="images/hero/argentina.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:89.743%;top:40.197%;width:7.639%;height:3.576%;--i:19"><img class="d" loading="lazy" src="images/hero/venezuela.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:13.223%;top:33.576%;width:8.155%;height:9.798%;transform:rotate(-30.00deg);--i:14"><img class="d" loading="lazy" src="images/hero/bandera-arg.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:40.678%;top:7.355%;width:18.865%;height:11.226%;--i:3"><img class="d" loading="lazy" src="images/hero/stars.webp" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg);"></span>
+      <span class="dw" style="left:74.029%;top:62.197%;width:9.811%;height:12.608%;transform:rotate(15.40deg);--i:10"><img class="d" loading="lazy" src="images/hero/bandera-ven.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:16.361%;top:47.287%;width:9.027%;height:18.102%;transform:rotate(1.49deg);--i:9"><img class="d" loading="lazy" src="images/hero/3-estrellas.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:69.241%;top:80.537%;width:8.017%;height:17.637%;--i:12"><img class="d" loading="lazy" src="images/hero/folklore.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:13.488%;top:15.754%;width:6.807%;height:9.516%;transform:rotate(15.00deg);--i:16"><img class="d" loading="lazy" src="images/hero/flor-arg.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:91.289%;top:50.889%;width:6.666%;height:12.023%;transform:rotate(15.50deg);--i:21"><img class="d" loading="lazy" src="images/hero/orquidea-ven.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:65.747%;top:17.977%;width:9.227%;height:15.494%;transform:rotate(-31.01deg);--i:7"><img class="d" loading="lazy" src="images/hero/guante.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:62.288%;top:12.520%;width:4.009%;height:6.929%;--i:6"><img class="d" loading="lazy" src="images/hero/pelota.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:64.875%;top:71.051%;width:5.219%;height:11.521%;transform:rotate(15.00deg);--i:5"><img class="d" loading="lazy" src="images/hero/empanada.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:87.120%;top:10.259%;width:10.059%;height:18.312%;transform:rotate(-0.21deg);--i:22"><img class="d" loading="lazy" src="images/hero/araguaney.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:77.010%;top:8.959%;width:6.202%;height:12.862%;transform:rotate(22.87deg);--i:15"><img class="d" loading="lazy" src="images/hero/hallaca.webp" alt="" decoding="async"></span>
+    </div>
+    <div class="hero-art tall" aria-hidden="true">
+      <span class="dw" style="left:20.17%;top:15.74%;width:63.01%;aspect-ratio:1;--i:0"><img class="d" loading="lazy" src="images/hero/sun.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:14.451%;top:12.319%;width:73.988%;aspect-ratio:256/87;--i:1"><img class="d" loading="lazy" src="images/hero/stars.webp" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg)"></span>
+    </div>
+    <div class="hero-inner">
+      <p class="hero-hola" data-en="Hello, I'm" data-es="Hola, soy">Hello, I'm</p>
+      <h1 class="hero-h1" id="h1">
+        Maria<br>
+        <em>Morales</em>
+      </h1>
+      <p class="hero-sub" data-en="UX/UI designer. I build what I design: &lt;strong&gt;real clients&lt;/strong&gt;, and &lt;strong&gt;an app in production&lt;/strong&gt; that replaced my team's paper sheets." data-es="Diseñadora UX/UI. Construyo lo que diseño: &lt;strong&gt;clientes reales&lt;/strong&gt; y &lt;strong&gt;una app en producción&lt;/strong&gt; que reemplazó las hojas de papel de mi equipo.">UX/UI designer. I build what I design: <strong>real clients</strong>, and <strong>an app in production</strong> that replaced my team's paper sheets.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-pri" data-en="See My Work" data-es="Ver mi trabajo">See My Work</a>
+        <button class="btn-sec" onclick="openResume()" data-en="View Resume" data-es="Ver currículum">View Resume</button>
+      </div>
+      <div class="hero-socials soc-row" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="LinkedIn" data-es="LinkedIn">LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="GitHub" data-es="GitHub">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+        <a href="mailto:maria.moralesj13@gmail.com" class="soc-link"><span data-en="Email" data-es="Email">Email</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<div class="sec-divider"></div>
+<section id="about" aria-labelledby="about-h">
+  <div class="about-grid">
+
+    <!-- LEFT: quote + expandable sections -->
+    <div class="about-left">
+      <p class="sec-label reveal" data-en="About me" data-es="Sobre mí">About me</p>
+      <h2 class="reveal" id="about-h">
+        <span data-en="A few things&lt;br&gt;&lt;em&gt;about me.&lt;/em&gt;" data-es="Algunas cosas&lt;br&gt;&lt;em&gt;sobre mí.&lt;/em&gt;">A few things<br><em>about me.</em></span>
+      </h2>
+
+      <!-- one-liner quote -->
+      <blockquote class="about-quote reveal">
+        <span data-en="I grew up translating between two countries: not just language, but tone and expectations. Design turned out to be the same job." data-es="Crecí traduciendo entre dos países: no solo el idioma, sino el tono y las expectativas. El diseño resultó ser el mismo trabajo.">I grew up translating between two countries: not just language, but tone and expectations. Design turned out to be the same job.</span>
+      </blockquote>
+
+      <!-- accordion sections -->
+      <div class="about-accordion reveal">
+
+        <div class="about-acc-item open" id="acc-1">
+          <button class="about-acc-trigger" onclick="toggleAcc(1)" aria-expanded="true" aria-controls="acc-body-1">
+            <span class="about-acc-label" data-en="My Story" data-es="Mi historia">My Story</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-1">
+            <p style="margin-bottom:14px"><span data-en="I was born in Venezuela and grew up in Argentina, so I was always translating something: not just language, but tone, expectations, the way people wanted to be talked to. The habit stuck. I still explain things twice, once simply and once in detail, because I never assume the first version landed." data-es="Nací en Venezuela y crecí en Argentina, así que siempre estaba traduciendo algo: no solo el idioma, sino el tono, las expectativas, la forma en que la gente quería que le hablaran. La costumbre se me quedó. Todavía explico las cosas dos veces, una simple y otra en detalle, porque nunca doy por sentado que la primera versión se entendió.">I was born in Venezuela and grew up in Argentina, so I was always translating something: not just language, but tone, expectations, the way people wanted to be talked to. The habit stuck. I still explain things twice, once simply and once in detail, because I never assume the first version landed.</span></p>
+            <p><span data-en="My mind works like a set of gears: analyzing, poking around, imagining solutions before I ever put them on paper. At 18 someone gave me a Rubik's cube, and that's where I learned that a design isn't finished until every piece is resolved. Noticing small details was the first sign I could be a designer." data-es="Mi mente funciona como un engranaje: analizo, curioseo e imagino soluciones en mi cabeza antes de ponerlas en papel. A los 18 me regalaron un cubo Rubik y ahí aprendí que un diseño no está terminado hasta que todas sus piezas están resueltas. Fijarme en los detalles chicos fue la primera señal de que podía ser diseñadora.">My mind works like a set of gears: analyzing, poking around, imagining solutions before I ever put them on paper. At 18 someone gave me a Rubik's cube, and that's where I learned that a design isn't finished until every piece is resolved. Noticing small details was the first sign I could be a designer.</span></p>
+          </div>
+        </div>
+
+        <div class="about-acc-item" id="acc-2">
+          <button class="about-acc-trigger" onclick="toggleAcc(2)" aria-expanded="false" aria-controls="acc-body-2">
+            <span class="about-acc-label" data-en="Why I Design" data-es="Por qué diseño">Why I Design</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-2">
+            <p><span data-en="I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I built the replacement. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed." data-es="No elegí el diseño por la estética. Siempre notaba cosas más difíciles de lo que deberían ser y no podía dejar de imaginar cómo podrían funcionar mejor. Break Board empezó justo así: las hojas de papel para registrar descansos se perdían y a muchos no les gustaba usarlas, así que construí el reemplazo. Lo que busco en mi trabajo es simple: que a alguien se le haga el día un poco más fácil y ni note que fue diseñado.">I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I built the replacement. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed.</span></p>
+          </div>
+        </div>
+
+        <div class="about-acc-item" id="acc-3">
+          <button class="about-acc-trigger" onclick="toggleAcc(3)" aria-expanded="false" aria-controls="acc-body-3">
+            <span class="about-acc-label" data-en="The Way I Think" data-es="Cómo pienso">The Way I Think</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-3">
+            <p><span data-en="I start with two questions: who is this for, and what do they actually need? Then I research, sketch, design, and build. If I don't know how to build something, I learn it. I keep testing until it works for the people it's for, not until it looks good. Accessibility is part of the conversation from the start." data-es="Empiezo con dos preguntas: ¿para quién es esto y qué necesita realmente? Después investigo, dibujo, diseño y construyo. Si no sé cómo construir algo, lo aprendo. Sigo probando hasta que funciona para la gente a la que está destinado, no hasta que se ve bien. La accesibilidad forma parte de la conversación desde el principio.">I start with two questions: who is this for, and what do they actually need? Then I research, sketch, design, and build. If I don't know how to build something, I learn it. I keep testing until it works for the people it's for, not until it looks good. Accessibility is part of the conversation from the start.</span></p>
+          </div>
+        </div>
+
+        <div class="about-acc-item" id="acc-4">
+          <button class="about-acc-trigger" onclick="toggleAcc(4)" aria-expanded="false" aria-controls="acc-body-4">
+            <span class="about-acc-label" data-en="Outside of Design" data-es="Fuera del diseño">Outside of Design</span>
+            <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="about-acc-body" id="acc-body-4">
+            <p><span data-en="You'll probably find me photographing landscapes, sipping mate (the tea, not a friend) while watching soccer, or organizing absolutely everything I can get my hands on." data-es="Probablemente me encuentres fotografiando paisajes, tomando unos mates mientras veo fútbol, u organizando absolutamente todo lo que se me cruce.">You'll probably find me photographing landscapes, sipping mate (the tea, not a friend) while watching soccer, or organizing absolutely everything I can get my hands on.</span></p>
+          </div>
+        </div>
+
+      </div><!-- end accordion -->
+    </div>
+
+    <!-- RIGHT: journey timeline -->
+    <div class="about-right reveal">
+      <p class="sec-label" style="margin-bottom:24px" data-en="My journey" data-es="Mi trayectoria">My journey</p>
+      <div class="journey">
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2022</p>
+            <p class="journey-title" data-en="Started freelance design" data-es="Empecé diseño freelance">Started freelance design</p>
+            <p class="journey-desc" data-en="First clients, first real briefs, apparel, logos, brand identity." data-es="Primeros clientes, primeros briefs reales, ropa, logos, identidad de marca.">First clients, first real briefs, apparel, logos, brand identity.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2024–2025</p>
+            <p class="journey-title" data-en="Master in UX/UI Design" data-es="Máster en UX/UI Design">Master in UX/UI Design</p>
+            <p class="journey-desc" data-en="Studied interaction design, user research, and prototyping. Built Luquita, a full product with a business model." data-es="Estudié diseño de interacción, investigación de usuarios y prototipado. Construí Luquita, un producto completo con modelo de negocio.">Studied interaction design, user research, and prototyping. Built Luquita, a full product with a business model.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot filled">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div class="journey-content">
+            <p class="journey-year">2026</p>
+            <p class="journey-title" data-en="Built &amp; shipped Break Board" data-es="Construí y lancé Break Board">Built &amp; shipped Break Board</p>
+            <p class="journey-desc" data-en="Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.">Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot"></div>
+          <div class="journey-content">
+            <p class="journey-year" data-en="Now" data-es="Ahora">Now</p>
+            <p class="journey-title" data-en="Breaking into tech" data-es="Entrando al mundo tech">Breaking into tech</p>
+            <p class="journey-desc" data-en="Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions." data-es="Aprendiendo a programar de forma independiente. Buscando roles híbridos de diseño + código. Abierta a posiciones tech de nivel inicial.">Learning to code independently. Targeting design + code hybrid roles. Open to entry-level tech positions.</p>
+          </div>
+        </div>
+        <div class="journey-item">
+          <div class="journey-dot" style="border-style:dashed; opacity:.5;"></div>
+          <div class="journey-content">
+            <p class="journey-year" style="color:var(--dim)">∞</p>
+            <p class="journey-title" style="color:var(--muted)" data-en="Learning" data-es="Aprendiendo">Learning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ PROJECTS ═══════════ -->
+<div class="sec-divider"></div>
+<section id="projects" aria-labelledby="proj-h">
+  <div class="proj-intro">
+    <p class="sec-label reveal" data-en="Featured work" data-es="Trabajo destacado">Featured work</p>
+    <h2 class="reveal" id="proj-h" data-en="Things I've &lt;em&gt;shipped.&lt;/em&gt;" data-es="Cosas que he &lt;em&gt;lanzado.&lt;/em&gt;">Things I've <em>shipped.</em></h2>
+  </div>
+
+  <div class="proj-cards">
+
+    <!-- PROJECT 1: Break Board -->
+    <div class="proj-card" id="card-1">
+      <div class="proj-card-header" onclick="toggleCard(1)">
+        <span class="proj-num">01</span>
+        <h3 class="proj-card-title">Break Board</h3>
+        <div class="proj-tags">
+          <span class="tag live" data-en="● Live" data-es="● En vivo">● Live</span>
+          <span class="tag shipped" data-en="Designed" data-es="Diseñado">Designed</span>
+          <span class="tag shipped" data-en="Built" data-es="Desarrollado">Built</span>
+          <span class="tag shipped" data-en="Deployed" data-es="Desplegado">Deployed</span>
+        </div>
+        <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-1" aria-label="Expand Break Board">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+      <div class="proj-body" id="body-1">
+        <div class="proj-body-inner">
+          <div class="proj-desc">
+            <div class="live-badge"><span data-en="Live at ecomm-breaklog.web.app" data-es="En vivo en ecomm-breaklog.web.app">Live at ecomm-breaklog.web.app</span><span class="live-dot"></span></div>
+            <p data-en="My workplace ran on a manual system for logging employee breaks. Sheets got lost or forgotten, and plenty of people just didn't like using them. The complaints came from both sides: employees wanted something easier, with fewer steps, and managers wanted something more accessible, without worrying about lost sheets or scanning them every night." data-es="Mi trabajo tenía un sistema manual para registrar los breaks de los empleados. Las hojas se perdían o se olvidaban, y a muchos simplemente no les gustaba usarlas. Las quejas venían de ambos lados: los empleados querían algo más fácil, con menos pasos, y los managers querían una opción más accesible, sin preocuparse de que las hojas se perdieran o tener que escanearlas cada noche.">My workplace ran on a manual system for logging employee breaks. Sheets got lost or forgotten, and plenty of people just didn't like using them. The complaints came from both sides: employees wanted something easier, with fewer steps, and managers wanted something more accessible, without worrying about lost sheets or scanning them every night.</p>
+            <p data-en="&lt;strong&gt;I designed the UI from scratch, coded it, and deployed it on Firebase.&lt;/strong&gt; Used daily by the team since July 2026." data-es="&lt;strong&gt;Diseñé la interfaz desde cero, la codifiqué y la desplegué en Firebase.&lt;/strong&gt; Usada a diario por el equipo desde julio de 2026."><strong>I designed the UI from scratch, coded it, and deployed it on Firebase.</strong> Used daily by the team since July 2026.</p>
+            <p class="proj-desc-label" data-en="The approach" data-es="El enfoque">The approach</p>
+            <p data-en="Every decision was made with both users in mind: accessibility for employees and managers, balance, an adjustable design, and fewer steps at every turn." data-es="Cada decisión fue pensada en ambos usuarios: accesibilidad para empleados y para managers, balance, un diseño ajustable y menos pasos en cada proceso.">Every decision was made with both users in mind: accessibility for employees and managers, balance, an adjustable design, and fewer steps at every turn.</p>
+            <p class="proj-desc-label" data-en="The result" data-es="El resultado">The result</p>
+            <p data-en="Now there's more visibility. Employees spend less time filling things out and have clarity around their breaks. Managers don't have to worry about employees abusing their breaks, and at the end of the night, one button logs everything. No unnecessary steps." data-es="Ahora hay mayor visibilidad. Los empleados tardan menos en registrar sus breaks y tienen más claridad al tomarlos. Los managers no tienen que preocuparse de que se abuse de los breaks, y al final de la noche, un solo botón registra todo. Sin pasos innecesarios.">Now there's more visibility. Employees spend less time filling things out and have clarity around their breaks. Managers don't have to worry about employees abusing their breaks, and at the end of the night, one button logs everything. No unnecessary steps.</p>
+            <p class="proj-desc-label" data-en="What it does" data-es="Qué hace">What it does</p>
+            <p><span data-en="4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests." data-es="4 slots de descanso en tiempo real con cuenta regresiva, contador de ocupación en vivo, Modo Kiosco con PIN, vista de historial para gerentes, registro diario con exportación CSV y solicitudes de extensión.">4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests.</span></p>
+            <p class="proj-desc-label" data-en="Stack" data-es="Tecnologías">Stack</p>
+            <p>HTML · CSS · JavaScript · Firebase (Hosting + Realtime Database)</p>
+            <div class="test-login">
+              <div class="test-login-label" data-en="Want to try it yourself?" data-es="¿Querés probarlo vos?">Want to try it yourself?</div>
+              <div class="test-login-row" data-en="Use the test account below, no need to sign up." data-es="Usá la cuenta de prueba de abajo, no hace falta registrarte.">Use the test account below, no need to sign up.</div>
+              <div class="test-login-row">Email: <code>tester01@hotmail.com</code></div>
+              <div class="test-login-row"><span data-en="Password" data-es="Contraseña">Password</span>: <code>tester01</code></div>
+            </div>
+            <a href="https://ecomm-breaklog.web.app/" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="Visit live site" data-es="Visitar sitio en vivo">Visit live site</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+          <div class="proj-media">
+            <div class="proj-screenshot">
+              <div class="browser-chrome">
+                <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                <div class="browser-bar">ecomm-breaklog.web.app</div>
+              </div>
+              <img src="images/break-board/breakboard-1.webp" alt="Break Board application showing 4 break slots, live counter, and break form" loading="lazy" decoding="async" class="browser-img">
+            </div>
+            <div class="proc-gallery">
+              <p class="proc-label" data-en="Process" data-es="Proceso">Process</p>
+              <div class="proc-grid">
+              <img class="proc-img" src="images/break-board/breakboard-2.webp" alt="Break Board process image 2 of 6" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/break-board/breakboard-3.webp" alt="Break Board process image 3 of 6" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/break-board/breakboard-4.webp" alt="Break Board process image 4 of 6" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/break-board/breakboard-5.webp" alt="Break Board process image 5 of 6" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/break-board/breakboard-6.webp" alt="Break Board process image 6 of 6" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: Luquita -->
+    <div class="proj-card" id="card-2">
+      <div class="proj-card-header" onclick="toggleCard(2)">
+        <span class="proj-num">02</span>
+        <h3 class="proj-card-title">Luquita</h3>
+        <div class="proj-tags">
+          <span class="tag">UX/UI</span>
+          <span class="tag" data-en="Mobile App" data-es="App móvil">Mobile App</span>
+          <span class="tag" data-en="Capstone" data-es="Proyecto final">Capstone</span>
+        </div>
+        <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-2" aria-label="Expand Luquita">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+      <div class="proj-body" id="body-2">
+        <div class="proj-body-inner">
+          <div class="proj-desc">
+            <p data-en="&lt;strong&gt;Luquita&lt;/strong&gt; is a personal finance mobile app designed for young working adults, helping them manage their money, track goals, and build financial confidence." data-es="&lt;strong&gt;Luquita&lt;/strong&gt; es una app móvil de finanzas personales diseñada para jóvenes adultos que trabajan, ayudándolos a administrar su dinero, realizar seguimiento de metas y construir confianza financiera."><strong>Luquita</strong> is a personal finance mobile app designed for young working adults, helping them manage their money, track goals, and build financial confidence.</p>
+            <p><span data-en="Built as a school group project for Demo Day, the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens. We were building a business." data-es="Construido como proyecto grupal escolar para el Demo Day, el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas. Construimos un negocio.">Built as a school group project for Demo Day, the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens. We were building a business.</span></p>
+            <p class="proj-desc-label" data-en="My role" data-es="Mi rol">My role</p>
+            <p data-en="UX/UI design in Figma, UX research, user flows, wireframes, high-fidelity screens, and interactive prototype." data-es="Diseño UX/UI en Figma, investigación UX, flujos de usuario, wireframes, pantallas de alta fidelidad y prototipo interactivo.">UX/UI design in Figma, UX research, user flows, wireframes, high-fidelity screens, and interactive prototype.</p>
+            <p class="proj-desc-label" data-en="Problem" data-es="Problema">Problem</p>
+            <p data-en="Luquita came out of just how much young people struggle when it comes to their finances. Our research was about finding what was happening, why it was happening, and what we could actually do about it. We learned that young people didn't have the information or guidance to manage their money. General finance apps gave too little context, which created confusion instead of understanding." data-es="Luquita nació de lo mucho que les cuesta a los jóvenes pensar en sus finanzas. Nuestra investigación se centró en encontrar qué estaba pasando, por qué pasaba y qué podíamos hacer al respecto. Aprendimos que los jóvenes no tenían la información ni una guía que les enseñara a manejar sus finanzas. Las apps generales daban poca información, lo que generaba más confusión que entendimiento.">Luquita came out of just how much young people struggle when it comes to their finances. Our research was about finding what was happening, why it was happening, and what we could actually do about it. We learned that young people didn't have the information or guidance to manage their money. General finance apps gave too little context, which created confusion instead of understanding.</p>
+            <p class="proj-desc-label" data-en="Approach" data-es="Enfoque">Approach</p>
+            <p data-en="We designed Luquita around a mindset of educating: helping young people learn to manage their money and build the confidence to actually put it to use." data-es="Diseñamos Luquita con la mentalidad de educar: que los jóvenes aprendieran a manejar su dinero y ganaran confianza para distribuirlo.">We designed Luquita around a mindset of educating: helping young people learn to manage their money and build the confidence to actually put it to use.</p>
+            <p class="proj-desc-label" data-en="Validation" data-es="Validación">Validation</p>
+            <p data-en="In user testing, Luquita came through as accessible, approachable, and confidence-building. Learning about finance through your own finances turned out to be genuinely useful, and the ability to simulate a scenario gave people the confidence to take real financial steps." data-es="En nuestro user testing, Luquita resultó accesible, amigable y generadora de confianza. Aprender de finanzas con tus propias finanzas resultó realmente útil, y la posibilidad de simular un escenario les dio confianza para tomar decisiones financieras reales.">In user testing, Luquita came through as accessible, approachable, and confidence-building. Learning about finance through your own finances turned out to be genuinely useful, and the ability to simulate a scenario gave people the confidence to take real financial steps.</p>
+            <a href="https://www.figma.com/proto/agrII1fMgp1FVykwjUULJ6/Luquita?page-id=1954%3A6882&amp;node-id=1954-59996&amp;viewport=1028%2C195%2C0.06&amp;t=qnwqL4mTEPwuXbwr-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1954%3A59996" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="View Figma prototype" data-es="Ver prototipo en Figma">View Figma prototype</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+          <div class="proj-media">
+            <div class="proj-screenshot" style="border-radius:14px; overflow:hidden; background: color-mix(in srgb, var(--accent) 16%, var(--card)); padding: 8% 12% 0;">
+              <img src="images/luquita/luquita-1.webp" alt="Luquita finance app mockup on iPhone" loading="lazy" decoding="async" style="width:100%;display:block;">
+            </div>
+            <div class="proc-gallery">
+              <p class="proc-label" data-en="Process" data-es="Proceso">Process</p>
+              <div class="proc-grid">
+              <img class="proc-img" src="images/luquita/luquita-2.webp" alt="Luquita process image 2 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-3.webp" alt="Luquita process image 3 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-4.webp" alt="Luquita process image 4 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-5.webp" alt="Luquita process image 5 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-6.webp" alt="Luquita process image 6 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-7.webp" alt="Luquita process image 7 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              <img class="proc-img" src="images/luquita/luquita-8.webp" alt="Luquita process image 8 of 8" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FREELANCE ═══════════ -->
+<div class="sec-divider" style="margin-top:100px"></div>
+<section id="freelance" aria-labelledby="fl-h">
+  <div class="freelance-header">
+    <p class="sec-label reveal" data-en="Freelance design" data-es="Diseño freelance">Freelance design</p>
+    <h2 class="reveal" id="fl-h" data-en="Real clients, &lt;em&gt;real work.&lt;/em&gt;" data-es="Clientes reales, &lt;em&gt;trabajo real.&lt;/em&gt;">Real clients, <em>real work.</em></h2>
+    <p class="reveal" data-en="Logos, brand identities, apparel, menus, and flyers. Every piece started as a real brief from someone who needed it." data-es="Logos, identidades de marca, ropa, menús y flyers. Cada pieza empezó como un brief real de alguien que lo necesitaba.">Logos, brand identities, apparel, menus, and flyers. Every piece started as a real brief from someone who needed it.</p>
+  </div>
+
+  <div class="freelance-tabs" role="group" aria-label="Filter freelance work" data-aria-en="Filter freelance work" data-aria-es="Filtrar trabajos freelance">
+    <button class="f-tab active" data-filter="all" onclick="filterFL('all')" aria-pressed="true" data-en="All" data-es="Todos">All</button>
+    <button class="f-tab" data-filter="brand" onclick="filterFL('brand')" aria-pressed="false" data-en="Branding &amp; Logos" data-es="Branding y logos">Branding &amp; Logos</button>
+    <button class="f-tab" data-filter="apparel" onclick="filterFL('apparel')" aria-pressed="false" data-en="Apparel" data-es="Ropa">Apparel</button>
+    <button class="f-tab" data-filter="event" onclick="filterFL('event')" aria-pressed="false" data-en="Event &amp; Menus" data-es="Eventos y menús">Event &amp; Menus</button>
+    <button class="f-tab" data-filter="web" onclick="filterFL('web')" aria-pressed="false" data-en="Web" data-es="Web">Web</button>
+  </div>
+
+  <div class="freelance-grid reveal" id="fl-grid">
+
+    <!-- Carola Nails: brand identity + website -->
+    <div class="fl-item" data-cat="brand web">
+      <div class="fl-carousel">
+        <img class="fl-img fl-logo active" src="images/carola-logo.webp" alt="Carola Nails logo: a stylized C holding a hand with sparkles, in purple" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Carola Nails</div>
+        <div class="fl-type" data-en="Brand identity · Website" data-es="Identidad de marca · Sitio web">Brand identity · Website</div>
+        <a class="fl-link" href="https://carolanails.netlify.app/" target="_blank" rel="noopener noreferrer"><span data-en="Visit site" data-es="Ver sitio">Visit site</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </div>
+
+    <!-- Abruzzo Bar – event menus -->
+    <div class="fl-item" data-cat="event">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/abruzzo-bar/abruzzo-bar-1.webp" alt="Abruzzo Bar menu design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/abruzzo-bar/abruzzo-bar-2.webp" alt="Abruzzo Bar menu design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/abruzzo-bar/abruzzo-bar-3.webp" alt="Abruzzo Bar menu design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/abruzzo-bar/abruzzo-bar-4.webp" alt="Abruzzo Bar menu design 4" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/abruzzo-bar/abruzzo-bar-5.webp" alt="Abruzzo Bar menu design 5" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 3)" aria-label="Go to image 4"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 4)" aria-label="Go to image 5"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Abruzzo Bar</div>
+        <div class="fl-type" data-en="Event menus · @abruzzo_bar · Houston TX" data-es="Menús de eventos · @abruzzo_bar · Houston TX">Event menus · @abruzzo_bar · Houston TX</div>
+      </div>
+    </div>
+
+    <!-- Artesplash – apparel -->
+    <div class="fl-item" data-cat="apparel">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/artesplash/artesplash-1.webp" alt="Artesplash custom apparel design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/artesplash/artesplash-2.webp" alt="Artesplash custom apparel design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/artesplash/artesplash-3.webp" alt="Artesplash custom apparel design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/artesplash/artesplash-4.webp" alt="Artesplash custom apparel design 4" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 3)" aria-label="Go to image 4"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Artesplash</div>
+        <div class="fl-type" data-en="Custom apparel · @artesplash · BA" data-es="Ropa personalizada · @artesplash · BA">Custom apparel · @artesplash · BA</div>
+      </div>
+    </div>
+
+    <!-- Apparel – new designs -->
+    <div class="fl-item" data-cat="apparel">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/apparel/apparel-1.webp" alt="Custom apparel design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/apparel/apparel-2.webp" alt="Custom apparel design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/apparel/apparel-3.webp" alt="Custom apparel design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/apparel/apparel-4.webp" alt="Custom apparel design 4" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/apparel/apparel-5.webp" alt="Custom apparel design 5" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 3)" aria-label="Go to image 4"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 4)" aria-label="Go to image 5"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Apparel</div>
+        <div class="fl-type" data-en="Custom apparel designs" data-es="Diseños de ropa personalizada">Custom apparel designs</div>
+      </div>
+    </div>
+
+    <!-- Gusto Pasta - Restaurant branding -->
+    <div class="fl-item" data-cat="brand">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/gusto-pasta/gustopasta-1.webp" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/gusto-pasta/gustopasta-2.webp" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/gusto-pasta/gustopasta-3.webp" alt="Gusto Pasta design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Gusto Pasta</div>
+        <div class="fl-type" data-en="Brand identity · @gusto.pastas · BA" data-es="Identidad de marca · @gusto.pastas · BA">Brand identity · @gusto.pastas · BA</div>
+      </div>
+    </div>
+
+    <!-- BA Services - Logo Creations -->
+    <div class="fl-item" data-cat="brand">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/ba-services/baservices-1.webp" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/ba-services/baservices-2.webp" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">BA Services</div>
+        <div class="fl-type" data-en="Brand identity · MA" data-es="Identidad de marca · MA">Brand identity · MA</div>
+        <a class="fl-link" href="https://www.linkedin.com/company/baservices-us/" target="_blank" rel="noopener noreferrer"><span data-en="View on LinkedIn" data-es="Ver en LinkedIn">View on LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </div>
+
+    <!-- Customized Designs – event flyers, illustrations -->
+    <div class="fl-item" data-cat="event">
+      <div class="fl-carousel">
+        <img class="fl-img active" src="images/illustrations-%26-logos/customdesigns-1.webp" alt="Custom event flyers and illustration designs 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/illustrations-%26-logos/customdesigns-2.webp" alt="Custom event flyers and illustration designs 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/illustrations-%26-logos/customdesigns-3.webp" alt="Custom event flyers and illustration designs 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img class="fl-img" src="images/illustrations-%26-logos/customdesigns-4.webp" alt="Custom event flyers and illustration designs 4" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 3)" aria-label="Go to image 4"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Custom Designs</div>
+        <div class="fl-type" data-en="Flyers · Illustrations · T-shirts" data-es="Flyers · ilustraciones · camisetas">Flyers · Illustrations · T-shirts</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<div class="sec-divider" style="margin-top:100px"></div>
+<section id="contact" aria-labelledby="contact-h">
+  <div class="contact-inner">
+    <p class="sec-label reveal" data-en="Get in touch" data-es="Ponete en contacto">Get in touch</p>
+    <h2 class="reveal" id="contact-h" data-en="Let's work&lt;br&gt;&lt;em&gt;together.&lt;/em&gt;" data-es="Trabajemos&lt;br&gt;&lt;em&gt;juntos.&lt;/em&gt;">Let's work<br><em>together.</em></h2>
+    <p class="reveal" data-en="Open to UX/UI, design + code hybrid, and IT-adjacent roles. Always happy to talk, whether it's a job, a project, or just a hello." data-es="Abierta a roles UX/UI, híbridos de diseño + código y cercanos a TI. Siempre feliz de conversar, ya sea por un trabajo, un proyecto o simplemente un saludo.">Open to UX/UI, design + code hybrid, and IT-adjacent roles. Always happy to talk, whether it's a job, a project, or just a hello.</p>
+    <div class="contact-actions reveal">
+      <a href="mailto:maria.moralesj13@gmail.com" class="contact-email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        maria.moralesj13@gmail.com
+      </a>
+      <button type="button" class="copy-btn" onclick="copyEmail(this)" aria-label="Copy email address" data-aria-en="Copy email address" data-aria-es="Copiar correo electrónico">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        <span data-en="Copy" data-es="Copiar">Copy</span>
+      </button>
+    </div>
+    <div class="soc-row contact-socials reveal">
+      <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="LinkedIn" data-es="LinkedIn">LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+      <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="GitHub" data-es="GitHub">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+    </div>
+    <span class="sr-only" role="status" id="copy-status"></span>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <span class="foot-logo">Maria <em>Morales</em></span>
+  <nav class="foot-links" aria-label="Footer links">
+    <button type="button" onclick="openResume()" data-en="Resume" data-es="Currículum">Resume</button>
+    <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a>
+    <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="mailto:maria.moralesj13@gmail.com" data-en="Email" data-es="Email">Email</a>
+  </nav>
+  <p data-en="Designed &amp; built by Maria Morales © 2026" data-es="Diseñado y construido por Maria Morales © 2026">Designed &amp; built by Maria Morales © 2026</p>
+</footer>
+
+<!-- ═══════════ RESUME MODAL ═══════════ -->
+<div class="backdrop" id="resume-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-h">
+  <div class="modal">
+    <button class="modal-close" onclick="closeResume()" aria-label="Close résumé" data-aria-en="Close résumé" data-aria-es="Cerrar currículum">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div class="modal-title-row">
+      <h2 id="resume-h">Maria Morales</h2>
+      <a class="resume-download-btn" id="resume-download-link" href="assets/maria-morales-resume-en.pdf" download="Maria-Morales-Resume-EN.pdf">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span data-en="Download PDF" data-es="Descargar PDF">Download PDF</span>
+      </a>
+    </div>
+    <p class="modal-sub modal-contact"><span>Norwood, MA</span><span class="sep" aria-hidden="true"> · </span><a href="mailto:maria.moralesj13@gmail.com">maria.moralesj13@gmail.com</a><span class="sep" aria-hidden="true"> · </span><span>(754) 267-6683</span><span class="sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer">linkedin.com/in/maria-morales-5a0845134</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">github.com/mariamrales13</a></p>
+    <p class="modal-avail" data-en="Open to remote" data-es="Disponible para trabajo remoto">Open to remote</p>
+
+    <h3 data-en="Profile" data-es="Perfil">Profile</h3>
+    <p data-en="Bilingual UX/UI designer (native Spanish, fluent English) who also builds. I design in Figma and code in HTML, CSS, and JavaScript, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language." data-es="Diseñadora UX/UI bilingüe (español nativo, inglés fluido) que también desarrolla. Diseño en Figma y programo en HTML, CSS y JavaScript, para que mis ideas lleguen a personas reales y no se queden en una maqueta. Mi primer producto publicado, Break Board, reemplazó las hojas de papel que mi equipo siempre perdía. Me formé en Nuclio Digital School y aprendí front-end por mi cuenta. Tres años en e-commerce y logística me enseñaron a detectar dónde falla un proceso y a explicar la solución con claridad, en cualquiera de los dos idiomas.">Bilingual UX/UI designer (native Spanish, fluent English) who also builds. I design in Figma and code in HTML, CSS, and JavaScript, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language.</p>
+
+    <h3 data-en="Selected Design &amp;amp; Development Work" data-es="Proyectos Destacados de Diseño y Desarrollo">Selected Design &amp; Development Work</h3>
+    <p data-en="&lt;strong&gt;Break Board, Designer &amp;amp; Developer&lt;/strong&gt; · 2025–2026&lt;br&gt;Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. Did it all solo: research, wireframes, high-fidelity UI, code, and launch. Also built a PIN-locked Kiosk Mode, a manager history view, and CSV export." data-es="&lt;strong&gt;Break Board, Diseñadora y Desarrolladora&lt;/strong&gt; · 2025–2026&lt;br&gt;Reemplacé las hojas de papel que mi equipo usaba para registrar descansos, y que se perdían seguido, por una app web en vivo (HTML, CSS, JavaScript, Firebase), usada a diario por el equipo desde julio de 2026. Los empleados hacen menos pasos y ven una cuenta regresiva; los gerentes ven los turnos en tiempo real y cierran la noche con un solo botón. Lo hice todo yo sola: investigación, wireframes, diseño de alta fidelidad, código y lanzamiento. También armé un Modo Kiosco con PIN, un historial para gerentes y exportación a CSV."><strong>Break Board, Designer &amp; Developer</strong> · 2025–2026<br>Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. Did it all solo: research, wireframes, high-fidelity UI, code, and launch. Also built a PIN-locked Kiosk Mode, a manager history view, and CSV export.</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;Luquita, UX/UI Designer&lt;/strong&gt; · 2024–2025&lt;br&gt;Personal-finance app for young adults, built with a team for Nuclio&amp;#x27;s Demo Day. I handled UX research, user flows, wireframes, high-fidelity screens, and the interactive Figma prototype. In user testing, people found it approachable, and simulating scenarios gave them confidence to take real financial steps." data-es="&lt;strong&gt;Luquita, Diseñadora UX/UI&lt;/strong&gt; · 2024–2025&lt;br&gt;App de finanzas personales para jóvenes adultos, creada en equipo para el Demo Day de Nuclio. Me encargué de la investigación UX, los flujos de usuario, los wireframes, las pantallas de alta fidelidad y el prototipo interactivo en Figma. En las pruebas, la app resultó accesible y cercana, y simular escenarios les dio confianza para dar pasos reales."><strong>Luquita, UX/UI Designer</strong> · 2024–2025<br>Personal-finance app for young adults, built with a team for Nuclio&#x27;s Demo Day. I handled UX research, user flows, wireframes, high-fidelity screens, and the interactive Figma prototype. In user testing, people found it approachable, and simulating scenarios gave them confidence to take real financial steps.</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;Freelance Graphic Designer&lt;/strong&gt; · 2022–Present&lt;br&gt;Designed logos, brand identities, apparel, event menus, and illustrations for clients including Abruzzo Bar, Artesplash, and Gusto Pasta. Ran every project myself, from the first conversation to the final files." data-es="&lt;strong&gt;Diseñadora Gráfica Freelance&lt;/strong&gt; · 2022–Presente&lt;br&gt;Diseñé logos, identidades de marca, indumentaria, menús para eventos e ilustraciones para clientes como Abruzzo Bar, Artesplash y Gusto Pasta. Llevé cada proyecto yo misma, desde la primera conversación hasta los archivos finales."><strong>Freelance Graphic Designer</strong> · 2022–Present<br>Designed logos, brand identities, apparel, event menus, and illustrations for clients including Abruzzo Bar, Artesplash, and Gusto Pasta. Ran every project myself, from the first conversation to the final files.</p>
+
+    <h3 data-en="Professional Experience" data-es="Experiencia Profesional">Professional Experience</h3>
+    <p data-en="&lt;strong&gt;E-Commerce Supervisor, Whole Foods Market&lt;/strong&gt; · Sep 2025–Sep 2026 · Dedham, MA&lt;br&gt;The team&amp;#x27;s go-to when ordering systems acted up. Fixed problems in real time so orders stayed accurate and went out on time. Watched performance data for slowdowns and worked with store leadership to fix what I found." data-es="&lt;strong&gt;Supervisora de E-Commerce, Whole Foods Market&lt;/strong&gt; · Sep 2025–Sep 2026 · Dedham, MA&lt;br&gt;La persona a quien el equipo recurría cuando fallaban los sistemas de pedidos. Resolvía los problemas en tiempo real para que los pedidos salieran correctos y a tiempo. Seguía los datos de rendimiento para detectar demoras y trabajaba con el liderazgo de la tienda para resolverlas."><strong>E-Commerce Supervisor, Whole Foods Market</strong> · Sep 2025–Sep 2026 · Dedham, MA<br>The team&#x27;s go-to when ordering systems acted up. Fixed problems in real time so orders stayed accurate and went out on time. Watched performance data for slowdowns and worked with store leadership to fix what I found.</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;E-Commerce Team Trainer, Whole Foods Market&lt;/strong&gt; · Jun 2025–Sep 2025 · Dedham, MA&lt;br&gt;Created and taught onboarding and systems training in English and Spanish, turning complicated software into simple step-by-step guides for new hires. Wrote down best practices so the whole team used the systems the same way." data-es="&lt;strong&gt;Capacitadora de Equipo de E-Commerce, Whole Foods Market&lt;/strong&gt; · Jun 2025–Sep 2025 · Dedham, MA&lt;br&gt;Creé y dicté capacitaciones de incorporación y de sistemas en inglés y español, convirtiendo software complicado en guías simples, paso a paso, para nuevos empleados. Documenté las mejores prácticas para que todo el equipo usara los sistemas de la misma manera."><strong>E-Commerce Team Trainer, Whole Foods Market</strong> · Jun 2025–Sep 2025 · Dedham, MA<br>Created and taught onboarding and systems training in English and Spanish, turning complicated software into simple step-by-step guides for new hires. Wrote down best practices so the whole team used the systems the same way.</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;E-Commerce Shopper, Whole Foods Market&lt;/strong&gt; · Oct 2024–Jun 2025 · Dedham, MA&lt;br&gt;Fulfilled online orders through internal systems, keeping quality high with digital checks and direct customer support." data-es="&lt;strong&gt;E-Commerce Shopper, Whole Foods Market&lt;/strong&gt; · Oct 2024–Jun 2025 · Dedham, MA&lt;br&gt;Preparé pedidos en línea con sistemas internos, cuidando la calidad con verificaciones digitales y atención al cliente."><strong>E-Commerce Shopper, Whole Foods Market</strong> · Oct 2024–Jun 2025 · Dedham, MA<br>Fulfilled online orders through internal systems, keeping quality high with digital checks and direct customer support.</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;Warehouse Logistics Lead, JAS Contract Logistics&lt;/strong&gt; · Feb 2023–Sep 2024 · Chicago, IL&lt;br&gt;Ran daily warehouse operations in WMS, oversaw inbound and outbound freight, and flagged system discrepancies. Coordinated teams across departments to consistently hit service targets." data-es="&lt;strong&gt;Líder de Logística de Almacén, JAS Contract Logistics&lt;/strong&gt; · Feb 2023–Sep 2024 · Chicago, IL&lt;br&gt;Dirigí el almacén día a día con sistemas WMS, supervisé envíos de entrada y salida y señalé discrepancias del sistema. Coordiné equipos de distintas áreas para cumplir de forma constante con los objetivos de servicio."><strong>Warehouse Logistics Lead, JAS Contract Logistics</strong> · Feb 2023–Sep 2024 · Chicago, IL<br>Ran daily warehouse operations in WMS, oversaw inbound and outbound freight, and flagged system discrepancies. Coordinated teams across departments to consistently hit service targets.</p>
+
+    <h3 data-en="Education" data-es="Educación">Education</h3>
+    <p data-en="&lt;strong&gt;Master in UX/UI Design&lt;/strong&gt;&lt;br&gt;Nuclio Digital School, Barcelona, Spain, 2024–2025&lt;br&gt;Capstone: Luquita, a personal-finance app built as a team project (see above)." data-es="&lt;strong&gt;Máster en UX/UI Design&lt;/strong&gt;&lt;br&gt;Nuclio Digital School, Barcelona, España, 2024–2025&lt;br&gt;Proyecto final: Luquita, una app de finanzas personales creada en equipo (ver arriba)."><strong>Master in UX/UI Design</strong><br>Nuclio Digital School, Barcelona, Spain, 2024–2025<br>Capstone: Luquita, a personal-finance app built as a team project (see above).</p>
+    <p style="margin-top:10px" data-en="&lt;strong&gt;High School Diploma, Tourism&lt;/strong&gt;&lt;br&gt;Colegio Reconquista, Buenos Aires, Argentina" data-es="&lt;strong&gt;Título Secundario, Turismo&lt;/strong&gt;&lt;br&gt;Colegio Reconquista, Buenos Aires, Argentina"><strong>High School Diploma, Tourism</strong><br>Colegio Reconquista, Buenos Aires, Argentina</p>
+
+    <h3 data-en="Skills" data-es="Habilidades">Skills</h3>
+    <div class="modal-skills">
+      <span class="tag" data-en="UX/UI Design" data-es="Diseño UX/UI">UX/UI Design</span>
+      <span class="tag" data-en="Figma" data-es="Figma">Figma</span>
+      <span class="tag" data-en="User Research" data-es="Investigación de usuarios">User Research</span>
+      <span class="tag" data-en="Wireframing &amp; Prototyping" data-es="Wireframes y Prototipos">Wireframing &amp; Prototyping</span>
+      <span class="tag" data-en="Usability Testing" data-es="Pruebas de usabilidad">Usability Testing</span>
+      <span class="tag" data-en="Accessibility" data-es="Accesibilidad">Accessibility</span>
+      <span class="tag" data-en="HTML / CSS / JS" data-es="HTML / CSS / JS">HTML / CSS / JS</span>
+      <span class="tag" data-en="Firebase" data-es="Firebase">Firebase</span>
+      <span class="tag" data-en="Brand Identity" data-es="Identidad de Marca">Brand Identity</span>
+      <span class="tag" data-en="Bilingual (ES/EN)" data-es="Bilingüe (ES/EN)">Bilingual (ES/EN)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ IMAGE LIGHTBOX ═══════════ -->
+<div class="backdrop" id="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Enlarged image" data-aria-en="Enlarged image" data-aria-es="Imagen ampliada">
+  <button class="modal-close" onclick="closeLightbox()" aria-label="Close image" data-aria-en="Close image" data-aria-es="Cerrar imagen">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <div class="modal lightbox-modal">
+    <button class="fl-arrow fl-prev" onclick="changeLightboxSlide(-1)" aria-label="Previous image" data-aria-en="Previous image" data-aria-es="Imagen anterior">‹</button>
+    <img id="lightbox-img" src="" alt="" style="max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
+    <button class="fl-arrow fl-next" onclick="changeLightboxSlide(1)" aria-label="Next image" data-aria-en="Next image" data-aria-es="Imagen siguiente">›</button>
+    <div id="lightbox-counter" style="text-align:center; margin-top:8px; color:var(--muted);"></div>
+  </div>
+</div>
+
+<!-- Hidden SoundCloud Player & Credit Wrapper -->
+<div id="sound-wrapper">
+  <div id="hidden-sound-container" style="position: fixed; bottom: 12px; right: 24px; z-index: 350; display: flex; align-items: center; gap: 8px; pointer-events: none; opacity: 0; transition: opacity 0.3s ease;" hidden>
+    <div style="background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); padding: 6px 12px; border-radius: 99px; pointer-events: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+      <a href="https://soundcloud.com/gustavo-cisneros-994851307/nino-recorde-lvemc-luciernagas" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: var(--muted); text-decoration: none; font-family: 'Inter', sans-serif; display: inline-block; white-space: nowrap;">
+        Niño, Recordé, LVEMC, Luciérnagas - Milo J · <span style="color: var(--accent);">SoundCloud</span>
+      </a>
+    </div>
+  </div>
+
+  <div style="position: fixed; left: -9999px; top: 0; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
+    <iframe id="sc-audio-iframe" title="Ambient music player" tabindex="-1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2199678247&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false" allow="autoplay"></iframe>
+  </div>
+</div>
+
+<script>
+/* ── Nav ───────────────────────── */
+const nav = document.getElementById('nav');
+const navAs = document.querySelectorAll('[data-nav]');
+const navSectionIds = ['about','projects','freelance','contact'];
+
+let scrollTicking = false;
+function updateNavOnScroll() {
+  nav.classList.toggle('scrolled', scrollY > 20);
+  let cur = '';
+  /* measured live: opening a card, filtering, or switching language changes the
+     page height, so cached offsets would drift */
+  navSectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 130) cur = id;
+  });
+  navAs.forEach(a => a.classList.toggle('active', a.dataset.nav === cur));
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(updateNavOnScroll);
+    scrollTicking = true;
+  }
+}, { passive: true });
+window.addEventListener('load', updateNavOnScroll);
+updateNavOnScroll();
+
+/* ── Mobile menu ───────────────── */
+const burger = document.getElementById('burger');
+const mob = document.getElementById('mob-menu');
+function setBurgerLabel() {
+  const open = mob.classList.contains('open');
+  burger.setAttribute('aria-label', currentLang === 'es' ? (open ? 'Cerrar menú' : 'Abrir menú') : (open ? 'Close menu' : 'Open menu'));
+}
+burger.addEventListener('click', () => {
+  const o = mob.classList.toggle('open');
+  burger.setAttribute('aria-expanded', o);
+  setBurgerLabel();
+});
+function closeMob() { mob.classList.remove('open'); burger.setAttribute('aria-expanded','false'); setBurgerLabel(); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mob.classList.contains('open')) { closeMob(); burger.focus(); }
+});
+
+/* ── Theme: follows the device until she picks one ──────── */
+function setTheme(t, save) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('theme-icon-dark').style.display = t === 'dark' ? '' : 'none';
+  document.getElementById('theme-icon-light').style.display = t === 'dark' ? 'none' : '';
+  if (save) { try { localStorage.setItem('theme', t); } catch (e) {} }
+}
+function toggleTheme() {
+  setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+}
+setTheme(document.documentElement.getAttribute('data-theme'), false);
+try {
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) setTheme(e.matches ? 'light' : 'dark', false);
+  });
+} catch (e) {}
+
+/* ── Language toggle ───────────────── */
+let currentLang = 'en';
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'es' : 'en';
+  applyLang();
+  try { localStorage.setItem('lang', currentLang); } catch (e) {}
+}
+function applyLang() {
+  const l = currentLang;
+  document.querySelectorAll('#lang-label, #lang-label-mob').forEach(el => {
+    el.textContent = l === 'en' ? 'ES' : 'EN';
+  });
+  document.documentElement.setAttribute('lang', l);
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + l);
+    if (!text) return;
+    if (text.includes('<')) el.innerHTML = text;
+    else el.textContent = text;
+  });
+  const resumeLink = document.getElementById('resume-download-link');
+  if (resumeLink) {
+    resumeLink.href = l === 'en' ? 'assets/maria-morales-resume-en.pdf' : 'assets/maria-morales-resume-es.pdf';
+    resumeLink.setAttribute('download', l === 'en' ? 'Maria-Morales-Resume-EN.pdf' : 'Maria-Morales-Resume-ES.pdf');
+  }
+  // translated aria-labels, page title and descriptions
+  document.querySelectorAll('[data-aria-en]').forEach(el => el.setAttribute('aria-label', el.getAttribute('data-aria-' + l)));
+  document.querySelectorAll('.fl-dot').forEach((d, i, all) => {
+    const idx = Array.from(d.parentNode.children).indexOf(d) + 1;
+    d.setAttribute('aria-label', (l === 'es' ? 'Ir a la imagen ' : 'Go to image ') + idx);
+  });
+  document.querySelectorAll('.proj-card').forEach(updateCardToggle);
+  setBurgerLabel();
+  const meta = PAGE_META[l];
+  document.title = meta.title;
+  document.querySelectorAll('meta[name="description"], meta[property="og:description"]').forEach(m => m.setAttribute('content', meta.desc));
+  document.querySelectorAll('meta[property="og:title"]').forEach(m => m.setAttribute('content', meta.title));
+  syncSoundUI();
+}
+const PAGE_META = {
+  en: { title: 'Maria Morales: UX/UI Designer',
+        desc: 'Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.' },
+  es: { title: 'Maria Morales: Diseñadora UX/UI',
+        desc: 'Maria Morales: diseñadora UX/UI que construye lo que diseña. Trabajo real con clientes y una app en producción.' }
+};
+/* sound state lives up here so applyLang() can call syncSoundUI() safely */
+let scWidget = null, isPlaying = false, wantPlay = false, scLoading = false, scTimer = null;
+
+try {
+  const savedLang = localStorage.getItem('lang');
+  if (savedLang) { currentLang = savedLang; applyLang(); }
+} catch (e) {}
+
+function initSoundWidget() {
+  if (scWidget || !window.SC) return;
+  const iframe = document.getElementById('sc-audio-iframe');
+  if (!iframe) return;
+  scWidget = SC.Widget(iframe);
+  // If the tap landed before the player was ready, finish the job as soon as it is
+  scWidget.bind(SC.Widget.Events.READY, () => { if (wantPlay && !isPlaying) scWidget.play(); });
+  scWidget.bind(SC.Widget.Events.PLAY, () => {
+    clearTimeout(scTimer);
+    isPlaying = true; wantPlay = true; scLoading = false;
+    syncSoundUI();
+  });
+  const stopped = () => { clearTimeout(scTimer); isPlaying = false; wantPlay = false; scLoading = false; syncSoundUI(); };
+  scWidget.bind(SC.Widget.Events.PAUSE, stopped);
+  scWidget.bind(SC.Widget.Events.FINISH, stopped);
+}
+window.addEventListener('load', initSoundWidget);
+
+function toggleSound() {
+  initSoundWidget();
+  if (!scWidget) return;
+
+  // Second tap while loading or playing = stop
+  if (isPlaying || wantPlay) {
+    clearTimeout(scTimer);
+    wantPlay = false; scLoading = false; isPlaying = false;
+    scWidget.pause();
+    syncSoundUI();
+    return;
+  }
+
+  wantPlay = true; scLoading = true;
+  scWidget.play();              // called directly inside the tap so mobile browsers allow it
+  syncSoundUI();                // button shows a loading pulse right away
+  clearTimeout(scTimer);
+  scTimer = setTimeout(() => {  // nothing started (blocked or offline): reset so the next tap is clean
+    if (!isPlaying) { wantPlay = false; scLoading = false; syncSoundUI(); }
+  }, 5000);
+}
+
+function syncSoundUI() {
+  const busy = scLoading && !isPlaying;
+  document.querySelectorAll('.snd-btn').forEach(b => {
+    b.setAttribute('aria-pressed', isPlaying);
+    b.setAttribute('aria-busy', busy);
+    b.classList.toggle('is-loading', busy);
+  });
+  
+  const label = currentLang === 'es'
+    ? (isPlaying ? 'Pausar música' : 'Reproducir música')
+    : (isPlaying ? 'Pause music' : 'Play music');
+    
+  const btn = document.getElementById('sound-toggle');
+  if (btn) {
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+    btn.querySelector('.snd-off').style.display = isPlaying ? 'none' : '';
+    btn.querySelector('.snd-on').style.display = isPlaying ? '' : 'none';
+  }
+
+  // Show or hide the floating credit box based on whether it's playing
+  const creditContainer = document.getElementById('hidden-sound-container');
+  if (creditContainer) {
+    if (isPlaying) {
+      creditContainer.hidden = false;
+      setTimeout(() => creditContainer.style.opacity = '1', 10);
+    } else {
+      creditContainer.style.opacity = '0';
+      setTimeout(() => {
+        if (!isPlaying) creditContainer.hidden = true;
+      }, 300); // matches the 0.3s CSS transition
+    }
+  }
+}
+
+/* ── Copy email ────────────────── */
+function copyEmail(btn) {
+  const email = 'maria.moralesj13@gmail.com';
+  const label = btn.querySelector('span');
+  const status = document.getElementById('copy-status');
+  const done = ok => {
+    const es = currentLang === 'es';
+    const msg = ok ? (es ? '¡Copiado!' : 'Copied!') : (es ? 'No se pudo copiar' : "Couldn't copy");
+    if (label) label.textContent = msg;
+    if (status) status.textContent = msg;
+    clearTimeout(btn._copyTimer);
+    btn._copyTimer = setTimeout(() => {
+      if (label) label.textContent = label.getAttribute('data-' + currentLang) || 'Copy';
+      if (status) status.textContent = '';
+    }, 1800);
+  };
+  const fallback = () => {
+    const ta = document.createElement('textarea');
+    ta.value = email; ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    done(ok);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(() => done(true), fallback);
+  } else {
+    fallback();
+  }
+}
+
+/* ── Accordions ───────────── */
+function toggleAcc(n) {
+  const item = document.getElementById('acc-' + n);
+  const isOpen = item.classList.toggle('open');
+  item.querySelector('.about-acc-trigger').setAttribute('aria-expanded', isOpen);
+}
+
+function updateCardToggle(card) {
+  const btn = card.querySelector('.proj-toggle');
+  const isOpen = card.classList.contains('open');
+  const title = card.querySelector('.proj-card-title').textContent.trim();
+  const verb = currentLang === 'es' ? (isOpen ? 'Contraer' : 'Expandir') : (isOpen ? 'Collapse' : 'Expand');
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-label', verb + ' ' + title);
+}
+function toggleCard(n) {
+  const card = document.getElementById('card-' + n);
+  card.classList.toggle('open');
+  updateCardToggle(card);
+}
+
+/* ── Freelance carousels ───────────── */
+function goToSlide(event, dot, index) {
+  event.stopPropagation();
+  const track = dot.closest('.fl-carousel').querySelector('.fl-track');
+  if (!track) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  track.scrollTo({ left: index * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+}
+
+// Wrap each carousel's slides in a scroll-snap track and keep the dots in sync with swipes
+document.querySelectorAll('.fl-carousel').forEach(carousel => {
+  const slides = Array.from(carousel.querySelectorAll(':scope > .fl-img'));
+  if (!slides.length) return;
+  const track = document.createElement('div');
+  track.className = 'fl-track';
+  carousel.insertBefore(track, slides[0]);
+  slides.forEach(img => { img.classList.remove('active'); track.appendChild(img); });
+  carousel.classList.add('is-ready');
+
+  const dots = carousel.querySelectorAll('.fl-dot');
+  if (!dots.length) return;
+  dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+  let ticking = false;
+  track.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const i = Math.round(track.scrollLeft / (track.clientWidth || 1));
+      dots.forEach((d, j) => d.classList.toggle('active', j === i));
+      ticking = false;
+    });
+  }, { passive: true });
+});
+
+/* ── Freelance filter ──────────── */
+function filterFL(cat) {
+  document.querySelectorAll('.f-tab').forEach(t => {
+    const on = t.dataset.filter === cat;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-pressed', on);
+  });
+  document.querySelectorAll('.fl-item').forEach(item => {
+    item.style.display = (cat === 'all' || (item.dataset.cat || '').includes(cat)) ? '' : 'none';
+  });
+}
+
+/* ── Resume modal ──────────────── */
+/* Focus management shared by both dialogs: focus moves in, Tab stays inside, focus returns on close */
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+function trapFocus(e, backdrop) {
+  if (e.key !== 'Tab' || !backdrop.classList.contains('open')) return;
+  const items = Array.from(backdrop.querySelectorAll(FOCUSABLE)).filter(el => el.getClientRects().length);
+  if (!items.length) return;
+  const first = items[0], last = items[items.length - 1];
+  if (!backdrop.contains(document.activeElement) || (e.shiftKey && document.activeElement === first)) {
+    e.preventDefault(); (e.shiftKey ? last : first).focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault(); first.focus();
+  }
+}
+document.addEventListener('keydown', e => {
+  trapFocus(e, document.getElementById('resume-backdrop'));
+  trapFocus(e, document.getElementById('lightbox-backdrop'));
+});
+let resumeOpener = null, lightboxOpener = null;
+
+function openResume() {
+  const bd = document.getElementById('resume-backdrop');
+  resumeOpener = document.activeElement;
+  bd.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const close = bd.querySelector('.modal-close');
+  if (close) close.focus();
+}
+function closeResume() {
+  const bd = document.getElementById('resume-backdrop');
+  const wasOpen = bd.classList.contains('open');
+  bd.classList.remove('open');
+  document.body.style.overflow = '';
+  if (wasOpen && resumeOpener && document.contains(resumeOpener)) resumeOpener.focus();
+}
+document.getElementById('resume-backdrop').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeResume();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeResume(); });
+
+/* ── Image lightbox ────────────── */
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(imgEl) {
+  const imgs = imgEl.closest('.fl-carousel, .proc-gallery').querySelectorAll('.fl-img, .proc-img');
+  lightboxImages = Array.from(imgs).map(img => ({ src: img.src, alt: img.alt }));
+  lightboxIndex = Array.from(imgs).indexOf(imgEl);
+  showLightboxImage();
+  lightboxOpener = imgEl;
+  const bd = document.getElementById('lightbox-backdrop');
+  bd.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const close = bd.querySelector('.modal-close');
+  if (close) close.focus();
+}
+function showLightboxImage() {
+  const data = lightboxImages[lightboxIndex];
+  const img = document.getElementById('lightbox-img');
+  img.src = data.src;
+  img.alt = data.alt;
+  document.getElementById('lightbox-counter').textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+}
+function changeLightboxSlide(direction) {
+  lightboxIndex = (lightboxIndex + direction + lightboxImages.length) % lightboxImages.length;
+  showLightboxImage();
+}
+function closeLightbox() {
+  const bd = document.getElementById('lightbox-backdrop');
+  const wasOpen = bd.classList.contains('open');
+  bd.classList.remove('open');
+  document.body.style.overflow = '';
+  if (wasOpen && lightboxOpener && document.contains(lightboxOpener)) lightboxOpener.focus();
+}
+document.getElementById('lightbox-backdrop').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox-backdrop').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') changeLightboxSlide(-1);
+  if (e.key === 'ArrowRight') changeLightboxSlide(1);
+});
+
+// Swipe left/right inside the enlarged view
+(function () {
+  const lbImg = document.getElementById('lightbox-img');
+  let sx = null, sy = 0;
+  lbImg.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) { sx = null; return; }
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+  }, { passive: true });
+  lbImg.addEventListener('touchend', e => {
+    if (sx === null || lightboxImages.length < 2) { sx = null; return; }
+    const t = e.changedTouches[0];
+    const dx = t.clientX - sx, dy = t.clientY - sy;
+    sx = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) changeLightboxSlide(dx < 0 ? 1 : -1);
+  }, { passive: true });
+})();
+
+/* ── Scroll reveal (one quiet fade) ─────────────── */
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+
+/* ── Cursor light on the hero drawings ─────────────────
+   Only for mouse/trackpad users who haven't asked for reduced motion.
+   Clones the drawings into a bright layer (.hero-art.lit) that the CSS masks
+   to a soft circle around the pointer. */
+(function () {
+  const square = document.querySelector('.hero-square');
+  const art = square && square.querySelector('.hero-art.wide');
+  if (!art) return;
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!canHover || reduce) return;
+
+  const lit = art.cloneNode(true);
+  lit.classList.add('lit');
+  lit.setAttribute('aria-hidden', 'true');
+  art.after(lit);
+
+  let x = 0, y = 0, queued = false;
+  const paint = () => {
+    queued = false;
+    square.style.setProperty('--mx', x + 'px');
+    square.style.setProperty('--my', y + 'px');
+  };
+  square.addEventListener('pointermove', e => {
+    if (e.pointerType === 'touch') return;
+    const r = square.getBoundingClientRect();
+    x = e.clientX - r.left;
+    y = e.clientY - r.top;
+    square.classList.add('lit-on');
+    if (!queued) { queued = true; requestAnimationFrame(paint); }
+  });
+  square.addEventListener('pointerleave', () => square.classList.remove('lit-on'));
+})();
+</script>
+</body>
+</html>
