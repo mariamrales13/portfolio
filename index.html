@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark"><head>
-  <script src="https://w.soundcloud.com/player/api.js" async></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark light">
-  <meta name="description" content="Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.">
+  <meta name="description" content="Maria Morales: UX/UI designer who takes her designs to production. Real client work and an app running in production.">
   <title>Maria Morales: UX/UI Designer</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081c10'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='700' text-anchor='middle' fill='%233db88a'%3EM%3C/text%3E%3C/svg%3E">
   <meta name="theme-color" content="#081c10" media="(prefers-color-scheme: dark)">
@@ -14,17 +13,21 @@
   <meta property="og:site_name" content="Maria Morales">
   <meta property="og:url" content="https://mariamrales13.github.io/portfolio/">
   <meta property="og:title" content="Maria Morales: UX/UI Designer">
-  <meta property="og:description" content="Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.">
+  <meta property="og:description" content="Maria Morales: UX/UI designer who takes her designs to production. Real client work and an app running in production.">
   <!-- When you have a 1200x630 preview image, add:
   <meta property="og:image" content="https://mariamrales13.github.io/portfolio/images/og-image.png">
   and change the next line to summary_large_image -->
   <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Maria Morales","jobTitle":"UX/UI Designer","url":"https://mariamrales13.github.io/portfolio/","knowsLanguage":["en","es"],"sameAs":["https://www.linkedin.com/in/maria-morales-5a0845134","https://github.com/mariamrales13"]}
+  </script>
   <script>
     // Set saved theme before first paint to avoid a flash of the wrong theme.
     try {
       var t = localStorage.getItem('theme');
       if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.style.colorScheme = t;
     } catch (e) {}
     // Only hide .reveal content when JS is available to un-hide it later.
     // Prevents permanently invisible / very-low-contrast text if JS fails or is disabled.
@@ -32,9 +35,9 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
   <style>
     
     html {scrollbar-gutter: stable;}
@@ -79,6 +82,11 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; }
+    #hidden-sound-container { display: flex; }
+    #hidden-sound-container[hidden] { display: none; }
+    .snd-toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 360; padding: 8px 14px; border-radius: 99px; font-size: 13px; background: var(--surface); color: var(--warm); border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+    .snd-toast[hidden] { display: none; }
+    .about-acc-h { margin: 0; font: inherit; line-height: inherit; }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
     .skip-link { position: absolute; top: -100%; left: 16px; z-index: 9999; background: var(--accent); color: var(--bg); padding: 8px 16px; border-radius: 4px; font-weight: 600; font-size: 14px; transition: top .2s; }
     .skip-link:focus { top: 12px; }
@@ -121,7 +129,7 @@
     .nav-controls { display: flex; align-items: center; gap: 8px; margin-left: 12px; }
     .ctrl-btn {
       display: flex; align-items: center; gap: 5px;
-      padding: 5px 12px; border-radius: 99px;
+      padding: 5px 12px; min-height: 36px; border-radius: 99px;
       border: 1.5px solid var(--border);
       background: transparent; color: var(--muted);
       font-size: 12px; font-weight: 600; letter-spacing: .04em;
@@ -129,15 +137,15 @@
     }
     .ctrl-btn:hover { border-color: var(--accent); color: var(--warm); }
     .ctrl-btn svg { width: 13px; height: 13px; }
-    .ctrl-btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+    .ctrl-btn[aria-pressed="true"], .ctrl-btn.is-on { border-color: var(--accent); color: var(--accent); }
 
     /* burger */
-    .nav-burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; margin-left: 8px; }
+    .nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; padding: 12px 10px; margin-left: 4px; }
     .nav-burger span { display: block; width: 20px; height: 1.5px; background: var(--warm); border-radius: 2px; transition: transform .3s, opacity .3s; }
     .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: color-mix(in srgb, var(--bg) 99%, transparent); padding: 20px 24px 28px; z-index: 299; border-bottom: 1px solid var(--border); }
+    .nav-mobile { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; max-height: calc(100vh - var(--nav-h)); max-height: calc(100dvh - var(--nav-h)); overflow-y: auto; overscroll-behavior: contain; background: color-mix(in srgb, var(--bg) 99%, transparent); padding: 20px 24px 28px; z-index: 299; border-bottom: 1px solid var(--border); }
     @media (min-width: 769px) {
       .nav-mobile { backdrop-filter: blur(20px); }
     }
@@ -169,7 +177,7 @@
       --mx: -999px; --my: -999px;
       width: min(1400px, 100%, max(calc((100svh - var(--nav-h) - 56px) * 1.751), 860px));
       aspect-ratio: 1357 / 775;
-      position: relative; overflow: hidden;
+      position: relative; overflow: hidden; overflow: clip;
       container-type: inline-size;
       background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 11%, var(--surface)) 0%, var(--surface) 72%);
       border: 1px solid var(--border);
@@ -182,9 +190,10 @@
     }
 
     /* the drawings: images with the accent colour baked in, kept low so the name stays loudest */
-    .hero-art { position: absolute; inset: 0; pointer-events: none; opacity: .38; }
-    .hero-art.tall { display: none; }
+    .hero-art { position: absolute; top: 0; left: 0; width: 100%; aspect-ratio: 1357 / 775; pointer-events: none; opacity: .38; }
+    .hero-art.tall { display: none; aspect-ratio: 346 / 690; }
     .dw { position: absolute; }
+    .dw picture { display: contents; }
     .d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
     [data-theme="light"] .hero-art .d { filter: brightness(.55); }
 
@@ -193,7 +202,6 @@
       opacity: 0; transition: opacity .5s ease;
       -webkit-mask-image: radial-gradient(circle 170px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%);
               mask-image: radial-gradient(circle 170px at var(--mx) var(--my), #000 0%, rgba(0,0,0,.5) 50%, transparent 100%);
-      filter: drop-shadow(0 0 3px var(--accent));
     }
     .hero-art.lit .dw { animation: none; -webkit-mask: none; mask: none; }
     .hero-art.lit .d { filter: brightness(1.6) saturate(1.1); }
@@ -207,10 +215,9 @@
 
     /* everything below is sized in cqw, so the whole composition scales with the panel */
     .hero-inner {
-      position: absolute; left: 0; right: 0; top: 12.5cqw;
-      z-index: 2;
+      position: relative; z-index: 2;
       display: flex; flex-direction: column; align-items: center; text-align: center;
-      padding: 0 9cqw;
+      padding: 12.5cqw 9cqw 2.4cqw;
     }
     .hero-hola {
       font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
@@ -265,7 +272,7 @@
       .hero-art.tall { display: block; }
       .hero-square { width: min(100%, 480px); aspect-ratio: 346 / 690; border-radius: 22px; }
       .hero-square::before { inset: 1.7cqw; border-radius: 16px; }
-      .hero-inner { top: 59cqw; padding: 0 3.6cqw; }
+      .hero-inner { padding: 59cqw 3.6cqw 6cqw; }
       .hero-hola { font-size: 5.4cqw; margin-bottom: 2.6cqw; }
       .hero-h1 { font-size: 17cqw; line-height: .82; margin-bottom: 2.6cqw; }
       .hero-sub { font-size: max(13.5px, 4.5cqw); line-height: 1.8; max-width: none; padding: 0 2.6cqw; margin-bottom: 4.6cqw; }
@@ -279,8 +286,6 @@
     /* Motion, only for people who haven't asked for less:
        the panel fades in, each drawing is wiped in from the centre outward, then the name settles. */
     @media (prefers-reduced-motion: no-preference) {
-      .hero-square { animation: fadeIn .8s ease both; }
-      .hero-inner  { animation: fadeIn .9s .7s ease both; }
       .hero-art:not(.lit) .dw {
         -webkit-mask-image: linear-gradient(90deg, #000 0, #000 40%, transparent 50%); mask-image: linear-gradient(90deg, #000 0, #000 40%, transparent 50%);
         -webkit-mask-size: 300% 100%; mask-size: 300% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
@@ -454,8 +459,9 @@
     .proj-card.open .proj-body { display: grid; }
     .proj-body-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 48px;
+      align-items: start;
       padding-top: 4px;
       border-top: 1px solid var(--border);
     }
@@ -493,7 +499,7 @@
       margin-bottom: 16px;
     }
     .live-dot {
-      width: 7px; height: 7px; border-radius: 50%;
+      width: 8px; height: 8px; border-radius: 50%;
       background: var(--accent);
       animation: pulse 2s ease-in-out infinite;
     }
@@ -535,14 +541,14 @@
     .proc-img:hover { border-color: var(--accent); transform: translateY(-2px); }
     .proc-img:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     @media (max-width: 480px) { .proc-grid { grid-template-columns: repeat(2, 1fr); } }
-    .proj-media { padding-top: 28px; }
+    .proj-media { padding-top: 28px; min-width: 0; position: sticky; top: calc(var(--nav-h) + 16px); align-self: start; }
     .proj-screenshot {
       width: 100%; border-radius: 12px;
       border: 1px solid var(--border);
       overflow: hidden;
       box-shadow: 0 16px 48px rgba(0,0,0,.35);
     }
-    .proj-screenshot img { width: 100%; display: block; }
+    .proj-screenshot img { width: 100%; height: auto; display: block; }
 
     /* browser chrome mockup */
     .browser-chrome {
@@ -559,9 +565,9 @@
       background: rgba(255,255,255,.06);
       border-radius: 4px; height: 20px;
       display: flex; align-items: center; padding: 0 8px;
-      font-size: 12px; color: var(--dim); font-family: monospace;
+      font-size: 12px; color: #c4cdc6; font-family: monospace;
     }
-    .browser-img { display: block; width: 100%; }
+    .browser-img { display: block; width: 100%; height: auto; max-height: calc(100vh - var(--nav-h) - 120px); object-fit: cover; object-position: top; }
 
     /* ═══════════════════════════════
        FREELANCE GALLERY
@@ -583,7 +589,7 @@
     .freelance-header p { font-size: 15px; color: var(--muted); max-width: 480px; margin-top: 12px; line-height: 1.7; }
 
     .freelance-tabs {
-      display: flex; gap: 6px; margin-bottom: 40px;
+      display: flex; gap: 16px; margin-bottom: 40px;
       flex-wrap: wrap;
     }
     .f-tab {
@@ -633,18 +639,17 @@
     .fl-next { right: 8px; }
 
     .fl-dots {
-      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 6px;
-      padding: 5px 8px; border-radius: 99px; background: rgba(8,28,16,.45);
+      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 0;
+      padding: 2px 4px; border-radius: 99px; background: rgba(8,28,16,.55);
     }
     .fl-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: rgba(255,255,255,.4);
+      width: 24px; height: 24px; border: none; padding: 0; cursor: pointer;
+      background: none; display: grid; place-items: center; border-radius: 50%;
     }
-    .fl-dot { border: none; padding: 0; cursor: pointer; position: relative; }
-    .fl-dot::after { content: ""; position: absolute; inset: -9px -3px; }
-    .fl-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .fl-dot.active { background: var(--accent); }
+    .fl-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.55); transition: background .2s; }
+    .fl-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
+    .fl-dot.active::before { background: var(--accent); }
     .fl-logo { padding: 9%; box-sizing: border-box; }
     .fl-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 12.5px; font-weight: 500; color: var(--accent); }
     .fl-link svg { width: 13px; height: 13px; }
@@ -684,10 +689,12 @@
       font-size: 17px; font-weight: 600; color: var(--warm);
       padding: 16px 36px; border-radius: 99px;
       border: 1.5px solid var(--border);
+      max-width: 100%; min-width: 0; overflow-wrap: anywhere; text-align: left;
       transition: border-color .2s, background .2s, gap .2s;
     }
+    @media (max-width: 480px) { .contact-email { font-size: clamp(14px, 4.1vw, 17px); padding: 14px 22px; } }
     .contact-email:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); gap: 14px; }
-    .contact-email svg { width: 18px; height: 18px; color: var(--accent); }
+    .contact-email svg { width: 18px; height: 18px; color: var(--accent); flex: none; }
 
     .contact-actions { display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; }
     .copy-btn {
@@ -716,6 +723,12 @@
     }
     .foot-logo em { font-style: italic; color: var(--accent); }
     footer p { font-size: 12px; color: var(--dim); }
+    .claude-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border: 1px solid var(--border); border-radius: 99px; background: color-mix(in srgb, var(--accent) 6%, transparent); text-align: left; }
+    .claude-badge svg { width: 22px; height: 22px; flex: none; }
+    .claude-badge .cb-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .claude-badge strong { font-size: 13px; font-weight: 600; color: var(--warm); }
+    .claude-badge small { font-size: 11px; color: var(--dim); }
+    .hero-inner .claude-badge { margin-top: 22px; }
     .foot-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 26px; }
     .foot-links a, .foot-links button {
       font-size: 13.5px; font-weight: 500;
@@ -823,8 +836,8 @@
       border-color: transparent;
       color: #fff;
     }
-    .lightbox-modal .fl-prev { left: -50px; }
-    .lightbox-modal .fl-next { right: -50px; }
+    .lightbox-modal .fl-prev { left: -50px; z-index: 2; }
+    .lightbox-modal .fl-next { right: -50px; z-index: 2; }
 
     /* ═══════════════════════════════
        ANIMATIONS
@@ -843,14 +856,15 @@
       .nav-burger { display: flex; }
       .nav-mobile { padding-left: 24px; padding-right: 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .proj-body-inner { grid-template-columns: 1fr; gap: 28px; }
+      .proj-body-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .proj-media { position: static; }
       .freelance-grid { columns: 2; }
       .hero-h1 { letter-spacing: -2px; }
     }
     @media (max-width: 600px) {
       .freelance-grid { columns: 1; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 1000px) {
       .lightbox-modal .fl-prev { left: 8px; }
       .lightbox-modal .fl-next { right: 8px; }
       .lightbox-modal .fl-arrow { width: 40px; height: 40px; }
@@ -897,19 +911,19 @@
     <li><a href="#contact" data-nav="contact" data-en="Contact" data-es="Contacto">Contact</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="ctrl-btn" id="lang-toggle" aria-label="Switch language" data-aria-en="Switch language" data-aria-es="Cambiar idioma" onclick="toggleLang()">
+    <button type="button" class="ctrl-btn lang-btn" id="lang-toggle" aria-label="ES: switch language to Spanish" onclick="toggleLang()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
       <span id="lang-label">ES</span>
     </button>
-    <button class="ctrl-btn snd-btn" id="sound-toggle" aria-pressed="false" aria-label="Play ambient music" title="Ambient music" onclick="toggleSound()">
+    <button type="button" class="ctrl-btn snd-btn" id="sound-toggle" aria-label="Play ambient music" title="Ambient music" onclick="toggleSound()">
       <svg class="snd-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><svg class="snd-on" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
     </button>
-    <button class="ctrl-btn" id="theme-toggle" aria-label="Toggle theme" data-aria-en="Toggle theme" data-aria-es="Cambiar tema" onclick="toggleTheme()">
+    <button type="button" class="ctrl-btn" id="theme-toggle" aria-label="Toggle theme" data-aria-en="Toggle theme" data-aria-es="Cambiar tema" onclick="toggleTheme()">
       <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
       <svg id="theme-icon-light" style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
     </button>
   </div>
-  <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="mob-menu" aria-label="Open menu">
+  <button type="button" class="nav-burger" id="burger" aria-expanded="false" aria-controls="mob-menu" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -919,9 +933,9 @@
   <a href="#freelance" onclick="closeMob()" data-en="Freelance" data-es="Freelance">Freelance</a>
   <a href="#contact" onclick="closeMob()" data-en="Contact" data-es="Contacto">Contact</a>
   <div class="nav-mobile-controls">
-    <button class="ctrl-btn" onclick="toggleLang()"><span id="lang-label-mob">ES</span></button>
-    <button class="ctrl-btn snd-btn" aria-pressed="false" onclick="toggleSound()" data-en="Music" data-es="Música">Music</button>
-    <button class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Light/Dark</button>
+    <button type="button" class="ctrl-btn lang-btn" aria-label="ES: switch language to Spanish" onclick="toggleLang()"><span id="lang-label-mob">ES</span></button>
+    <button type="button" class="ctrl-btn snd-btn" aria-pressed="false" onclick="toggleSound()" data-en="Music" data-es="Música">Music</button>
+    <button type="button" class="ctrl-btn" onclick="toggleTheme()" data-en="Light/Dark" data-es="Claro/Oscuro">Light/Dark</button>
   </div>
 </div>
 
@@ -933,35 +947,35 @@
   <div class="hero-square">
     <div class="hero-spot" aria-hidden="true"></div>
     <div class="hero-art wide" aria-hidden="true">
-      <span class="dw" style="left:2.211%;top:54.452%;width:6.656%;height:43.569%;--i:23"><img class="d" loading="lazy" src="images/hero/obelisco.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:28.480%;top:35.033%;width:7.790%;height:13.640%;--i:1"><img class="d" loading="lazy" src="images/hero/ball.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:11.290%;top:65.479%;width:7.609%;height:22.662%;transform:rotate(-11.53deg);--i:17"><img class="d" loading="lazy" src="images/hero/guitar.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:3.765%;top:9.398%;width:5.589%;height:15.391%;transform:rotate(-10.34deg);--i:24"><img class="d" loading="lazy" src="images/hero/wine.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:29.415%;top:62.313%;width:3.630%;height:12.379%;transform:rotate(-25.35deg);--i:4"><img class="d" loading="lazy" src="images/hero/mate.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:80.056%;top:64.513%;width:18.525%;height:33.637%;--i:18"><img class="d" loading="lazy" src="images/hero/salto-angel.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:66.249%;top:48.387%;width:6.436%;height:9.535%;--i:2"><img class="d" loading="lazy" src="images/hero/bird.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:75.000%;top:33.145%;width:13.157%;height:19.925%;transform:rotate(0.56deg);--i:11"><img class="d" loading="lazy" src="images/hero/tropical.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:22.347%;top:81.534%;width:7.482%;height:16.829%;transform:rotate(-1.81deg);--i:13"><img class="d" loading="lazy" src="images/hero/tango.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:24.025%;top:10.098%;width:8.093%;height:13.908%;transform:rotate(-30.00deg);--i:8"><img class="d" loading="lazy" src="images/hero/jersey.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:42.113%;top:10.394%;width:16.034%;height:28.075%;--i:0"><img class="d" loading="lazy" src="images/hero/sun.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:2.211%;top:40.258%;width:7.639%;height:4.370%;--i:20"><img class="d" loading="lazy" src="images/hero/argentina.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:89.743%;top:40.197%;width:7.639%;height:3.576%;--i:19"><img class="d" loading="lazy" src="images/hero/venezuela.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:13.223%;top:33.576%;width:8.155%;height:9.798%;transform:rotate(-30.00deg);--i:14"><img class="d" loading="lazy" src="images/hero/bandera-arg.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:40.678%;top:7.355%;width:18.865%;height:11.226%;--i:3"><img class="d" loading="lazy" src="images/hero/stars.webp" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg);"></span>
-      <span class="dw" style="left:74.029%;top:62.197%;width:9.811%;height:12.608%;transform:rotate(15.40deg);--i:10"><img class="d" loading="lazy" src="images/hero/bandera-ven.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:16.361%;top:47.287%;width:9.027%;height:18.102%;transform:rotate(1.49deg);--i:9"><img class="d" loading="lazy" src="images/hero/3-estrellas.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:69.241%;top:80.537%;width:8.017%;height:17.637%;--i:12"><img class="d" loading="lazy" src="images/hero/folklore.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:13.488%;top:15.754%;width:6.807%;height:9.516%;transform:rotate(15.00deg);--i:16"><img class="d" loading="lazy" src="images/hero/flor-arg.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:91.289%;top:50.889%;width:6.666%;height:12.023%;transform:rotate(15.50deg);--i:21"><img class="d" loading="lazy" src="images/hero/orquidea-ven.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:65.747%;top:17.977%;width:9.227%;height:15.494%;transform:rotate(-31.01deg);--i:7"><img class="d" loading="lazy" src="images/hero/guante.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:62.288%;top:12.520%;width:4.009%;height:6.929%;--i:6"><img class="d" loading="lazy" src="images/hero/pelota.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:64.875%;top:71.051%;width:5.219%;height:11.521%;transform:rotate(15.00deg);--i:5"><img class="d" loading="lazy" src="images/hero/empanada.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:87.120%;top:10.259%;width:10.059%;height:18.312%;transform:rotate(-0.21deg);--i:22"><img class="d" loading="lazy" src="images/hero/araguaney.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:77.010%;top:8.959%;width:6.202%;height:12.862%;transform:rotate(22.87deg);--i:15"><img class="d" loading="lazy" src="images/hero/hallaca.webp" alt="" decoding="async"></span>
+      <span class="dw" style="left:2.211%;top:54.452%;width:6.656%;height:43.569%;--i:23"><picture><source media="(min-width:861px)" srcset="images/hero/obelisco.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:28.480%;top:35.033%;width:7.790%;height:13.640%;--i:1"><picture><source media="(min-width:861px)" srcset="images/hero/ball.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:11.290%;top:65.479%;width:7.609%;height:22.662%;transform:rotate(-11.53deg);--i:17"><picture><source media="(min-width:861px)" srcset="images/hero/guitar.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:3.765%;top:9.398%;width:5.589%;height:15.391%;transform:rotate(-10.34deg);--i:24"><picture><source media="(min-width:861px)" srcset="images/hero/wine.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:29.415%;top:62.313%;width:3.630%;height:12.379%;transform:rotate(-25.35deg);--i:4"><picture><source media="(min-width:861px)" srcset="images/hero/mate.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:80.056%;top:64.513%;width:18.525%;height:33.637%;--i:18"><picture><source media="(min-width:861px)" srcset="images/hero/salto-angel.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:66.249%;top:48.387%;width:6.436%;height:9.535%;--i:2"><picture><source media="(min-width:861px)" srcset="images/hero/bird.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:75.000%;top:33.145%;width:13.157%;height:19.925%;transform:rotate(0.56deg);--i:11"><picture><source media="(min-width:861px)" srcset="images/hero/tropical.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:22.347%;top:81.534%;width:7.482%;height:16.829%;transform:rotate(-1.81deg);--i:13"><picture><source media="(min-width:861px)" srcset="images/hero/tango.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:24.025%;top:10.098%;width:8.093%;height:13.908%;transform:rotate(-30.00deg);--i:8"><picture><source media="(min-width:861px)" srcset="images/hero/jersey.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:42.113%;top:10.394%;width:16.034%;height:28.075%;--i:0"><picture><source media="(min-width:861px)" srcset="images/hero/sun.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:2.211%;top:40.258%;width:7.639%;height:4.370%;--i:20"><picture><source media="(min-width:861px)" srcset="images/hero/argentina.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:89.743%;top:40.197%;width:7.639%;height:3.576%;--i:19"><picture><source media="(min-width:861px)" srcset="images/hero/venezuela.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:13.223%;top:33.576%;width:8.155%;height:9.798%;transform:rotate(-30.00deg);--i:14"><picture><source media="(min-width:861px)" srcset="images/hero/bandera-arg.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:40.678%;top:7.355%;width:18.865%;height:11.226%;--i:3"><picture><source media="(min-width:861px)" srcset="images/hero/stars.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg);"></picture></span>
+      <span class="dw" style="left:74.029%;top:62.197%;width:9.811%;height:12.608%;transform:rotate(15.40deg);--i:10"><picture><source media="(min-width:861px)" srcset="images/hero/bandera-ven.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:16.361%;top:47.287%;width:9.027%;height:18.102%;transform:rotate(1.49deg);--i:9"><picture><source media="(min-width:861px)" srcset="images/hero/3-estrellas.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:69.241%;top:80.537%;width:8.017%;height:17.637%;--i:12"><picture><source media="(min-width:861px)" srcset="images/hero/folklore.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:13.488%;top:15.754%;width:6.807%;height:9.516%;transform:rotate(15.00deg);--i:16"><picture><source media="(min-width:861px)" srcset="images/hero/flor-arg.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:91.289%;top:50.889%;width:6.666%;height:12.023%;transform:rotate(15.50deg);--i:21"><picture><source media="(min-width:861px)" srcset="images/hero/orquidea-ven.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:65.747%;top:17.977%;width:9.227%;height:15.494%;transform:rotate(-31.01deg);--i:7"><picture><source media="(min-width:861px)" srcset="images/hero/guante.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:62.288%;top:12.520%;width:4.009%;height:6.929%;--i:6"><picture><source media="(min-width:861px)" srcset="images/hero/pelota.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:64.875%;top:71.051%;width:5.219%;height:11.521%;transform:rotate(15.00deg);--i:5"><picture><source media="(min-width:861px)" srcset="images/hero/empanada.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:87.120%;top:10.259%;width:10.059%;height:18.312%;transform:rotate(-0.21deg);--i:22"><picture><source media="(min-width:861px)" srcset="images/hero/araguaney.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:77.010%;top:8.959%;width:6.202%;height:12.862%;transform:rotate(22.87deg);--i:15"><picture><source media="(min-width:861px)" srcset="images/hero/hallaca.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
     </div>
     <div class="hero-art tall" aria-hidden="true">
-      <span class="dw" style="left:20.17%;top:15.74%;width:63.01%;aspect-ratio:1;--i:0"><img class="d" loading="lazy" src="images/hero/sun.webp" alt="" decoding="async"></span>
-      <span class="dw" style="left:14.451%;top:12.319%;width:73.988%;aspect-ratio:256/87;--i:1"><img class="d" loading="lazy" src="images/hero/stars.webp" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg)"></span>
+      <span class="dw" style="left:20.17%;top:15.74%;width:63.01%;aspect-ratio:1;--i:0"><picture><source media="(max-width:860px)" srcset="images/hero/sun.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async"></picture></span>
+      <span class="dw" style="left:14.451%;top:12.319%;width:73.988%;aspect-ratio:256/87;--i:1"><picture><source media="(max-width:860px)" srcset="images/hero/stars.webp"><img class="d" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" decoding="async" style="inset:auto;left:-45.96%;top:-37.63%;width:186.03%;height:180.65%;max-width:none;transform:rotate(180deg)"></picture></span>
     </div>
     <div class="hero-inner">
       <p class="hero-hola" data-en="Hello, I'm" data-es="Hola, soy">Hello, I'm</p>
@@ -969,16 +983,17 @@
         Maria<br>
         <em>Morales</em>
       </h1>
-      <p class="hero-sub" data-en="UX/UI designer. I build what I design: &lt;strong&gt;real clients&lt;/strong&gt;, and &lt;strong&gt;an app in production&lt;/strong&gt; that replaced my team's paper sheets." data-es="Diseñadora UX/UI. Construyo lo que diseño: &lt;strong&gt;clientes reales&lt;/strong&gt; y &lt;strong&gt;una app en producción&lt;/strong&gt; que reemplazó las hojas de papel de mi equipo.">UX/UI designer. I build what I design: <strong>real clients</strong>, and <strong>an app in production</strong> that replaced my team's paper sheets.</p>
+      <p class="hero-sub" data-en="UX/UI designer. I design products and get them built: &lt;strong&gt;real clients&lt;/strong&gt;, and &lt;strong&gt;an app in production&lt;/strong&gt; that replaced my team’s paper sheets." data-es="Diseñadora UX/UI. Diseño productos y logro que se construyan: &lt;strong&gt;clientes reales&lt;/strong&gt; y &lt;strong&gt;una app en producción&lt;/strong&gt; que reemplazó las hojas de papel de mi equipo.">UX/UI designer. I design products and get them built: <strong>real clients</strong>, and <strong>an app in production</strong> that replaced my team’s paper sheets.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-pri" data-en="See My Work" data-es="Ver mi trabajo">See My Work</a>
-        <button class="btn-sec" onclick="openResume()" data-en="View Resume" data-es="Ver currículum">View Resume</button>
+        <button type="button" class="btn-sec" onclick="openResume()" data-en="View Resume" data-es="Ver currículum">View Resume</button>
       </div>
-      <div class="hero-socials soc-row" aria-label="Social links">
+      <div class="hero-socials soc-row" role="group" aria-label="Social links">
         <a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="LinkedIn" data-es="LinkedIn">LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
         <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer" class="soc-link"><span data-en="GitHub" data-es="GitHub">GitHub</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
         <a href="mailto:maria.moralesj13@gmail.com" class="soc-link"><span data-en="Email" data-es="Email">Email</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
       </div>
+      <div class="claude-badge" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#d97757"><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(45 12 12)"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(135 12 12)"/></g></svg><span class="cb-text"><strong data-en="Works with Claude" data-es="Trabajo con Claude">Works with Claude</strong><small data-en="Designer-led, AI-assisted builds" data-es="Desarrollo asistido por IA, dirigido por mí">Designer-led, AI-assisted builds</small></span></div>
     </div>
   </div>
 </section>
@@ -1004,10 +1019,10 @@
       <div class="about-accordion reveal">
 
         <div class="about-acc-item open" id="acc-1">
-          <button class="about-acc-trigger" onclick="toggleAcc(1)" aria-expanded="true" aria-controls="acc-body-1">
+          <h3 class="about-acc-h"><button type="button" class="about-acc-trigger" onclick="toggleAcc(1)" aria-expanded="true" aria-controls="acc-body-1">
             <span class="about-acc-label" data-en="My Story" data-es="Mi historia">My Story</span>
             <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-          </button>
+          </button></h3>
           <div class="about-acc-body" id="acc-body-1">
             <p style="margin-bottom:14px"><span data-en="I was born in Venezuela and grew up in Argentina, so I was always translating something: not just language, but tone, expectations, the way people wanted to be talked to. The habit stuck. I still explain things twice, once simply and once in detail, because I never assume the first version landed." data-es="Nací en Venezuela y crecí en Argentina, así que siempre estaba traduciendo algo: no solo el idioma, sino el tono, las expectativas, la forma en que la gente quería que le hablaran. La costumbre se me quedó. Todavía explico las cosas dos veces, una simple y otra en detalle, porque nunca doy por sentado que la primera versión se entendió.">I was born in Venezuela and grew up in Argentina, so I was always translating something: not just language, but tone, expectations, the way people wanted to be talked to. The habit stuck. I still explain things twice, once simply and once in detail, because I never assume the first version landed.</span></p>
             <p><span data-en="My mind works like a set of gears: analyzing, poking around, imagining solutions before I ever put them on paper. At 18 someone gave me a Rubik's cube, and that's where I learned that a design isn't finished until every piece is resolved. Noticing small details was the first sign I could be a designer." data-es="Mi mente funciona como un engranaje: analizo, curioseo e imagino soluciones en mi cabeza antes de ponerlas en papel. A los 18 me regalaron un cubo Rubik y ahí aprendí que un diseño no está terminado hasta que todas sus piezas están resueltas. Fijarme en los detalles chicos fue la primera señal de que podía ser diseñadora.">My mind works like a set of gears: analyzing, poking around, imagining solutions before I ever put them on paper. At 18 someone gave me a Rubik's cube, and that's where I learned that a design isn't finished until every piece is resolved. Noticing small details was the first sign I could be a designer.</span></p>
@@ -1015,30 +1030,30 @@
         </div>
 
         <div class="about-acc-item" id="acc-2">
-          <button class="about-acc-trigger" onclick="toggleAcc(2)" aria-expanded="false" aria-controls="acc-body-2">
+          <h3 class="about-acc-h"><button type="button" class="about-acc-trigger" onclick="toggleAcc(2)" aria-expanded="false" aria-controls="acc-body-2">
             <span class="about-acc-label" data-en="Why I Design" data-es="Por qué diseño">Why I Design</span>
             <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-          </button>
+          </button></h3>
           <div class="about-acc-body" id="acc-body-2">
-            <p><span data-en="I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I built the replacement. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed." data-es="No elegí el diseño por la estética. Siempre notaba cosas más difíciles de lo que deberían ser y no podía dejar de imaginar cómo podrían funcionar mejor. Break Board empezó justo así: las hojas de papel para registrar descansos se perdían y a muchos no les gustaba usarlas, así que construí el reemplazo. Lo que busco en mi trabajo es simple: que a alguien se le haga el día un poco más fácil y ni note que fue diseñado.">I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I built the replacement. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed.</span></p>
+            <p><span data-en="I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I designed the replacement and got it built. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed." data-es="No elegí el diseño por la estética. Siempre notaba cosas más difíciles de lo que deberían ser y no podía dejar de imaginar cómo podrían funcionar mejor. Break Board empezó justo así: las hojas de papel para registrar descansos se perdían y a muchos no les gustaba usarlas, así que diseñé el reemplazo y logré que se construyera. Lo que busco en mi trabajo es simple: que a alguien se le haga el día un poco más fácil y ni note que fue diseñado.">I didn't choose design for the aesthetics. I kept noticing things that were harder than they should be, and I couldn't stop imagining how they could work better. Break Board started exactly like that: the paper break sheets kept getting lost and plenty of people disliked using them, so I designed the replacement and got it built. What I want from my work is simple: someone's day gets a little easier and they never notice it was designed.</span></p>
           </div>
         </div>
 
         <div class="about-acc-item" id="acc-3">
-          <button class="about-acc-trigger" onclick="toggleAcc(3)" aria-expanded="false" aria-controls="acc-body-3">
+          <h3 class="about-acc-h"><button type="button" class="about-acc-trigger" onclick="toggleAcc(3)" aria-expanded="false" aria-controls="acc-body-3">
             <span class="about-acc-label" data-en="The Way I Think" data-es="Cómo pienso">The Way I Think</span>
             <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-          </button>
+          </button></h3>
           <div class="about-acc-body" id="acc-body-3">
             <p><span data-en="I start with two questions: who is this for, and what do they actually need? Then I research, sketch, design, and build. If I don't know how to build something, I learn it. I keep testing until it works for the people it's for, not until it looks good. Accessibility is part of the conversation from the start." data-es="Empiezo con dos preguntas: ¿para quién es esto y qué necesita realmente? Después investigo, dibujo, diseño y construyo. Si no sé cómo construir algo, lo aprendo. Sigo probando hasta que funciona para la gente a la que está destinado, no hasta que se ve bien. La accesibilidad forma parte de la conversación desde el principio.">I start with two questions: who is this for, and what do they actually need? Then I research, sketch, design, and build. If I don't know how to build something, I learn it. I keep testing until it works for the people it's for, not until it looks good. Accessibility is part of the conversation from the start.</span></p>
           </div>
         </div>
 
         <div class="about-acc-item" id="acc-4">
-          <button class="about-acc-trigger" onclick="toggleAcc(4)" aria-expanded="false" aria-controls="acc-body-4">
+          <h3 class="about-acc-h"><button type="button" class="about-acc-trigger" onclick="toggleAcc(4)" aria-expanded="false" aria-controls="acc-body-4">
             <span class="about-acc-label" data-en="Outside of Design" data-es="Fuera del diseño">Outside of Design</span>
             <span class="about-acc-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
-          </button>
+          </button></h3>
           <div class="about-acc-body" id="acc-body-4">
             <p><span data-en="You'll probably find me photographing landscapes, sipping mate (the tea, not a friend) while watching soccer, or organizing absolutely everything I can get my hands on." data-es="Probablemente me encuentres fotografiando paisajes, tomando unos mates mientras veo fútbol, u organizando absolutamente todo lo que se me cruce.">You'll probably find me photographing landscapes, sipping mate (the tea, not a friend) while watching soccer, or organizing absolutely everything I can get my hands on.</span></p>
           </div>
@@ -1068,7 +1083,7 @@
           <div class="journey-content">
             <p class="journey-year">2024–2025</p>
             <p class="journey-title" data-en="Master in UX/UI Design" data-es="Máster en UX/UI Design">Master in UX/UI Design</p>
-            <p class="journey-desc" data-en="Studied interaction design, user research, and prototyping. Built Luquita, a full product with a business model." data-es="Estudié diseño de interacción, investigación de usuarios y prototipado. Construí Luquita, un producto completo con modelo de negocio.">Studied interaction design, user research, and prototyping. Built Luquita, a full product with a business model.</p>
+            <p class="journey-desc" data-en="Studied interaction design, user research, and prototyping. Designed Luquita with a team, a full product with a business model." data-es="Estudié diseño de interacción, investigación de usuarios y prototipado. Diseñé Luquita en equipo, un producto completo con modelo de negocio.">Studied interaction design, user research, and prototyping. Designed Luquita with a team, a full product with a business model.</p>
           </div>
         </div>
         <div class="journey-item">
@@ -1077,8 +1092,8 @@
           </div>
           <div class="journey-content">
             <p class="journey-year">2026</p>
-            <p class="journey-title" data-en="Built &amp; shipped Break Board" data-es="Construí y lancé Break Board">Built &amp; shipped Break Board</p>
-            <p class="journey-desc" data-en="Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé, programé y desplegué una app real. HTML, CSS, JS, Firebase. Sigue en producción.">Designed, coded, and deployed a real app. HTML, CSS, JS, Firebase. Still running in production.</p>
+            <p class="journey-title" data-en="Designed &amp; shipped Break Board" data-es="Diseñé y lancé Break Board">Designed &amp; shipped Break Board</p>
+            <p class="journey-desc" data-en="Designed the product, directed the build with Claude, and launched it. HTML, CSS, JS, Firebase. Still running in production." data-es="Diseñé el producto, dirigí la construcción con Claude y lo lancé. HTML, CSS, JS, Firebase. Sigue en producción.">Designed the product, directed the build with Claude, and launched it. HTML, CSS, JS, Firebase. Still running in production.</p>
           </div>
         </div>
         <div class="journey-item">
@@ -1120,7 +1135,7 @@
         <div class="proj-tags">
           <span class="tag live" data-en="● Live" data-es="● En vivo">● Live</span>
           <span class="tag shipped" data-en="Designed" data-es="Diseñado">Designed</span>
-          <span class="tag shipped" data-en="Built" data-es="Desarrollado">Built</span>
+          <span class="tag shipped" data-en="Built with Claude" data-es="Construido con Claude">Built with Claude</span>
           <span class="tag shipped" data-en="Deployed" data-es="Desplegado">Deployed</span>
         </div>
         <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-1" aria-label="Expand Break Board">
@@ -1131,14 +1146,20 @@
         <div class="proj-body-inner">
           <div class="proj-desc">
             <div class="live-badge"><span data-en="Live at ecomm-breaklog.web.app" data-es="En vivo en ecomm-breaklog.web.app">Live at ecomm-breaklog.web.app</span><span class="live-dot"></span></div>
-            <p data-en="My workplace ran on a manual system for logging employee breaks. Sheets got lost or forgotten, and plenty of people just didn't like using them. The complaints came from both sides: employees wanted something easier, with fewer steps, and managers wanted something more accessible, without worrying about lost sheets or scanning them every night." data-es="Mi trabajo tenía un sistema manual para registrar los breaks de los empleados. Las hojas se perdían o se olvidaban, y a muchos simplemente no les gustaba usarlas. Las quejas venían de ambos lados: los empleados querían algo más fácil, con menos pasos, y los managers querían una opción más accesible, sin preocuparse de que las hojas se perdieran o tener que escanearlas cada noche.">My workplace ran on a manual system for logging employee breaks. Sheets got lost or forgotten, and plenty of people just didn't like using them. The complaints came from both sides: employees wanted something easier, with fewer steps, and managers wanted something more accessible, without worrying about lost sheets or scanning them every night.</p>
-            <p data-en="&lt;strong&gt;I designed the UI from scratch, coded it, and deployed it on Firebase.&lt;/strong&gt; Used daily by the team since July 2026." data-es="&lt;strong&gt;Diseñé la interfaz desde cero, la codifiqué y la desplegué en Firebase.&lt;/strong&gt; Usada a diario por el equipo desde julio de 2026."><strong>I designed the UI from scratch, coded it, and deployed it on Firebase.</strong> Used daily by the team since July 2026.</p>
-            <p class="proj-desc-label" data-en="The approach" data-es="El enfoque">The approach</p>
-            <p data-en="Every decision was made with both users in mind: accessibility for employees and managers, balance, an adjustable design, and fewer steps at every turn." data-es="Cada decisión fue pensada en ambos usuarios: accesibilidad para empleados y para managers, balance, un diseño ajustable y menos pasos en cada proceso.">Every decision was made with both users in mind: accessibility for employees and managers, balance, an adjustable design, and fewer steps at every turn.</p>
+            <p data-en="My workplace logged employee breaks on paper sheets. Sheets got lost, times were left blank, and the sheets were supposed to be scanned every night, but that closing task often slipped and a stack piled up until the end of the week. When our availability metric dipped on a given day, there was no reliable record to trace back and see why." data-es="Mi trabajo registraba los breaks de los empleados en hojas de papel. Las hojas se perdían, a veces nadie anotaba los horarios, y se suponía que había que escanearlas cada noche, pero esa tarea de cierre muchas veces se salteaba y se acumulaba una pila hasta fin de semana. Cuando nuestra métrica de disponibilidad bajaba un día, no había un registro confiable para rastrear por qué.">My workplace logged employee breaks on paper sheets. Sheets got lost, times were left blank, and the sheets were supposed to be scanned every night, but that closing task often slipped and a stack piled up until the end of the week. When our availability metric dipped on a given day, there was no reliable record to trace back and see why.</p>
+            <p data-en="&lt;strong&gt;I designed the product and directed every decision and change. I worked with Claude as my developer to build and test the code, and it is deployed on Firebase.&lt;/strong&gt; Used daily by the team since July 2026." data-es="&lt;strong&gt;Diseñé el producto y dirigí cada decisión y cada cambio. Trabajé con Claude como mi desarrollador para construir y probar el código, y está desplegado en Firebase.&lt;/strong&gt; Usada a diario por el equipo desde julio de 2026."><strong>I designed the product and directed every decision and change. I worked with Claude as my developer to build and test the code, and it is deployed on Firebase.</strong> Used daily by the team since July 2026.</p>
+            <p class="proj-desc-label" data-en="Key decisions" data-es="Decisiones clave">Key decisions</p>
+            <p data-en="&lt;strong&gt;Weekend slots, protected.&lt;/strong&gt; It started as 4 slots. Weekends need 6, but not everyone should be able to open them, because it would leave the floor short-staffed. So the extra slots sit behind a password." data-es="&lt;strong&gt;Slots de fin de semana, protegidos.&lt;/strong&gt; Empezó con 4 slots. Los fines de semana hacen falta 6, pero no todos deberían poder habilitarlos, porque se quedaría poco personal en piso. Por eso los slots extra están detrás de una contraseña."><strong>Weekend slots, protected.</strong> It started as 4 slots. Weekends need 6, but not everyone should be able to open them, because it would leave the floor short-staffed. So the extra slots sit behind a password.</p>
+            <p data-en="&lt;strong&gt;Login.&lt;/strong&gt; At first there was no login, so anyone who opened the site saw and could change what was on our tablet." data-es="&lt;strong&gt;Login.&lt;/strong&gt; Al principio no había login, así que cualquiera que abriera el sitio veía y podía modificar lo que estaba en nuestra tablet."><strong>Login.</strong> At first there was no login, so anyone who opened the site saw and could change what was on our tablet.</p>
+            <p data-en="&lt;strong&gt;Kiosk Mode.&lt;/strong&gt; Built so team members can’t navigate away from the board or close it by accident." data-es="&lt;strong&gt;Modo Kiosco.&lt;/strong&gt; Pensado para que el equipo no pueda salirse del tablero ni cerrarlo por accidente."><strong>Kiosk Mode.</strong> Built so team members can’t navigate away from the board or close it by accident.</p>
+            <p data-en="&lt;strong&gt;Countdowns and colors follow the break policy:&lt;/strong&gt; 10-minute breaks, 30-minute lunches and a 5-minute grace period." data-es="&lt;strong&gt;Cuentas regresivas y colores según la política de breaks:&lt;/strong&gt; breaks de 10 minutos, almuerzos de 30 y 5 minutos de gracia."><strong>Countdowns and colors follow the break policy:</strong> 10-minute breaks, 30-minute lunches and a 5-minute grace period.</p>
+            <p data-en="&lt;strong&gt;CSV export for closing.&lt;/strong&gt; It replaced walking to the printer, scanning, opening email and saving the file. Four steps became one export and a move to the designated folder." data-es="&lt;strong&gt;Exportación CSV para el cierre.&lt;/strong&gt; Reemplazó ir a la impresora, escanear, abrir el mail y guardar el archivo. Cuatro pasos pasaron a ser una exportación y mover el archivo a la carpeta designada."><strong>CSV export for closing.</strong> It replaced walking to the printer, scanning, opening email and saving the file. Four steps became one export and a move to the designated folder.</p>
+            <p class="proj-desc-label" data-en="What surprised me" data-es="Lo que me sorprendió">What surprised me</p>
+            <p data-en="If nobody closed the app or fixed the time on the tablet, all the data came out wrong. I hadn’t planned for that, so I added automatic region and time detection and an autosave that closes the day every night, syncs, and keeps 15 days of records." data-es="Si nadie cerraba la app o corregía la hora de la tablet, todos los datos salían mal. No lo había previsto, así que agregué detección automática de región y hora, y un autoguardado que cierra el día cada noche, sincroniza y conserva 15 días de registros.">If nobody closed the app or fixed the time on the tablet, all the data came out wrong. I hadn’t planned for that, so I added automatic region and time detection and an autosave that closes the day every night, syncs, and keeps 15 days of records.</p>
             <p class="proj-desc-label" data-en="The result" data-es="El resultado">The result</p>
-            <p data-en="Now there's more visibility. Employees spend less time filling things out and have clarity around their breaks. Managers don't have to worry about employees abusing their breaks, and at the end of the night, one button logs everything. No unnecessary steps." data-es="Ahora hay mayor visibilidad. Los empleados tardan menos en registrar sus breaks y tienen más claridad al tomarlos. Los managers no tienen que preocuparse de que se abuse de los breaks, y al final de la noche, un solo botón registra todo. Sin pasos innecesarios.">Now there's more visibility. Employees spend less time filling things out and have clarity around their breaks. Managers don't have to worry about employees abusing their breaks, and at the end of the night, one button logs everything. No unnecessary steps.</p>
+            <p data-en="The team has about 120 people, roughly 20 on shift on a typical day, and everyone logs at least a break in it. Managers no longer chase lost sheets or scan them every night, and they told me it’s remarkably accessible and simple. These are figures from my time on the team; I no longer have manager access, so I don’t track current numbers." data-es="El equipo tiene unas 120 personas, alrededor de 20 por día de turno, y todos registran al menos un break ahí. Los managers ya no persiguen hojas perdidas ni las escanean cada noche, y me dijeron que les parece increíblemente accesible y simple. Son datos de mi tiempo en el equipo; ya no tengo acceso de manager, así que no sigo los números actuales.">The team has about 120 people, roughly 20 on shift on a typical day, and everyone logs at least a break in it. Managers no longer chase lost sheets or scan them every night, and they told me it’s remarkably accessible and simple. These are figures from my time on the team; I no longer have manager access, so I don’t track current numbers.</p>
             <p class="proj-desc-label" data-en="What it does" data-es="Qué hace">What it does</p>
-            <p><span data-en="4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests." data-es="4 slots de descanso en tiempo real con cuenta regresiva, contador de ocupación en vivo, Modo Kiosco con PIN, vista de historial para gerentes, registro diario con exportación CSV y solicitudes de extensión.">4 real-time break slots with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, and break extension requests.</span></p>
+            <p data-en="4 real-time break slots (6 on weekends) with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, break extension requests, automatic time and region, and a nightly autosave." data-es="4 slots de descanso en tiempo real (6 los fines de semana) con cuenta regresiva, contador de ocupación en vivo, Modo Kiosco con PIN, vista de historial para gerentes, registro diario con exportación CSV, solicitudes de extensión, hora y región automáticas y autoguardado nocturno.">4 real-time break slots (6 on weekends) with countdowns, live occupancy counter, Kiosk Mode with PIN lock, manager History view, daily log with CSV export, break extension requests, automatic time and region, and a nightly autosave.</p>
             <p class="proj-desc-label" data-en="Stack" data-es="Tecnologías">Stack</p>
             <p>HTML · CSS · JavaScript · Firebase (Hosting + Realtime Database)</p>
             <div class="test-login">
@@ -1170,36 +1191,87 @@
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </div>
 
-    <!-- PROJECT 2: Luquita -->
+    <!-- PROJECT 2: BA Services US -->
     <div class="proj-card" id="card-2">
       <div class="proj-card-header" onclick="toggleCard(2)">
         <span class="proj-num">02</span>
-        <h3 class="proj-card-title">Luquita</h3>
+        <h3 class="proj-card-title">BA Services US</h3>
         <div class="proj-tags">
-          <span class="tag">UX/UI</span>
-          <span class="tag" data-en="Mobile App" data-es="App móvil">Mobile App</span>
-          <span class="tag" data-en="Capstone" data-es="Proyecto final">Capstone</span>
+          <span class="tag live" data-en="● Live" data-es="● En vivo">● Live</span>
+          <span class="tag shipped" data-en="Client work" data-es="Trabajo para cliente">Client work</span>
+          <span class="tag shipped" data-en="Designed" data-es="Diseñado">Designed</span>
+          <span class="tag shipped" data-en="Built with Claude" data-es="Construido con Claude">Built with Claude</span>
         </div>
-        <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-2" aria-label="Expand Luquita">
+        <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-2" aria-label="Expand BA Services US">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </button>
       </div>
       <div class="proj-body" id="body-2">
         <div class="proj-body-inner">
           <div class="proj-desc">
+            <div class="live-badge"><span data-en="Live at baservices.us" data-es="En vivo en baservices.us">Live at baservices.us</span><span class="live-dot"></span></div>
+            <p data-en="BA Services US is a New York accounting and business-support firm for startups, small and growing businesses, and European companies setting up in the U.S. Its visitors are owners deciding whether to trust a small firm with their books, and the brief asked for a site that doesn’t feel like a bookkeeping directory. I designed the logo and identity, then the website, and directed every round of changes." data-es="BA Services US es una firma de contabilidad y soporte para negocios con base en Nueva York, para startups, pequeñas empresas en crecimiento y empresas europeas que se instalan en EE. UU. Quienes la visitan son dueños que están decidiendo si confiarle su contabilidad a una firma chica, y el brief pedía un sitio que no se sintiera como un directorio de contabilidad. Diseñé el logo y la identidad, después el sitio web, y dirigí cada ronda de cambios.">BA Services US is a New York accounting and business-support firm for startups, small and growing businesses, and European companies setting up in the U.S. Its visitors are owners deciding whether to trust a small firm with their books, and the brief asked for a site that doesn’t feel like a bookkeeping directory. I designed the logo and identity, then the website, and directed every round of changes.</p>
+            <p data-en="&lt;strong&gt;I worked with Claude as my developer to build and test the code.&lt;/strong&gt;" data-es="&lt;strong&gt;Trabajé con Claude como mi desarrollador para construir y probar el código.&lt;/strong&gt;"><strong>I worked with Claude as my developer to build and test the code.</strong></p>
+            <p class="proj-desc-label" data-en="How I started" data-es="Cómo empecé">How I started</p>
+            <p data-en="I researched how CPA firm sites handle contact, booking, services and proof, then sent the client a short questionnaire. Their answers set the main action (a free intro call), no testimonials for now, and a private address. Every design, interaction and color choice was made to reflect the firm’s core values." data-es="Investigué cómo los sitios de firmas de CPA manejan el contacto, la reserva, los servicios y las pruebas de confianza, y le envié al cliente un cuestionario corto. Sus respuestas definieron la acción principal (una llamada introductoria gratuita), sin testimonios por ahora y con una dirección privada. Cada decisión de diseño, interacción y color se tomó para reflejar los valores centrales de la firma.">I researched how CPA firm sites handle contact, booking, services and proof, then sent the client a short questionnaire. Their answers set the main action (a free intro call), no testimonials for now, and a private address. Every design, interaction and color choice was made to reflect the firm’s core values.</p>
+            <p class="proj-desc-label" data-en="Key decisions" data-es="Decisiones clave">Key decisions</p>
+            <p data-en="&lt;strong&gt;Step reduction.&lt;/strong&gt; The path to contact got shorter with each iteration: an email button, then a form that only opened the visitor’s mail app, and finally a booking link for a free intro call of up to 30 minutes. There’s no form, and the site states plainly what happens to the information people send." data-es="&lt;strong&gt;Menos pasos.&lt;/strong&gt; El camino al contacto se acortó en cada iteración: primero un botón de email, luego un formulario que solo abría el correo del visitante y, al final, un enlace para reservar una llamada introductoria gratuita de hasta 30 minutos. No hay formulario, y el sitio explica con claridad qué pasa con la información que se envía."><strong>Step reduction.</strong> The path to contact got shorter with each iteration: an email button, then a form that only opened the visitor’s mail app, and finally a booking link for a free intro call of up to 30 minutes. There’s no form, and the site states plainly what happens to the information people send.</p>
+            <p data-en="&lt;strong&gt;Clarity.&lt;/strong&gt; Scope is stated up front. The FAQ lists what the firm doesn’t do (tax preparation, legal advice, assurance, attestation), so visitors know the limits before they book." data-es="&lt;strong&gt;Claridad.&lt;/strong&gt; El alcance se dice desde el inicio. Las preguntas frecuentes indican lo que la firma no hace (preparación de impuestos, asesoría legal, aseguramiento, atestación), así que quien visita conoce los límites antes de reservar."><strong>Clarity.</strong> Scope is stated up front. The FAQ lists what the firm doesn’t do (tax preparation, legal advice, assurance, attestation), so visitors know the limits before they book.</p>
+            <p data-en="&lt;strong&gt;Bilingual accessibility.&lt;/strong&gt; The site switches between English and Spanish because the firm works in both languages and its team is in New York, Barcelona and Buenos Aires." data-es="&lt;strong&gt;Accesibilidad bilingüe.&lt;/strong&gt; El sitio cambia entre inglés y español porque la firma trabaja en los dos idiomas y su equipo está en Nueva York, Barcelona y Buenos Aires."><strong>Bilingual accessibility.</strong> The site switches between English and Spanish because the firm works in both languages and its team is in New York, Barcelona and Buenos Aires.</p>
+            <p data-en="&lt;strong&gt;Restrained visuals.&lt;/strong&gt; Navy and cream with yellow only as an accent, and no stock photos, so the identity does the work." data-es="&lt;strong&gt;Visuales con medida.&lt;/strong&gt; Azul marino y crema con el amarillo solo como acento, y sin fotos de stock, para que la identidad haga el trabajo."><strong>Restrained visuals.</strong> Navy and cream with yellow only as an accent, and no stock photos, so the identity does the work.</p>
+            <p class="proj-desc-label" data-en="What surprised me" data-es="Lo que me sorprendió">What surprised me</p>
+            <p data-en="Describing the look in words didn’t work. I discarded early directions until I designed the home hero myself in Figma and made it the source of truth. After that, I gave feedback as annotated Figma screens passed directly to Claude, and each change was built from my own design." data-es="Describir el estilo con palabras no funcionó. Descarté las primeras direcciones hasta que diseñé yo misma el hero del home en Figma y lo convertí en la fuente de verdad. Desde ahí, mi feedback fue con pantallas anotadas de Figma que pasé directo a Claude, y cada cambio se construyó a partir de mi propio diseño.">Describing the look in words didn’t work. I discarded early directions until I designed the home hero myself in Figma and made it the source of truth. After that, I gave feedback as annotated Figma screens passed directly to Claude, and each change was built from my own design.</p>
+            <p class="proj-desc-label" data-en="Stack" data-es="Tecnologías">Stack</p>
+            <p>Figma · HTML · CSS · JavaScript · Git</p>
+            <a href="https://baservices.us/" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="Visit live site" data-es="Visitar sitio en vivo">Visit live site</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+          <div class="proj-media">
+            <div class="proj-screenshot">
+              <div class="browser-chrome">
+                <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+                <div class="browser-bar">baservices.us</div>
+              </div>
+              <img width="1600" height="980" src="images/ba-services/site-1.webp" alt="BA Services US homepage: navy hero with the headline Clarity to decide. Confidence to grow., a short intro and a Let’s talk about your business button" loading="lazy" decoding="async" class="browser-img" onerror="this.closest('.proj-screenshot').remove()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: Luquita -->
+    <div class="proj-card" id="card-3">
+      <div class="proj-card-header" onclick="toggleCard(3)">
+        <span class="proj-num">03</span>
+        <h3 class="proj-card-title">Luquita</h3>
+        <div class="proj-tags">
+          <span class="tag">UX/UI</span>
+          <span class="tag" data-en="Mobile App" data-es="App móvil">Mobile App</span>
+          <span class="tag" data-en="Capstone" data-es="Proyecto final">Capstone</span>
+        </div>
+        <button type="button" class="proj-toggle" aria-expanded="false" aria-controls="body-3" aria-label="Expand Luquita">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+      </div>
+      <div class="proj-body" id="body-3">
+        <div class="proj-body-inner">
+          <div class="proj-desc">
             <p data-en="&lt;strong&gt;Luquita&lt;/strong&gt; is a personal finance mobile app designed for young working adults, helping them manage their money, track goals, and build financial confidence." data-es="&lt;strong&gt;Luquita&lt;/strong&gt; es una app móvil de finanzas personales diseñada para jóvenes adultos que trabajan, ayudándolos a administrar su dinero, realizar seguimiento de metas y construir confianza financiera."><strong>Luquita</strong> is a personal finance mobile app designed for young working adults, helping them manage their money, track goals, and build financial confidence.</p>
             <p><span data-en="Built as a school group project for Demo Day, the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens. We were building a business." data-es="Construido como proyecto grupal escolar para el Demo Day, el equipo diseñó una estrategia de producto completa junto con la UX: modelo freemium, monetización publicitaria y marketing de afiliados. No solo diseñamos pantallas. Construimos un negocio.">Built as a school group project for Demo Day, the team designed a full product strategy alongside the UX: freemium model, ad monetization, and affiliate marketing. We weren't just designing screens. We were building a business.</span></p>
             <p class="proj-desc-label" data-en="My role" data-es="Mi rol">My role</p>
             <p data-en="UX/UI design in Figma, UX research, user flows, wireframes, high-fidelity screens, and interactive prototype." data-es="Diseño UX/UI en Figma, investigación UX, flujos de usuario, wireframes, pantallas de alta fidelidad y prototipo interactivo.">UX/UI design in Figma, UX research, user flows, wireframes, high-fidelity screens, and interactive prototype.</p>
-            <p class="proj-desc-label" data-en="Problem" data-es="Problema">Problem</p>
-            <p data-en="Luquita came out of just how much young people struggle when it comes to their finances. Our research was about finding what was happening, why it was happening, and what we could actually do about it. We learned that young people didn't have the information or guidance to manage their money. General finance apps gave too little context, which created confusion instead of understanding." data-es="Luquita nació de lo mucho que les cuesta a los jóvenes pensar en sus finanzas. Nuestra investigación se centró en encontrar qué estaba pasando, por qué pasaba y qué podíamos hacer al respecto. Aprendimos que los jóvenes no tenían la información ni una guía que les enseñara a manejar sus finanzas. Las apps generales daban poca información, lo que generaba más confusión que entendimiento.">Luquita came out of just how much young people struggle when it comes to their finances. Our research was about finding what was happening, why it was happening, and what we could actually do about it. We learned that young people didn't have the information or guidance to manage their money. General finance apps gave too little context, which created confusion instead of understanding.</p>
+                        <p class="proj-desc-label" data-en="Problem" data-es="Problema">Problem</p>
+            <p data-en="Luquita came out of how much young people struggle with their finances, and the research points the same way: 61% of the population doesn’t save, and those who do keep cash at home; 57% couldn’t cover an unexpected expense equal to a month of income (CAF, 2021); and over 60% of young Latin Americans feel anxiety or stress about their financial situation (Statista, 2024). Most had never had formal financial education. The apps we reviewed didn’t fill the gap: high prices, unintuitive features, little personalization, no feedback on progress, and paid onboarding." data-es="Luquita nació de lo mucho que les cuesta a los jóvenes pensar en sus finanzas, y la investigación apunta en la misma dirección: el 61% de la población no ahorra, y quienes lo hacen guardan efectivo en casa; el 57% no podría cubrir un gasto imprevisto equivalente a su ingreso mensual (CAF, 2021); y más del 60% de los jóvenes latinoamericanos siente ansiedad o estrés por su situación financiera (Statista, 2024). La mayoría nunca tuvo educación financiera formal. Las apps que analizamos no llenaban ese vacío: precios altos, funciones poco intuitivas, poca personalización, sin devolución del progreso y con aprendizaje inicial pago.">Luquita came out of how much young people struggle with their finances, and the research points the same way: 61% of the population doesn’t save, and those who do keep cash at home; 57% couldn’t cover an unexpected expense equal to a month of income (CAF, 2021); and over 60% of young Latin Americans feel anxiety or stress about their financial situation (Statista, 2024). Most had never had formal financial education. The apps we reviewed didn’t fill the gap: high prices, unintuitive features, little personalization, no feedback on progress, and paid onboarding.</p>
             <p class="proj-desc-label" data-en="Approach" data-es="Enfoque">Approach</p>
             <p data-en="We designed Luquita around a mindset of educating: helping young people learn to manage their money and build the confidence to actually put it to use." data-es="Diseñamos Luquita con la mentalidad de educar: que los jóvenes aprendieran a manejar su dinero y ganaran confianza para distribuirlo.">We designed Luquita around a mindset of educating: helping young people learn to manage their money and build the confidence to actually put it to use.</p>
             <p class="proj-desc-label" data-en="Validation" data-es="Validación">Validation</p>
             <p data-en="In user testing, Luquita came through as accessible, approachable, and confidence-building. Learning about finance through your own finances turned out to be genuinely useful, and the ability to simulate a scenario gave people the confidence to take real financial steps." data-es="En nuestro user testing, Luquita resultó accesible, amigable y generadora de confianza. Aprender de finanzas con tus propias finanzas resultó realmente útil, y la posibilidad de simular un escenario les dio confianza para tomar decisiones financieras reales.">In user testing, Luquita came through as accessible, approachable, and confidence-building. Learning about finance through your own finances turned out to be genuinely useful, and the ability to simulate a scenario gave people the confidence to take real financial steps.</p>
+                        <p class="proj-desc-label" data-en="What user testing changed" data-es="Qué cambió el user testing">What user testing changed</p>
+            <p data-en="Testers could finish the tasks, but they told us the quiz questions felt more serious than the friendly tone of the rest of the app, that income and expense colors were hard to tell apart, and that a bare plus button was easy to miss. The clearest change was the tone: we rewrote the questions to sound closer to talking with a friend and added illustrations so screens didn’t feel empty. We also swapped the plus button for a labeled “add a new expense or income” button, adjusted the income and expense colors, and renamed “Monthly Balance” to “Monthly Summary.”" data-es="Quienes probaron el prototipo pudieron completar las tareas, pero nos dijeron que las preguntas del quiz se sentían más serias que el tono cercano del resto de la app, que los colores de ingresos y gastos eran difíciles de distinguir y que el signo más solo era fácil de pasar por alto. El cambio más claro fue el tono: reescribimos las preguntas para que suenen más a hablar con un amigo y sumamos ilustraciones para que las pantallas no se sintieran vacías. También cambiamos el signo más por un botón con texto “agregar un nuevo gasto o ingreso”, ajustamos los colores de ingresos y gastos y renombramos “Balance mensual” a “Resumen mensual”.">Testers could finish the tasks, but they told us the quiz questions felt more serious than the friendly tone of the rest of the app, that income and expense colors were hard to tell apart, and that a bare plus button was easy to miss. The clearest change was the tone: we rewrote the questions to sound closer to talking with a friend and added illustrations so screens didn’t feel empty. We also swapped the plus button for a labeled “add a new expense or income” button, adjusted the income and expense colors, and renamed “Monthly Balance” to “Monthly Summary.”</p>
+            <p data-en="Smaller fixes: “Save by term” became “Save by date range” because testers got confused by value versus term, onboarding gained a back button, and the nav bar was removed while creating a goal, since that action lives outside the main flow." data-es="Arreglos más chicos: “Ahorrar por plazo” pasó a ser “Ahorrar por rango de fechas” porque se confundían entre valor y plazo, el onboarding ganó un botón para retroceder y se quitó la barra de navegación al crear una meta, ya que esa acción vive fuera del flujo principal.">Smaller fixes: “Save by term” became “Save by date range” because testers got confused by value versus term, onboarding gained a back button, and the nav bar was removed while creating a goal, since that action lives outside the main flow.</p>
             <a href="https://www.figma.com/proto/agrII1fMgp1FVykwjUULJ6/Luquita?page-id=1954%3A6882&amp;node-id=1954-59996&amp;viewport=1028%2C195%2C0.06&amp;t=qnwqL4mTEPwuXbwr-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=1954%3A59996" target="_blank" rel="noopener noreferrer" class="proj-link"><span data-en="View Figma prototype" data-es="Ver prototipo en Figma">View Figma prototype</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </a>
           </div>
@@ -1237,13 +1309,14 @@
   </div>
 
   <div class="freelance-tabs" role="group" aria-label="Filter freelance work" data-aria-en="Filter freelance work" data-aria-es="Filtrar trabajos freelance">
-    <button class="f-tab active" data-filter="all" onclick="filterFL('all')" aria-pressed="true" data-en="All" data-es="Todos">All</button>
-    <button class="f-tab" data-filter="brand" onclick="filterFL('brand')" aria-pressed="false" data-en="Branding &amp; Logos" data-es="Branding y logos">Branding &amp; Logos</button>
-    <button class="f-tab" data-filter="apparel" onclick="filterFL('apparel')" aria-pressed="false" data-en="Apparel" data-es="Ropa">Apparel</button>
-    <button class="f-tab" data-filter="event" onclick="filterFL('event')" aria-pressed="false" data-en="Event &amp; Menus" data-es="Eventos y menús">Event &amp; Menus</button>
-    <button class="f-tab" data-filter="web" onclick="filterFL('web')" aria-pressed="false" data-en="Web" data-es="Web">Web</button>
+    <button type="button" class="f-tab active" data-filter="all" onclick="filterFL('all')" aria-pressed="true" data-en="All" data-es="Todos">All</button>
+    <button type="button" class="f-tab" data-filter="brand" onclick="filterFL('brand')" aria-pressed="false" data-en="Branding &amp; Logos" data-es="Branding y logos">Branding &amp; Logos</button>
+    <button type="button" class="f-tab" data-filter="apparel" onclick="filterFL('apparel')" aria-pressed="false" data-en="Apparel" data-es="Ropa">Apparel</button>
+    <button type="button" class="f-tab" data-filter="event" onclick="filterFL('event')" aria-pressed="false" data-en="Event &amp; Menus" data-es="Eventos y menús">Event &amp; Menus</button>
+    <button type="button" class="f-tab" data-filter="web" onclick="filterFL('web')" aria-pressed="false" data-en="Web" data-es="Web">Web</button>
   </div>
 
+  <p class="sr-only" id="fl-status" role="status" aria-live="polite"></p>
   <div class="freelance-grid reveal" id="fl-grid">
 
     <!-- Carola Nails: brand identity + website -->
@@ -1255,6 +1328,43 @@
         <div class="fl-client">Carola Nails</div>
         <div class="fl-type" data-en="Brand identity · Website" data-es="Identidad de marca · Sitio web">Brand identity · Website</div>
         <a class="fl-link" href="https://carolanails.netlify.app/" target="_blank" rel="noopener noreferrer"><span data-en="Visit site" data-es="Ver sitio">Visit site</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </div>
+
+    <!-- BA Services - Logo Creations -->
+    <div class="fl-item" data-cat="brand">
+      <div class="fl-carousel">
+        <img width="2083" height="2083" class="fl-img active" src="images/ba-services/baservices-1.webp" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img width="1100" height="917" class="fl-img" src="images/ba-services/baservices-2.webp" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">BA Services</div>
+        <div class="fl-type" data-en="Brand identity · MA" data-es="Identidad de marca · MA">Brand identity · MA</div>
+        <a class="fl-link" href="https://www.linkedin.com/company/baservices-us/" target="_blank" rel="noopener noreferrer"><span data-en="View on LinkedIn" data-es="Ver en LinkedIn">View on LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+      </div>
+    </div>
+
+    <!-- Gusto Pasta - Restaurant branding -->
+    <div class="fl-item" data-cat="brand">
+      <div class="fl-carousel">
+        <img width="9000" height="16000" class="fl-img active" src="images/gusto-pasta/gustopasta-1.webp" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img width="4500" height="8000" class="fl-img" src="images/gusto-pasta/gustopasta-2.webp" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+        <img width="4500" height="8000" class="fl-img" src="images/gusto-pasta/gustopasta-3.webp" alt="Gusto Pasta design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
+
+        <div class="fl-dots">
+          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
+          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
+        </div>
+      </div>
+      <div class="fl-info">
+        <div class="fl-client">Gusto Pasta</div>
+        <div class="fl-type" data-en="Brand identity · @gusto.pastas · BA" data-es="Identidad de marca · @gusto.pastas · BA">Brand identity · @gusto.pastas · BA</div>
       </div>
     </div>
 
@@ -1325,43 +1435,6 @@
       </div>
     </div>
 
-    <!-- Gusto Pasta - Restaurant branding -->
-    <div class="fl-item" data-cat="brand">
-      <div class="fl-carousel">
-        <img width="9000" height="16000" class="fl-img active" src="images/gusto-pasta/gustopasta-1.webp" alt="Gusto Pasta design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
-        <img width="4500" height="8000" class="fl-img" src="images/gusto-pasta/gustopasta-2.webp" alt="Gusto Pasta design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
-        <img width="4500" height="8000" class="fl-img" src="images/gusto-pasta/gustopasta-3.webp" alt="Gusto Pasta design 3" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
-
-        <div class="fl-dots">
-          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
-          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
-          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 2)" aria-label="Go to image 3"></button>
-        </div>
-      </div>
-      <div class="fl-info">
-        <div class="fl-client">Gusto Pasta</div>
-        <div class="fl-type" data-en="Brand identity · @gusto.pastas · BA" data-es="Identidad de marca · @gusto.pastas · BA">Brand identity · @gusto.pastas · BA</div>
-      </div>
-    </div>
-
-    <!-- BA Services - Logo Creations -->
-    <div class="fl-item" data-cat="brand">
-      <div class="fl-carousel">
-        <img width="2083" height="2083" class="fl-img active" src="images/ba-services/baservices-1.webp" alt="BA Services logo design 1" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
-        <img width="1100" height="917" class="fl-img" src="images/ba-services/baservices-2.webp" alt="BA Services logo design 2" loading="lazy" decoding="async" onclick="openLightbox(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}" tabindex="0" role="button">
-
-        <div class="fl-dots">
-          <button type="button" class="fl-dot active" onclick="goToSlide(event, this, 0)" aria-label="Go to image 1"></button>
-          <button type="button" class="fl-dot" onclick="goToSlide(event, this, 1)" aria-label="Go to image 2"></button>
-        </div>
-      </div>
-      <div class="fl-info">
-        <div class="fl-client">BA Services</div>
-        <div class="fl-type" data-en="Brand identity · MA" data-es="Identidad de marca · MA">Brand identity · MA</div>
-        <a class="fl-link" href="https://www.linkedin.com/company/baservices-us/" target="_blank" rel="noopener noreferrer"><span data-en="View on LinkedIn" data-es="Ver en LinkedIn">View on LinkedIn</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-      </div>
-    </div>
-
     <!-- Customized Designs – event flyers, illustrations -->
     <div class="fl-item" data-cat="event">
       <div class="fl-carousel">
@@ -1421,13 +1494,14 @@
     <a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">GitHub</a>
     <a href="mailto:maria.moralesj13@gmail.com" data-en="Email" data-es="Email">Email</a>
   </nav>
-  <p data-en="Designed &amp; built by Maria Morales © 2026" data-es="Diseñado y construido por Maria Morales © 2026">Designed &amp; built by Maria Morales © 2026</p>
+  <div class="claude-badge" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#d97757"><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(45 12 12)"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(90 12 12)"/><rect x="10.8" y="1.5" width="2.4" height="21" rx="1.2" transform="rotate(135 12 12)"/></g></svg><span class="cb-text"><strong data-en="Works with Claude" data-es="Trabajo con Claude">Works with Claude</strong><small data-en="Designer-led, AI-assisted builds" data-es="Desarrollo asistido por IA, dirigido por mí">Designer-led, AI-assisted builds</small></span></div>
+  <p data-en="Designed by Maria Morales © 2026" data-es="Diseñado por Maria Morales © 2026">Designed by Maria Morales © 2026</p>
 </footer>
 
 <!-- ═══════════ RESUME MODAL ═══════════ -->
 <div class="backdrop" id="resume-backdrop" role="dialog" aria-modal="true" aria-labelledby="resume-h">
   <div class="modal">
-    <button class="modal-close" onclick="closeResume()" aria-label="Close résumé" data-aria-en="Close résumé" data-aria-es="Cerrar currículum">
+    <button type="button" class="modal-close" onclick="closeResume()" aria-label="Close résumé" data-aria-en="Close résumé" data-aria-es="Cerrar currículum">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
     <div class="modal-title-row">
@@ -1437,14 +1511,14 @@
         <span data-en="Download PDF" data-es="Descargar PDF">Download PDF</span>
       </a>
     </div>
-    <p class="modal-sub modal-contact"><span>Norwood, MA</span><span class="sep" aria-hidden="true"> · </span><a href="mailto:maria.moralesj13@gmail.com">maria.moralesj13@gmail.com</a><span class="sep" aria-hidden="true"> · </span><span>(754) 267-6683</span><span class="sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer">linkedin.com/in/maria-morales-5a0845134</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">github.com/mariamrales13</a></p>
+    <p class="modal-sub modal-contact"><span>Norwood, MA</span><span class="sep" aria-hidden="true"> · </span><a href="mailto:maria.moralesj13@gmail.com">maria.moralesj13@gmail.com</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/maria-morales-5a0845134" target="_blank" rel="noopener noreferrer">linkedin.com/in/maria-morales-5a0845134</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/mariamrales13" target="_blank" rel="noopener noreferrer">github.com/mariamrales13</a></p>
     <p class="modal-avail" data-en="Open to remote" data-es="Disponible para trabajo remoto">Open to remote</p>
 
     <h3 data-en="Profile" data-es="Perfil">Profile</h3>
-    <p data-en="Bilingual UX/UI designer (native Spanish, fluent English) who also builds. I design in Figma and code in HTML, CSS, and JavaScript, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language." data-es="Diseñadora UX/UI bilingüe (español nativo, inglés fluido) que también desarrolla. Diseño en Figma y programo en HTML, CSS y JavaScript, para que mis ideas lleguen a personas reales y no se queden en una maqueta. Mi primer producto publicado, Break Board, reemplazó las hojas de papel que mi equipo siempre perdía. Me formé en Nuclio Digital School y aprendí front-end por mi cuenta. Tres años en e-commerce y logística me enseñaron a detectar dónde falla un proceso y a explicar la solución con claridad, en cualquiera de los dos idiomas.">Bilingual UX/UI designer (native Spanish, fluent English) who also builds. I design in Figma and code in HTML, CSS, and JavaScript, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language.</p>
+    <p data-en="Bilingual UX/UI designer (native Spanish, fluent English) who takes designs all the way to production. I design in Figma and work with Claude as my developer, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language." data-es="Diseñadora UX/UI bilingüe (español nativo, inglés fluido) que lleva los diseños hasta producción. Diseño en Figma y trabajo con Claude como mi desarrollador, para que mis ideas lleguen a personas reales y no se queden en una maqueta. Mi primer producto publicado, Break Board, reemplazó las hojas de papel que mi equipo siempre perdía. Me formé en Nuclio Digital School y aprendí front-end por mi cuenta. Tres años en e-commerce y logística me enseñaron a detectar dónde falla un proceso y a explicar la solución con claridad, en cualquiera de los dos idiomas.">Bilingual UX/UI designer (native Spanish, fluent English) who takes designs all the way to production. I design in Figma and work with Claude as my developer, so my ideas reach real people, not just a mockup. My first shipped product, Break Board, replaced the paper sheets my team kept losing. Trained at Nuclio Digital School and self-taught in front-end. Three years in e-commerce and logistics taught me to spot where a process breaks and explain the fix clearly, in either language.</p>
 
-    <h3 data-en="Selected Design &amp;amp; Development Work" data-es="Proyectos Destacados de Diseño y Desarrollo">Selected Design &amp; Development Work</h3>
-    <p data-en="&lt;strong&gt;Break Board, Designer &amp;amp; Developer&lt;/strong&gt; · 2025–2026&lt;br&gt;Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. Did it all solo: research, wireframes, high-fidelity UI, code, and launch. Also built a PIN-locked Kiosk Mode, a manager history view, and CSV export." data-es="&lt;strong&gt;Break Board, Diseñadora y Desarrolladora&lt;/strong&gt; · 2025–2026&lt;br&gt;Reemplacé las hojas de papel que mi equipo usaba para registrar descansos, y que se perdían seguido, por una app web en vivo (HTML, CSS, JavaScript, Firebase), usada a diario por el equipo desde julio de 2026. Los empleados hacen menos pasos y ven una cuenta regresiva; los gerentes ven los turnos en tiempo real y cierran la noche con un solo botón. Lo hice todo yo sola: investigación, wireframes, diseño de alta fidelidad, código y lanzamiento. También armé un Modo Kiosco con PIN, un historial para gerentes y exportación a CSV."><strong>Break Board, Designer &amp; Developer</strong> · 2025–2026<br>Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. Did it all solo: research, wireframes, high-fidelity UI, code, and launch. Also built a PIN-locked Kiosk Mode, a manager history view, and CSV export.</p>
+    <h3 data-en="Selected Design &amp; Development Work" data-es="Proyectos Destacados de Diseño y Desarrollo">Selected Design &amp; Development Work</h3>
+    <p data-en="&lt;strong&gt;Break Board, Designer &amp;amp; Product Owner&lt;/strong&gt; · 2025–2026&lt;br&gt;Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. I led it solo: research, wireframes, high-fidelity UI, every product decision and the launch, building with Claude as my developer. Also designed a PIN-locked Kiosk Mode, a manager history view, and CSV export." data-es="&lt;strong&gt;Break Board, Diseñadora y Product Owner&lt;/strong&gt; · 2025–2026&lt;br&gt;Reemplacé las hojas de papel que mi equipo usaba para registrar descansos, y que se perdían seguido, por una app web en vivo (HTML, CSS, JavaScript, Firebase), usada a diario por el equipo desde julio de 2026. Los empleados hacen menos pasos y ven una cuenta regresiva; los gerentes ven los turnos en tiempo real y cierran la noche con un solo botón. La lideré yo sola: investigación, wireframes, diseño de alta fidelidad, cada decisión de producto y el lanzamiento, construyéndola con Claude como mi desarrollador. También diseñé un Modo Kiosco con PIN, un historial para gerentes y exportación a CSV."><strong>Break Board, Designer &amp; Product Owner</strong> · 2025–2026<br>Replaced the paper sheets my team used to log breaks, and kept losing, with a live web app (HTML, CSS, JavaScript, Firebase), used daily by the team since July 2026. Employees get fewer steps and a countdown; managers see slots in real time and close out the night with one button. I led it solo: research, wireframes, high-fidelity UI, every product decision and the launch, building with Claude as my developer. Also designed a PIN-locked Kiosk Mode, a manager history view, and CSV export.</p>
     <p style="margin-top:10px" data-en="&lt;strong&gt;Luquita, UX/UI Designer&lt;/strong&gt; · 2024–2025&lt;br&gt;Personal-finance app for young adults, built with a team for Nuclio&amp;#x27;s Demo Day. I handled UX research, user flows, wireframes, high-fidelity screens, and the interactive Figma prototype. In user testing, people found it approachable, and simulating scenarios gave them confidence to take real financial steps." data-es="&lt;strong&gt;Luquita, Diseñadora UX/UI&lt;/strong&gt; · 2024–2025&lt;br&gt;App de finanzas personales para jóvenes adultos, creada en equipo para el Demo Day de Nuclio. Me encargué de la investigación UX, los flujos de usuario, los wireframes, las pantallas de alta fidelidad y el prototipo interactivo en Figma. En las pruebas, la app resultó accesible y cercana, y simular escenarios les dio confianza para dar pasos reales."><strong>Luquita, UX/UI Designer</strong> · 2024–2025<br>Personal-finance app for young adults, built with a team for Nuclio&#x27;s Demo Day. I handled UX research, user flows, wireframes, high-fidelity screens, and the interactive Figma prototype. In user testing, people found it approachable, and simulating scenarios gave them confidence to take real financial steps.</p>
     <p style="margin-top:10px" data-en="&lt;strong&gt;Freelance Graphic Designer&lt;/strong&gt; · 2022–Present&lt;br&gt;Designed logos, brand identities, apparel, event menus, and illustrations for clients including Abruzzo Bar, Artesplash, and Gusto Pasta. Ran every project myself, from the first conversation to the final files." data-es="&lt;strong&gt;Diseñadora Gráfica Freelance&lt;/strong&gt; · 2022–Presente&lt;br&gt;Diseñé logos, identidades de marca, indumentaria, menús para eventos e ilustraciones para clientes como Abruzzo Bar, Artesplash y Gusto Pasta. Llevé cada proyecto yo misma, desde la primera conversación hasta los archivos finales."><strong>Freelance Graphic Designer</strong> · 2022–Present<br>Designed logos, brand identities, apparel, event menus, and illustrations for clients including Abruzzo Bar, Artesplash, and Gusto Pasta. Ran every project myself, from the first conversation to the final files.</p>
 
@@ -1476,20 +1550,20 @@
 
 <!-- ═══════════ IMAGE LIGHTBOX ═══════════ -->
 <div class="backdrop" id="lightbox-backdrop" role="dialog" aria-modal="true" aria-label="Enlarged image" data-aria-en="Enlarged image" data-aria-es="Imagen ampliada">
-  <button class="modal-close" onclick="closeLightbox()" aria-label="Close image" data-aria-en="Close image" data-aria-es="Cerrar imagen">
+  <button type="button" class="modal-close" onclick="closeLightbox()" aria-label="Close image" data-aria-en="Close image" data-aria-es="Cerrar imagen">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
   </button>
   <div class="modal lightbox-modal">
-    <button class="fl-arrow fl-prev" onclick="changeLightboxSlide(-1)" aria-label="Previous image" data-aria-en="Previous image" data-aria-es="Imagen anterior">‹</button>
-    <img id="lightbox-img" src="" alt="" style="max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
-    <button class="fl-arrow fl-next" onclick="changeLightboxSlide(1)" aria-label="Next image" data-aria-en="Next image" data-aria-es="Imagen siguiente">›</button>
+    <button type="button" class="fl-arrow fl-prev" onclick="changeLightboxSlide(-1)" aria-label="Previous image" data-aria-en="Previous image" data-aria-es="Imagen anterior">‹</button>
+    <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="max-height:85vh; object-fit:contain; display:block; margin:0 auto;">
+    <button type="button" class="fl-arrow fl-next" onclick="changeLightboxSlide(1)" aria-label="Next image" data-aria-en="Next image" data-aria-es="Imagen siguiente">›</button>
     <div id="lightbox-counter" style="text-align:center; margin-top:8px; color:var(--muted);"></div>
   </div>
 </div>
 
 <!-- Hidden SoundCloud Player & Credit Wrapper -->
 <div id="sound-wrapper">
-  <div id="hidden-sound-container" style="position: fixed; bottom: 12px; right: 24px; z-index: 350; display: flex; align-items: center; gap: 8px; pointer-events: none; opacity: 0; transition: opacity 0.3s ease;" hidden>
+  <div id="hidden-sound-container" style="position: fixed; bottom: 12px; right: 24px; z-index: 350; align-items: center; gap: 8px; pointer-events: none; opacity: 0; transition: opacity 0.3s ease;" hidden>
     <div style="background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); padding: 6px 12px; border-radius: 99px; pointer-events: auto; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
       <a href="https://soundcloud.com/gustavo-cisneros-994851307/nino-recorde-lvemc-luciernagas" target="_blank" rel="noopener noreferrer" style="font-size: 11px; color: var(--muted); text-decoration: none; font-family: 'Inter', sans-serif; display: inline-block; white-space: nowrap;">
         Niño, Recordé, LVEMC, Luciérnagas - Milo J · <span style="color: var(--accent);">SoundCloud</span>
@@ -1497,12 +1571,27 @@
     </div>
   </div>
 
-  <div style="position: fixed; left: -9999px; top: 0; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
-    <iframe id="sc-audio-iframe" title="Ambient music player" tabindex="-1" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2199678247&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false" allow="autoplay"></iframe>
+  <div style="position: fixed; right: 0; bottom: 0; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
+    <iframe id="sc-audio-iframe" title="Ambient music player" tabindex="-1" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2199678247&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false" allow="autoplay"></iframe>
   </div>
 </div>
 
+<div class="snd-toast" id="sound-toast" role="status" hidden></div>
+
 <script>
+/* ── Scroll reveal (set up first so an error further down can't leave sections invisible) ── */
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  const showAll = () => els.forEach(el => el.classList.add('visible'));
+  if (!('IntersectionObserver' in window)) { showAll(); return; }
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => ro.observe(el));
+})();
+
 /* ── Nav ───────────────────────── */
 const nav = document.getElementById('nav');
 const navAs = document.querySelectorAll('[data-nav]');
@@ -1518,7 +1607,12 @@ function updateNavOnScroll() {
     const el = document.getElementById(id);
     if (el && el.getBoundingClientRect().top <= 130) cur = id;
   });
-  navAs.forEach(a => a.classList.toggle('active', a.dataset.nav === cur));
+  if (scrollY > 0 && innerHeight + scrollY >= document.documentElement.scrollHeight - 2) cur = navSectionIds[navSectionIds.length - 1];
+  navAs.forEach(a => {
+    const on = a.dataset.nav === cur;
+    a.classList.toggle('active', on);
+    if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+  });
   scrollTicking = false;
 }
 window.addEventListener('scroll', () => {
@@ -1550,6 +1644,8 @@ document.addEventListener('keydown', e => {
 /* ── Theme: follows the device until she picks one ──────── */
 function setTheme(t, save) {
   document.documentElement.setAttribute('data-theme', t);
+  document.documentElement.style.colorScheme = t;
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute('content', t === 'dark' ? '#081c10' : '#f5f2eb'));
   document.getElementById('theme-icon-dark').style.display = t === 'dark' ? '' : 'none';
   document.getElementById('theme-icon-light').style.display = t === 'dark' ? 'none' : '';
   if (save) { try { localStorage.setItem('theme', t); } catch (e) {} }
@@ -1590,6 +1686,7 @@ function applyLang() {
   }
   // translated aria-labels, page title and descriptions
   document.querySelectorAll('[data-aria-en]').forEach(el => el.setAttribute('aria-label', el.getAttribute('data-aria-' + l)));
+  document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-label', l === 'en' ? 'ES: switch language to Spanish' : 'EN: cambiar idioma a inglés'));
   document.querySelectorAll('.fl-dot').forEach((d, i, all) => {
     const idx = Array.from(d.parentNode.children).indexOf(d) + 1;
     d.setAttribute('aria-label', (l === 'es' ? 'Ir a la imagen ' : 'Go to image ') + idx);
@@ -1604,9 +1701,9 @@ function applyLang() {
 }
 const PAGE_META = {
   en: { title: 'Maria Morales: UX/UI Designer',
-        desc: 'Maria Morales: UX/UI designer who builds what she designs. Real client work and an app running in production.' },
+        desc: 'Maria Morales: UX/UI designer who takes her designs to production. Real client work and an app running in production.' },
   es: { title: 'Maria Morales: Diseñadora UX/UI',
-        desc: 'Maria Morales: diseñadora UX/UI que construye lo que diseña. Trabajo real con clientes y una app en producción.' }
+        desc: 'Maria Morales: diseñadora UX/UI que lleva sus diseños a producción. Trabajo real con clientes y una app en producción.' }
 };
 /* sound state lives up here so applyLang() can call syncSoundUI() safely */
 let scWidget = null, isPlaying = false, wantPlay = false, scLoading = false, scTimer = null;
@@ -1616,13 +1713,25 @@ try {
   if (savedLang) { currentLang = savedLang; applyLang(); }
 } catch (e) {}
 
+let scLoaded = false, scReady = false;
+function showSoundToast(msg) {
+  const t = document.getElementById('sound-toast');
+  if (!t) return;
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(t._h); t._h = setTimeout(() => { t.hidden = true; }, 3500);
+}
+function soundFailed() {
+  clearTimeout(scTimer);
+  wantPlay = false; scLoading = false; isPlaying = false;
+  syncSoundUI();
+  showSoundToast(currentLang === 'es' ? 'No se pudo cargar la música. Probá de nuevo.' : "Music couldn't load. Please try again.");
+}
 function initSoundWidget() {
   if (scWidget || !window.SC) return;
   const iframe = document.getElementById('sc-audio-iframe');
   if (!iframe) return;
   scWidget = SC.Widget(iframe);
-  // If the tap landed before the player was ready, finish the job as soon as it is
-  scWidget.bind(SC.Widget.Events.READY, () => { if (wantPlay && !isPlaying) scWidget.play(); });
+  scWidget.bind(SC.Widget.Events.READY, () => { scReady = true; if (wantPlay && !isPlaying) scWidget.play(); });
   scWidget.bind(SC.Widget.Events.PLAY, () => {
     clearTimeout(scTimer);
     isPlaying = true; wantPlay = true; scLoading = false;
@@ -1632,34 +1741,43 @@ function initSoundWidget() {
   scWidget.bind(SC.Widget.Events.PAUSE, stopped);
   scWidget.bind(SC.Widget.Events.FINISH, stopped);
 }
-window.addEventListener('load', initSoundWidget);
+// The player (iframe + API script) loads on the first interaction, not on page load.
+function loadPlayer() {
+  if (scLoaded) return;
+  scLoaded = true;
+  const iframe = document.getElementById('sc-audio-iframe');
+  if (iframe && !iframe.getAttribute('src')) iframe.setAttribute('src', iframe.getAttribute('data-src'));
+  const sc = document.createElement('script');
+  sc.src = 'https://w.soundcloud.com/player/api.js';
+  sc.onload = initSoundWidget;
+  sc.onerror = () => { scLoaded = false; if (wantPlay) soundFailed(); };
+  document.head.appendChild(sc);
+}
+['pointerdown', 'keydown', 'touchstart'].forEach(ev => window.addEventListener(ev, loadPlayer, { once: true, passive: true }));
 
 function toggleSound() {
-  initSoundWidget();
-  if (!scWidget) return;
-
-  // Second tap while loading or playing = stop
-  if (isPlaying || wantPlay) {
+  if (isPlaying) {                       // playing: a tap stops it
     clearTimeout(scTimer);
     wantPlay = false; scLoading = false; isPlaying = false;
-    scWidget.pause();
+    if (scWidget) scWidget.pause();
     syncSoundUI();
     return;
   }
-
+  if (scLoading) return;                 // still loading: ignore extra taps
   wantPlay = true; scLoading = true;
-  scWidget.play();              // called directly inside the tap so mobile browsers allow it
-  syncSoundUI();                // button shows a loading pulse right away
+  syncSoundUI();
   clearTimeout(scTimer);
-  scTimer = setTimeout(() => {  // nothing started (blocked or offline): reset so the next tap is clean
-    if (!isPlaying) { wantPlay = false; scLoading = false; syncSoundUI(); }
-  }, 5000);
+  scTimer = setTimeout(() => { if (!isPlaying) soundFailed(); }, 8000);
+  loadPlayer();
+  initSoundWidget();
+  if (scWidget && scReady) scWidget.play();   // inside the tap so mobile browsers allow it
 }
 
 function syncSoundUI() {
   const busy = scLoading && !isPlaying;
   document.querySelectorAll('.snd-btn').forEach(b => {
-    b.setAttribute('aria-pressed', isPlaying);
+    if (b.id !== 'sound-toggle') b.setAttribute('aria-pressed', isPlaying);
+    b.classList.toggle('is-on', isPlaying);
     b.setAttribute('aria-busy', busy);
     b.classList.toggle('is-loading', busy);
   });
@@ -1680,11 +1798,13 @@ function syncSoundUI() {
   const creditContainer = document.getElementById('hidden-sound-container');
   if (creditContainer) {
     if (isPlaying) {
+      clearTimeout(creditContainer._t);
       creditContainer.hidden = false;
-      setTimeout(() => creditContainer.style.opacity = '1', 10);
+      creditContainer._t = setTimeout(() => creditContainer.style.opacity = '1', 10);
     } else {
       creditContainer.style.opacity = '0';
-      setTimeout(() => {
+      clearTimeout(creditContainer._t);
+      creditContainer._t = setTimeout(() => {
         if (!isPlaying) creditContainer.hidden = true;
       }, 300); // matches the 0.3s CSS transition
     }
@@ -1787,8 +1907,11 @@ function filterFL(cat) {
     t.setAttribute('aria-pressed', on);
   });
   document.querySelectorAll('.fl-item').forEach(item => {
-    item.style.display = (cat === 'all' || (item.dataset.cat || '').includes(cat)) ? '' : 'none';
+    item.style.display = (cat === 'all' || (item.dataset.cat || '').split(/\s+/).includes(cat)) ? '' : 'none';
   });
+  const n = Array.from(document.querySelectorAll('.fl-item')).filter(i => i.style.display !== 'none').length;
+  const st = document.getElementById('fl-status');
+  if (st) st.textContent = n + (currentLang === 'es' ? (n === 1 ? ' resultado' : ' resultados') : (n === 1 ? ' result' : ' results'));
 }
 
 /* ── Resume modal ──────────────── */
@@ -1810,11 +1933,15 @@ document.addEventListener('keydown', e => {
   trapFocus(e, document.getElementById('lightbox-backdrop'));
 });
 let resumeOpener = null, lightboxOpener = null;
+function setPageInert(on) {
+  document.querySelectorAll('body > :not(.backdrop):not(script)').forEach(el => { if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
+}
 
 function openResume() {
   const bd = document.getElementById('resume-backdrop');
   resumeOpener = document.activeElement;
   bd.classList.add('open');
+  setPageInert(true);
   document.body.style.overflow = 'hidden';
   const close = bd.querySelector('.modal-close');
   if (close) close.focus();
@@ -1824,6 +1951,7 @@ function closeResume() {
   const wasOpen = bd.classList.contains('open');
   bd.classList.remove('open');
   document.body.style.overflow = '';
+  setPageInert(false);
   if (wasOpen && resumeOpener && document.contains(resumeOpener)) resumeOpener.focus();
 }
 document.getElementById('resume-backdrop').addEventListener('click', e => {
@@ -1843,6 +1971,7 @@ function openLightbox(imgEl) {
   lightboxOpener = imgEl;
   const bd = document.getElementById('lightbox-backdrop');
   bd.classList.add('open');
+  setPageInert(true);
   document.body.style.overflow = 'hidden';
   const close = bd.querySelector('.modal-close');
   if (close) close.focus();
@@ -1863,6 +1992,7 @@ function closeLightbox() {
   const wasOpen = bd.classList.contains('open');
   bd.classList.remove('open');
   document.body.style.overflow = '';
+  setPageInert(false);
   if (wasOpen && lightboxOpener && document.contains(lightboxOpener)) lightboxOpener.focus();
 }
 document.getElementById('lightbox-backdrop').addEventListener('click', e => {
@@ -1891,15 +2021,6 @@ document.addEventListener('keydown', e => {
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) changeLightboxSlide(dx < 0 ? 1 : -1);
   }, { passive: true });
 })();
-
-/* ── Scroll reveal (one quiet fade) ─────────────── */
-const ro = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-
 
 /* ── Cursor light on the hero drawings ─────────────────
    Only for mouse/trackpad users who haven't asked for reduced motion.

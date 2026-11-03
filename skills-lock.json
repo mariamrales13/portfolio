@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "pd-portfolio-review": {
+      "source": "leonardobetti/pd-portfolio-review",
+      "sourceType": "github",
+      "skillPath": "skills/pd-portfolio-review/SKILL.md",
+      "computedHash": "91eff123544d14333720a86bb86cac8402719aec572d3a98751aee5c00d2b5b9"
+    }
+  }
+}
